@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/polyperfect/Poly Universal Pack/- Demo Scenes/02 Steampunk.unity
+    guid: 17b677a504fe4e549860991b3caff9c4
   m_configObjects: {}
