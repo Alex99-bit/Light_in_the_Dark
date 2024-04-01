@@ -36,7 +36,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: 
+    path: rig-main
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -187,7 +187,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips
+    path: rig-main/Hips
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -311,7 +311,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine
+    path: rig-main/Hips/Spine
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -444,7 +444,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1
+    path: rig-main/Hips/Spine/Spine1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -577,7 +577,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2
+    path: rig-main/Hips/Spine/Spine1/Spine2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -755,7 +755,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/Neck
+    path: rig-main/Hips/Spine/Spine1/Spine2/Neck
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1077,7 +1077,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/Neck/Head
+    path: rig-main/Hips/Spine/Spine1/Spine2/Neck/Head
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1102,7 +1102,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
+    path: rig-main/Hips/Spine/Spine1/Spine2/Neck/Head/HeadTop_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1253,7 +1253,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1476,7 +1476,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1663,7 +1663,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1886,7 +1886,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2109,7 +2109,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2269,7 +2269,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2294,7 +2294,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2319,7 +2319,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3/LeftHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2506,7 +2506,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2738,7 +2738,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2763,7 +2763,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2788,7 +2788,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3/LeftHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2966,7 +2966,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3108,7 +3108,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3133,7 +3133,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3158,7 +3158,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3/LeftHandMiddle4
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3/LeftHandMiddle4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3336,7 +3336,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3478,7 +3478,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3503,7 +3503,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3528,7 +3528,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3/LeftHandRing4
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3/LeftHandRing4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3679,7 +3679,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3812,7 +3812,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3837,7 +3837,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -3862,7 +3862,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/LeftHandPinky4
+    path: rig-main/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/LeftHandPinky4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4013,7 +4013,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4209,7 +4209,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4378,7 +4378,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4610,7 +4610,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4779,7 +4779,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -4975,7 +4975,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5000,7 +5000,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5025,7 +5025,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3/RightHandThumb4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5194,7 +5194,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5336,7 +5336,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5361,7 +5361,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5386,7 +5386,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3/RightHandIndex4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5564,7 +5564,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5715,7 +5715,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5740,7 +5740,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5765,7 +5765,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3/RightHandMiddle4
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3/RightHandMiddle4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -5925,7 +5925,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6067,7 +6067,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6092,7 +6092,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6117,7 +6117,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3/RightHandRing4
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3/RightHandRing4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6259,7 +6259,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6383,7 +6383,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6408,7 +6408,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6433,7 +6433,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3/RightHandPinky4
+    path: rig-main/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand/RightHandPinky1/RightHandPinky2/RightHandPinky3/RightHandPinky4
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6620,7 +6620,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/LeftUpLeg
+    path: rig-main/Hips/LeftUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6798,7 +6798,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/LeftUpLeg/LeftLeg
+    path: rig-main/Hips/LeftUpLeg/LeftLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -6976,7 +6976,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/LeftUpLeg/LeftLeg/LeftFoot
+    path: rig-main/Hips/LeftUpLeg/LeftLeg/LeftFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7001,7 +7001,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
+    path: rig-main/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7026,7 +7026,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
+    path: rig-main/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToe_End
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7222,7 +7222,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/RightUpLeg
+    path: rig-main/Hips/RightUpLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7391,7 +7391,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/RightUpLeg/RightLeg
+    path: rig-main/Hips/RightUpLeg/RightLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7596,7 +7596,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/RightUpLeg/RightLeg/RightFoot
+    path: rig-main/Hips/RightUpLeg/RightLeg/RightFoot
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7756,7 +7756,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
+    path: rig-main/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -7781,7 +7781,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
+    path: rig-main/Hips/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToe_End
   m_CompressedRotationCurves: []
   m_EulerCurves: []
   m_PositionCurves:
@@ -8286,7 +8286,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Hips
+    path: rig-main/Hips
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -8298,7 +8298,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3738240529
+      path: 2194805277
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -8307,7 +8307,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3738240529
+      path: 2194805277
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8316,7 +8316,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2351022798
+      path: 428886989
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8325,7 +8325,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 21928376
+      path: 2921395719
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8334,7 +8334,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1978096477
+      path: 1769085412
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8343,7 +8343,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 113123830
+      path: 937163875
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8352,7 +8352,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3847671884
+      path: 2697926417
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8361,7 +8361,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3502780272
+      path: 3116693695
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8370,7 +8370,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3530572114
+      path: 4235394117
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8379,7 +8379,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4168148753
+      path: 1512659434
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8388,7 +8388,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1326531788
+      path: 2052571551
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8397,7 +8397,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 271281049
+      path: 436038463
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8406,7 +8406,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3691373248
+      path: 2886799165
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8415,7 +8415,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1991775461
+      path: 2137920579
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8424,7 +8424,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 722259884
+      path: 1528308305
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8433,7 +8433,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3351552358
+      path: 4168643003
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8442,7 +8442,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 70282178
+      path: 2073631459
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8451,7 +8451,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3514402077
+      path: 2973042705
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8460,7 +8460,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 340376627
+      path: 3158770750
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8469,7 +8469,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2625202057
+      path: 2511300399
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8478,7 +8478,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 853229801
+      path: 1120906516
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8487,7 +8487,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2129892172
+      path: 1967210682
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8496,7 +8496,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1221033574
+      path: 4170456003
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8505,7 +8505,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4100625993
+      path: 621437116
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8514,7 +8514,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3289832658
+      path: 180390229
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8523,7 +8523,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4015390292
+      path: 1223976617
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8532,7 +8532,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 807174797
+      path: 3269338044
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8541,7 +8541,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2311487784
+      path: 778508757
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8550,7 +8550,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1269397447
+      path: 3110852342
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8559,7 +8559,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 586047998
+      path: 3779415751
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8568,7 +8568,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3570224460
+      path: 3007392578
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8577,7 +8577,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2693150916
+      path: 1714988064
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8586,7 +8586,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1982601641
+      path: 3719377481
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8595,7 +8595,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1661465156
+      path: 3299240633
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8604,7 +8604,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3811150395
+      path: 300624650
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8613,7 +8613,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 646527667
+      path: 2808302944
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8622,7 +8622,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4248907776
+      path: 1732578972
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8631,7 +8631,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1212557746
+      path: 3155347681
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8640,7 +8640,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2593909250
+      path: 2243986203
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8649,7 +8649,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 898271621
+      path: 689949500
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8658,7 +8658,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3535500575
+      path: 2535633474
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8667,7 +8667,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2864788062
+      path: 445798395
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8676,7 +8676,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 0
+      path: 666207901
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8685,7 +8685,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 677744108
+      path: 2878868118
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8694,7 +8694,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1660609405
+      path: 1049617998
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8703,7 +8703,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3213800082
+      path: 2019413837
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8712,7 +8712,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3468457462
+      path: 2462675141
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8721,7 +8721,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 888779900
+      path: 4079667619
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8730,7 +8730,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3744103492
+      path: 2753517095
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8739,7 +8739,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1810740880
+      path: 3873842579
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8748,7 +8748,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 562753548
+      path: 3387888401
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8757,7 +8757,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 463228931
+      path: 4102084169
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8766,7 +8766,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1304714027
+      path: 296836632
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8775,7 +8775,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 326737460
+      path: 3567969259
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8784,7 +8784,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 739386879
+      path: 1438503974
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8793,7 +8793,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1389735352
+      path: 3485999785
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8802,7 +8802,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 439059669
+      path: 1669625100
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8811,7 +8811,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 175083358
+      path: 2540830799
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8820,7 +8820,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1291019825
+      path: 2237990514
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8829,7 +8829,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 506837551
+      path: 1831556493
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8838,7 +8838,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1975132086
+      path: 2709133950
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8847,7 +8847,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3235910545
+      path: 1307279506
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8856,7 +8856,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2866966762
+      path: 3545071923
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8865,7 +8865,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2524233460
+      path: 191443429
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8874,7 +8874,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1347225402
+      path: 2264286981
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8883,7 +8883,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 415800479
+      path: 3107349624
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8892,7 +8892,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1651431136
+      path: 3004047381
       attribute: 2
       script: {fileID: 0}
       typeID: 4
@@ -8923,6 +8923,6 @@ AnimationClip:
     m_Mirror: 0
   m_EditorCurves: []
   m_EulerEditorCurves: []
-  m_HasGenericRootTransform: 1
+  m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events: []
