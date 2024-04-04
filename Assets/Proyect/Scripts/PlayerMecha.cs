@@ -12,7 +12,7 @@ public class PlayerMecha : MonoBehaviour
     float horizontalInput, verticalInput;
 
     // Cosas para disparar la luz
-     public GameObject bulletPrefab; // Prefab del proyectil
+    public GameObject bulletPrefab; // Prefab del proyectil
     public Transform firePoint; // Punto de origen del disparo
     public float fireRate,bulletForce; // Tasa de disparo en segundos
     float nextFireTime = 0; // Tiempo para el próximo disparo
@@ -23,7 +23,7 @@ public class PlayerMecha : MonoBehaviour
     public Animator animator; // Referencia al componente Animator
     public Transform cameraTransform; // Referencia al transform de la cámara
     public CinemachineFreeLook cameraMachine;
-    public GameObject followNormal, followAim, panelAim;
+    public GameObject panelAim;
 
     enum FollowCam
     {
@@ -199,12 +199,12 @@ public class PlayerMecha : MonoBehaviour
     {
         if (camState == FollowCam.AimOn)
         {
-            cameraMachine.LookAt = followAim.transform;
+            //cameraMachine.LookAt = followAim.transform;
             cameraMachine.m_Lens.FieldOfView = 25f;
         }
         else if (camState == FollowCam.AimOff)
         {
-            cameraMachine.LookAt = followNormal.transform;
+            //cameraMachine.LookAt = followNormal.transform;
             cameraMachine.m_Lens.FieldOfView = 50f;
         }
     }
