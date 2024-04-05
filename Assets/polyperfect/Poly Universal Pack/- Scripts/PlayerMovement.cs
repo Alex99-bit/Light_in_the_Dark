@@ -46,8 +46,17 @@ namespace Polyperfect.Universal
             float z = Input.GetAxis("Vertical");
 
             Vector3 move = transform.right * x + transform.forward * z;
-            if (move.magnitude > 1)
+            if (move.magnitude > 0){
                 move /= move.magnitude;
+                animator.SetBool("Walk",true);
+                animator.SetBool("Idle",false);
+                animator.SetBool("Jump",false);
+            }else{
+                animator.SetBool("Walk",false);
+                animator.SetBool("Idle",true);
+                animator.SetBool("Jump",false);
+            }
+                
 
             controller.Move(move * speed * Time.deltaTime);
         }
@@ -55,13 +64,11 @@ namespace Polyperfect.Universal
         void Jump()
         {
             if (Input.GetButtonDown("Jump") && isGrounded)
-
             {
                 controller.slopeLimit = 100.0f;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                animator.SetBool("Jump",true);
             }
-
-
 
             velocity.y += gravity * Time.deltaTime;
 
