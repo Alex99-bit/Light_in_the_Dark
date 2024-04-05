@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 708688602}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -707,21 +707,36 @@ PrefabInstance:
     - target: {fileID: 1261119497222461097, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1261119497222461097, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.061
+      value: 0.189
       objectReference: {fileID: 0}
     - target: {fileID: 1261119497642796109, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1261119498096138407, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: groundDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261119498096138407, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1261119498096138408, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261119498096138408, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1261119498096138411, guid: 2852967c2535d884d9c15d79446a7a41,
@@ -838,6 +853,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602632323983190788, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.7836057
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602632323983190788, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.000006228694
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602632323983190788, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.89415103
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602632323983190788, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.00711152
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

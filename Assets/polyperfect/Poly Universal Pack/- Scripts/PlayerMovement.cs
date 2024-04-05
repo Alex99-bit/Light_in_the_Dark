@@ -4,7 +4,6 @@ namespace Polyperfect.Universal
 {
     public class PlayerMovement : MonoBehaviour
     {
-
         public CharacterController controller;
         public float speed = 12f;
         public float gravity = -9.81f;
@@ -15,8 +14,14 @@ namespace Polyperfect.Universal
         public LayerMask groundMask;
 
 
+        public Animator animator;
         Vector3 velocity;
         bool isGrounded;
+
+        private void Start() {
+            animator = GetComponentInChildren<Animator>();
+        }
+
 
         // Update is called once per frame
         void Update()
