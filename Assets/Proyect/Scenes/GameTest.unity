@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 708688604}
   - component: {fileID: 708688603}
   - component: {fileID: 708688602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -712,7 +712,12 @@ PrefabInstance:
     - target: {fileID: 1261119497222461097, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.189
+      value: 0.169
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261119497222461102, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1261119497642796109, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
@@ -722,7 +727,7 @@ PrefabInstance:
     - target: {fileID: 1261119498096138407, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: groundDistance
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1261119498096138407, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
@@ -838,6 +843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5279035472808161198, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: SMAAQuality
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5701380106740114234, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
