@@ -65,9 +65,10 @@ namespace Polyperfect.Universal
         {
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
+                animator.SetBool("Jump",true);
+                animator.SetBool("Walk",false);
                 controller.slopeLimit = 100.0f;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-                animator.SetBool("Jump",true);
             }
 
             velocity.y += gravity * Time.deltaTime;
