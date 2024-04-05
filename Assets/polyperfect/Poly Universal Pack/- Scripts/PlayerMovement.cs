@@ -29,6 +29,12 @@ namespace Polyperfect.Universal
             controller = GetComponent<CharacterController>();
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+            Walk();
+            Jump();
+        }
+
+        void Walk()
+        {
             if (isGrounded && velocity.y < 0)
             {
                 controller.slopeLimit = 45.0f;
@@ -44,7 +50,10 @@ namespace Polyperfect.Universal
                 move /= move.magnitude;
 
             controller.Move(move * speed * Time.deltaTime);
+        }
 
+        void Jump()
+        {
             if (Input.GetButtonDown("Jump") && isGrounded)
 
             {
@@ -57,10 +66,6 @@ namespace Polyperfect.Universal
             velocity.y += gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
-
-
-
-
         }
     }
 }
