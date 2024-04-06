@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Polyperfect.Universal
 {
@@ -24,8 +25,11 @@ namespace Polyperfect.Universal
         Vector3 velocity;
         bool isGrounded;
 
+        public Camera cameraRotation;
+
         private void Start() {
             animator = GetComponentInChildren<Animator>();
+            cameraRotation = GetComponentInChildren<Camera>();
             speedUp = 1;
         }
 
