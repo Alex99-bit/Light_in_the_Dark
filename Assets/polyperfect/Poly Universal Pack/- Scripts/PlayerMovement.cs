@@ -31,6 +31,7 @@ namespace Polyperfect.Universal
 
             Walk();
             Jump();
+            ShootingLight();
         }
 
         void Walk()
@@ -74,6 +75,13 @@ namespace Polyperfect.Universal
             velocity.y += gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
+        }
+
+        void ShootingLight()
+        {
+            if(Input.GetButtonDown("Fire1")){
+
+            }
         }
     }
 }
