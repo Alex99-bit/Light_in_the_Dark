@@ -7,7 +7,7 @@ namespace Polyperfect.Universal
     {
         public CharacterController controller;
         public Transform cameraTransform; // Referencia al transform de la cámara
-        public float speed = 12f;
+        public float speed;
         public float gravity = -9.81f;
         public float jumpHeight = 3f;
 
@@ -101,6 +101,7 @@ namespace Polyperfect.Universal
             if(Input.GetButtonDown("Fire1")){
 
                 animator.SetTrigger("LightShoot");
+                speed = 0;
             }
         }
 
