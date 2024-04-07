@@ -702,17 +702,17 @@ PrefabInstance:
     - target: {fileID: 4917203731776861744, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.828163
+      value: 23.915922
       objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861744, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0001001358
+      value: -0.09999943
       objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861744, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.577607
+      value: -9.609565
       objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861744, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
@@ -1805,5 +1805,5 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 5069004431865938651}
   fireRate: 0
-  bulletForce: 50
+  bulletForce: 15
   cameraTransform: {fileID: 1261119497222461097}

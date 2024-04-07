@@ -69,7 +69,7 @@ namespace Polyperfect.Universal
             float x = Input.GetAxis("Horizontal") * speedUp;
             float z = Input.GetAxis("Vertical") * speedUp;
 
-            if(Input.GetButton("Fire1")){
+            if(Input.GetButton("Fire1") && Input.GetButton("Jump")){
                 x = 0;
                 z = 0; 
             }
@@ -87,6 +87,9 @@ namespace Polyperfect.Universal
 
         void Jump()
         {
+            // Esto sirve para que el salto dependa de la velocidad o carrerilla que lleve
+            jumpHeight = speedUp;
+
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 animator.SetTrigger("Salto");
