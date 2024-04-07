@@ -7,9 +7,6 @@ namespace Polyperfect.Universal
     {
         public CharacterController controller;
         public Transform cameraTransform; // Referencia al transform de la cámara
-        public GameObject bulletPrefab; // Prefab del proyectil
-        public Transform firePoint; // Punto de origen del disparo
-        public float fireRate,bulletForce; // Tasa de disparo en segundos
         public float speed = 12f;
         public float gravity = -9.81f;
         public float jumpHeight = 3f;
@@ -24,14 +21,13 @@ namespace Polyperfect.Universal
         public Animator animator;
         Vector3 velocity;
         bool isGrounded;
-
-        public Transform cameraRotation;
+        
         public float maxAngle = 30f;
         public float minAngle = -40f;
 
         private void Start() {
             animator = GetComponentInChildren<Animator>();
-            cameraRotation = GetComponentInChildren<Camera>().GetComponent<Transform>();
+            cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
             speedUp = 1;
         }
 
@@ -43,13 +39,13 @@ namespace Polyperfect.Universal
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
             // Obtener la rotación actual de la cámara
-            Vector3 currentRotation = cameraRotation.localEulerAngles;
+            Vector3 currentRotation = cameraTransform.localEulerAngles;
 
             // Obtener el ángulo actual en el eje X
             float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
 
             // Aplicar la rotación restringida
-            cameraRotation.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
+            cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
             Walk();
             Jump();
@@ -103,20 +99,8 @@ namespace Polyperfect.Universal
         void ShootingLight()
         {
             if(Input.GetButtonDown("Fire1")){
-                // Obtener la dirección de disparo basada en la rotación de la cámara
-                Vector3 shootDirection = cameraTransform.forward;
 
-                // Instanciar el proyectil en el punto de origen del disparo
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
-
-                // Obtener el componente Rigidbody del proyectil
-                Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-
-                // Aplicar una fuerza hacia adelante al proyectil
-                bulletRb.AddForce(shootDirection * bulletForce, ForceMode.Impulse);
-
-                // Destruir el proyectil después de un tiempo (por ejemplo, 3 segundos)
-                Destroy(bullet, 3f);
+                animator.SetTrigger("LightShoot");
             }
         }
 
