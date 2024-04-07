@@ -1804,6 +1804,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4388003560355883056, guid: d74f6e56c9db481459004c5306fc41dd,
     type: 3}
   firePoint: {fileID: 5069004431865938651}
-  fireRate: 0.5
-  bulletForce: 10
+  fireRate: 0
+  bulletForce: 50
   cameraTransform: {fileID: 1261119497222461097}
