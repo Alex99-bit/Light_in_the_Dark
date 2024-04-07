@@ -639,6 +639,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261119498096138405, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261119498096138407, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: minAngle
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 1261119498096138408, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: m_Name

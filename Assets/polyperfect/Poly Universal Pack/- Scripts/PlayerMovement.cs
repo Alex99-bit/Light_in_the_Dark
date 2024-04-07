@@ -25,11 +25,13 @@ namespace Polyperfect.Universal
         Vector3 velocity;
         bool isGrounded;
 
-        public Camera cameraRotation;
+        public Transform cameraRotation;
+        public float maxAngle = 30f;
+        public float minAngle = -40f;
 
         private void Start() {
             animator = GetComponentInChildren<Animator>();
-            cameraRotation = GetComponentInChildren<Camera>();
+            cameraRotation = GetComponentInChildren<Camera>().GetComponent<Transform>();
             speedUp = 1;
         }
 
@@ -39,6 +41,15 @@ namespace Polyperfect.Universal
         {
             controller = GetComponent<CharacterController>();
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+            // Obtener la rotación actual de la cámara
+            Vector3 currentRotation = cameraRotation.localEulerAngles;
+
+            // Obtener el ángulo actual en el eje X
+            float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
+
+            // Aplicar la rotación restringida
+            cameraRotation.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
             Walk();
             Jump();
@@ -111,7 +122,7 @@ namespace Polyperfect.Universal
 
         void SpeedUp(){
             float speedUpAux = 0.1f;
-            if(Input.GetKey(KeyCode.LeftShift)){
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W)){
                 if(speedUp < 2){
                     speedUp += speedUpAux;
                     speed += (speedUpAux * 4f);
@@ -126,6 +137,20 @@ namespace Polyperfect.Universal
                     speedUp = 1;
                 }
             }
+        }
+
+        // Método para restringir un ángulo dentro de un rango específico
+        float ClampAngle(float angle, float min, float max)
+        {
+            if (angle > 180f)
+                angle -= 360f;
+
+            angle = Mathf.Clamp(angle, min, max);
+
+            if (angle < 0f)
+                angle += 360f;
+
+            return angle;
         }
     }
 }
