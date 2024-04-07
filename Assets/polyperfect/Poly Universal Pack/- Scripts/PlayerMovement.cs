@@ -66,10 +66,14 @@ namespace Polyperfect.Universal
                 animator.SetBool("IsGround",true);
             }
 
-
             float x = Input.GetAxis("Horizontal") * speedUp;
             float z = Input.GetAxis("Vertical") * speedUp;
 
+            if(Input.GetButton("Fire1")){
+                x = 0;
+                z = 0; 
+            }
+            
             Vector3 move = transform.right * x + transform.forward * z;
             if (move.magnitude > 0){
                 move /= move.magnitude;
@@ -98,16 +102,15 @@ namespace Polyperfect.Universal
 
         void ShootingLight()
         {
-            if(Input.GetButtonDown("Fire1")){
+            if(Input.GetButtonDown("Fire1") && isGrounded){
 
                 animator.SetTrigger("LightShoot");
-                speed = 0;
             }
         }
 
         void SpeedUp(){
             float speedUpAux = 0.1f;
-            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W)){
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetButton("Fire1")){
                 if(speedUp < 2){
                     speedUp += speedUpAux;
                     speed += (speedUpAux * 4f);
