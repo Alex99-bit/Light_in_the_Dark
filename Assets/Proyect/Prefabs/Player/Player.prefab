@@ -1619,7 +1619,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.8883824
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2512937917107766687, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4917203731776861744, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
@@ -1627,6 +1628,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5069004431865938651}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4917203731776861747, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3499325162090239359}
     - targetCorrespondingSourceObject: {fileID: 4917203732113766455, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       insertIndex: -1
@@ -1777,6 +1782,35 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!1 &1261119498096138408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4917203731776861747, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &3499325162090239359
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261119498096138408}
+  m_Material: {fileID: 13400000, guid: 9f4080ff7699ed540a3d0204870a740c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.20120722
+  m_Height: 1.7789162
+  m_Direction: 1
+  m_Center: {x: -7.4034605e-11, y: 0.9009785, z: 0.040987153}
 --- !u!4 &1261119498096138411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4917203731776861744, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
@@ -1805,5 +1839,5 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 5069004431865938651}
   fireRate: 0
-  bulletForce: 15
+  bulletForce: 50
   cameraTransform: {fileID: 1261119497222461097}
