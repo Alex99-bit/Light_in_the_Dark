@@ -164,34 +164,32 @@ namespace Polyperfect.Universal
             }
         }
 
-        float RotationAuxiliar(float rotationSpeed)
+        float RotationAuxiliar(float rotation)
         {
-            float maxRotation = 2f;
+            float valor = 0.1f;
+            float maxValor = 2f;
 
-            // Ajusta la rotación en función del tiempo transcurrido
-            float rotationAmount = rotationSpeed * Time.deltaTime;
-
-            if (rotationAmount > 0)
+            if (rotation > 0)
             {
-                rotAux += rotationAmount;
-                if (rotAux >= maxRotation)
+                rotAux += valor;
+                if (rotAux >= maxValor)
                 {
-                    rotAux = maxRotation;
+                    rotAux = maxValor;
                 }
             }
-            else if (rotationAmount < 0)
+            else if (rotation < 0)
             {
-                rotAux += rotationAmount;
-                if (rotAux <= -maxRotation)
+                rotAux -= valor;
+                if (rotAux <= -maxValor)
                 {
-                    rotAux = -maxRotation;
+                    rotAux = -maxValor;
                 }
             }
             else // Si rotation es igual a cero
             {
                 if (rotAux > 0)
                 {
-                    rotAux -= rotationAmount;
+                    rotAux -= valor;
                     if (rotAux <= 0)
                     {
                         rotAux = 0;
@@ -199,7 +197,7 @@ namespace Polyperfect.Universal
                 }
                 else if (rotAux < 0)
                 {
-                    rotAux -= rotationAmount;
+                    rotAux += valor;
                     if (rotAux >= 0)
                     {
                         rotAux = 0;
@@ -209,7 +207,6 @@ namespace Polyperfect.Universal
 
             return rotAux;
         }
-
 
 
         // Método para restringir un ángulo dentro de un rango específico
