@@ -11,11 +11,15 @@ namespace Polyperfect.Universal
         public float gravity = -9.81f;
         public float jumpHeight = 3f;
 
+        float rotAux;
+
         public float speedUp;
 
         public Transform groundCheck;
         public float groundDistance = 0.4f;
         public LayerMask groundMask;
+
+        Transform thisGameObject;
 
 
         public Animator animator;
@@ -31,10 +35,12 @@ namespace Polyperfect.Universal
         private void Start() {
             animator = GetComponentInChildren<Animator>();
             cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
+            thisGameObject = this.GetComponent<Transform>();
             speedUp = 1;
+            rotAux = 0;
 
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
-            previousCameraRotationY = cameraTransform.localEulerAngles.y;
+            previousCameraRotationY = thisGameObject.localEulerAngles.y;
         }
 
 
@@ -53,23 +59,7 @@ namespace Polyperfect.Universal
             // Aplicar la rotación restringida
             cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
-            // Calcular el cambio en la rotación de la cámara desde el frame anterior
-            float rotationChange = currentRotation.y - previousCameraRotationY;
-
-            // Determinar si la cámara está rotando hacia la derecha o hacia la izquierda
-            if (rotationChange > 0)
-            {
-                // La cámara está rotando hacia la derecha
-                Debug.Log("Rotando hacia la derecha");
-            }
-            else if (rotationChange < 0)
-            {
-                // La cámara está rotando hacia la izquierda
-                Debug.Log("Rotando hacia la izquierda");
-            }
-
-            // Actualizar la rotación anterior para el próximo frame
-            previousCameraRotationY = currentRotation.y;
+            
 
             Walk();
             Jump();
@@ -82,12 +72,18 @@ namespace Polyperfect.Universal
 
         void Walk()
         {
+            Vector3 currentTransform = thisGameObject.localEulerAngles;
+
             if (isGrounded && velocity.y < 0)
             {
                 controller.slopeLimit = 45.0f;
                 velocity.y = -2f;
                 animator.ResetTrigger("Salto");
                 animator.SetBool("IsGround",true);
+            }
+
+            if(!isGrounded){
+                animator.SetBool("IsGround",false);
             }
 
             float x = Input.GetAxis("Horizontal") * speedUp;
@@ -97,14 +93,29 @@ namespace Polyperfect.Universal
                 x = 0;
                 z = 0; 
             }
+
+            // Calcular el cambio en la rotación de la cámara desde el frame anterior
+            float rotationChange = currentTransform.y - previousCameraRotationY;
+
+            Debug.Log("rotacion: "+RotationAuxiliar(rotationChange));
+
+
+            if(x == 0){
+                // Determinar si la cámara está rotando hacia la derecha o hacia la izquierda
+                animator.SetFloat("XSpeed",RotationAuxiliar(rotationChange));
+            }else{
+                animator.SetFloat("XSpeed",x);
+            }
+
+            animator.SetFloat("YSpeed",z);
+
+            // Actualizar la rotación anterior para el próximo frame
+            previousCameraRotationY = currentTransform.y;
             
             Vector3 move = transform.right * x + transform.forward * z;
             if (move.magnitude > 0){
                 move /= move.magnitude;
             }
-                
-            animator.SetFloat("XSpeed",x);
-            animator.SetFloat("YSpeed",z);
 
             controller.Move(move * speed * Time.deltaTime);
         }
@@ -117,7 +128,6 @@ namespace Polyperfect.Universal
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 animator.SetTrigger("Salto");
-                animator.SetBool("IsGround",false);
                 controller.slopeLimit = 100.0f;
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
@@ -153,6 +163,54 @@ namespace Polyperfect.Universal
                 }
             }
         }
+
+        float RotationAuxiliar(float rotationSpeed)
+        {
+            float maxRotation = 2f;
+
+            // Ajusta la rotación en función del tiempo transcurrido
+            float rotationAmount = rotationSpeed * Time.deltaTime;
+
+            if (rotationAmount > 0)
+            {
+                rotAux += rotationAmount;
+                if (rotAux >= maxRotation)
+                {
+                    rotAux = maxRotation;
+                }
+            }
+            else if (rotationAmount < 0)
+            {
+                rotAux += rotationAmount;
+                if (rotAux <= -maxRotation)
+                {
+                    rotAux = -maxRotation;
+                }
+            }
+            else // Si rotation es igual a cero
+            {
+                if (rotAux > 0)
+                {
+                    rotAux -= rotationAmount;
+                    if (rotAux <= 0)
+                    {
+                        rotAux = 0;
+                    }
+                }
+                else if (rotAux < 0)
+                {
+                    rotAux -= rotationAmount;
+                    if (rotAux >= 0)
+                    {
+                        rotAux = 0;
+                    }
+                }
+            }
+
+            return rotAux;
+        }
+
+
 
         // Método para restringir un ángulo dentro de un rango específico
         float ClampAngle(float angle, float min, float max)
