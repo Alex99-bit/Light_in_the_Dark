@@ -166,12 +166,12 @@ namespace Polyperfect.Universal
 
         float RotationAuxiliar(float rotation)
         {
-            float valor = 0.1f;
+            float valor = 1f;
             float maxValor = 2f;
 
             if (rotation > 0)
             {
-                rotAux += valor;
+                rotAux += (valor * (Time.deltaTime * maxValor));
                 if (rotAux >= maxValor)
                 {
                     rotAux = maxValor;
@@ -179,7 +179,7 @@ namespace Polyperfect.Universal
             }
             else if (rotation < 0)
             {
-                rotAux -= valor;
+                rotAux -= (valor * (Time.deltaTime * maxValor));
                 if (rotAux <= -maxValor)
                 {
                     rotAux = -maxValor;
@@ -187,17 +187,17 @@ namespace Polyperfect.Universal
             }
             else // Si rotation es igual a cero
             {
-                if (rotAux > 0)
+                if (rotAux >= -0.1)
                 {
-                    rotAux -= valor;
+                    rotAux -= (valor * (Time.deltaTime * maxValor * 1.5f));
                     if (rotAux <= 0)
                     {
                         rotAux = 0;
                     }
                 }
-                else if (rotAux < 0)
+                else if (rotAux <= -0.1)
                 {
-                    rotAux += valor;
+                    rotAux += (valor * (Time.deltaTime * maxValor * 1.5f));
                     if (rotAux >= 0)
                     {
                         rotAux = 0;
