@@ -15,6 +15,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3128570312732919187, guid: 3283a235713dc4d43846ddb96e97a324,
         type: 3}
+      propertyPath: m_Height
+      value: 1.8020456
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128570312732919187, guid: 3283a235713dc4d43846ddb96e97a324,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.28742886
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128570312732919187, guid: 3283a235713dc4d43846ddb96e97a324,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0038957596
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128570312732919187, guid: 3283a235713dc4d43846ddb96e97a324,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.9022032
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128570312732919187, guid: 3283a235713dc4d43846ddb96e97a324,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.0040820837
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128570312732919187, guid: 3283a235713dc4d43846ddb96e97a324,
+        type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 9f4080ff7699ed540a3d0204870a740c,
@@ -87,6 +112,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3417884701357133254}
+    - targetCorrespondingSourceObject: {fileID: 8434841142587319707, guid: 3283a235713dc4d43846ddb96e97a324,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6597279932293433303}
   m_SourcePrefab: {fileID: 100100000, guid: 3283a235713dc4d43846ddb96e97a324, type: 3}
 --- !u!1 &2897813282633488198 stripped
 GameObject:
@@ -121,3 +150,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!195 &6597279932293433303
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897813282633488198}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.8
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

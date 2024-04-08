@@ -25,10 +25,16 @@ namespace Polyperfect.Universal
         public float maxAngle = 30f;
         public float minAngle = -40f;
 
+        // Variable para mantener el estado anterior de la rotación de la cámara
+        private float previousCameraRotationY;
+
         private void Start() {
             animator = GetComponentInChildren<Animator>();
             cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
             speedUp = 1;
+
+            // Inicializar previousCameraRotationY con la rotación inicial de la cámara
+            previousCameraRotationY = cameraTransform.localEulerAngles.y;
         }
 
 
@@ -46,6 +52,24 @@ namespace Polyperfect.Universal
 
             // Aplicar la rotación restringida
             cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
+
+            // Calcular el cambio en la rotación de la cámara desde el frame anterior
+            float rotationChange = currentRotation.y - previousCameraRotationY;
+
+            // Determinar si la cámara está rotando hacia la derecha o hacia la izquierda
+            if (rotationChange > 0)
+            {
+                // La cámara está rotando hacia la derecha
+                Debug.Log("Rotando hacia la derecha");
+            }
+            else if (rotationChange < 0)
+            {
+                // La cámara está rotando hacia la izquierda
+                Debug.Log("Rotando hacia la izquierda");
+            }
+
+            // Actualizar la rotación anterior para el próximo frame
+            previousCameraRotationY = currentRotation.y;
 
             Walk();
             Jump();
