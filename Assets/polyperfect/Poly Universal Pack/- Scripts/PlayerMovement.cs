@@ -208,7 +208,6 @@ namespace Polyperfect.Universal
             return rotAux;
         }
 
-
         // Método para restringir un ángulo dentro de un rango específico
         float ClampAngle(float angle, float min, float max)
         {
