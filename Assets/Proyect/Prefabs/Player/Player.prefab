@@ -1291,6 +1291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
+      propertyPath: ballSoul
+      value: 
+      objectReference: {fileID: 7386176135389836894}
+    - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
       propertyPath: minAngle
       value: -20
       objectReference: {fileID: 0}

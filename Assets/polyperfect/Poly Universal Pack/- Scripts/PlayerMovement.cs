@@ -11,6 +11,8 @@ namespace Polyperfect.Universal
         #endregion;
 
         public Material ballLighning;
+        public GameObject ballSoul;
+        bool ballSoulActive;
         public CharacterController controller;
         public Transform cameraTransform; // Referencia al transform de la cámara
         public float speed;
@@ -46,6 +48,8 @@ namespace Polyperfect.Universal
             rotAux = 0;
 
             vida = vidaMax;
+            ballSoulActive = false;
+            ballSoul.SetActive(ballSoulActive);
 
             ballLighning.color = Color.white;
 
@@ -157,10 +161,10 @@ namespace Polyperfect.Universal
 
         void ShootingLight()
         {
-            if(Input.GetButtonDown("Fire1") && isGrounded){
+            if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive){
 
                 animator.SetTrigger("LightShoot");
-                vida -= 5;
+                vida += 5;
             }
         }
 
@@ -181,6 +185,21 @@ namespace Polyperfect.Universal
                     speedUp = 1;
                 }
             }
+        }
+
+        void GameOver(){
+            if(vida <= 0){
+                animator.SetBool("IsDead",true);
+            }
+        }
+
+        void GameReset(){
+            vidaMax = 100;
+            vida = vidaMax;
+            animator.SetBool("IsDead",false);
+
+            // Regresar el transform a un punto de spawn
+            // o en su defecto destruir al player 
         }
 
         float RotationAuxiliar(float rotation)
