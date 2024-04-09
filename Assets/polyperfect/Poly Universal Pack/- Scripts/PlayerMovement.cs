@@ -5,6 +5,12 @@ namespace Polyperfect.Universal
 {
     public class PlayerMovement : MonoBehaviour
     {
+        #region
+            public float vidaMax = 100;
+            public float vida;
+        #endregion;
+
+        public Material ballLighning;
         public CharacterController controller;
         public Transform cameraTransform; // Referencia al transform de la cámara
         public float speed;
@@ -39,6 +45,10 @@ namespace Polyperfect.Universal
             speedUp = 1;
             rotAux = 0;
 
+            vida = vidaMax;
+
+            ballLighning.color = Color.white;
+
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
             previousCameraRotationY = thisGameObject.localEulerAngles.y;
         }
@@ -59,7 +69,15 @@ namespace Polyperfect.Universal
             // Aplicar la rotación restringida
             cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
-            
+            #region "UI diegetica para la vida"
+            // Calcular el valor de la mezcla (interpolación lineal) entre blanco y rojo
+            float blendFactor = 1f - (vida / vidaMax); // Menor vida, mayor factor de mezcla
+            // Crear el color interpolado entre blanco y rojo
+            Color colorInterpolado = Color.Lerp(Color.white, Color.red, blendFactor);
+
+            // Establecer el color en el material
+            ballLighning.color = colorInterpolado;
+            #endregion;
 
             Walk();
             Jump();
@@ -142,6 +160,7 @@ namespace Polyperfect.Universal
             if(Input.GetButtonDown("Fire1") && isGrounded){
 
                 animator.SetTrigger("LightShoot");
+                vida -= 5;
             }
         }
 
