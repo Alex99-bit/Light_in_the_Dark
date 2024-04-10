@@ -16,12 +16,12 @@ PrefabInstance:
     - target: {fileID: 7155293158469676710, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_Name
-      value: man-soldier-fullplate-fantasy-a Variant
+      value: Enemy1
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.687
+      value: 12.64583
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.287791
+      value: -9.179723
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
@@ -80,6 +80,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7887117960515947020}
+    - targetCorrespondingSourceObject: {fileID: 7155293158469676710, guid: 0040a3eb235543b4896d54b7ac3889bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8447465263588182206}
   m_SourcePrefab: {fileID: 100100000, guid: 0040a3eb235543b4896d54b7ac3889bc, type: 3}
 --- !u!1 &8329665424735809072 stripped
 GameObject:
@@ -137,3 +141,25 @@ CapsuleCollider:
   m_Height: 1.8501089
   m_Direction: 1
   m_Center: {x: -0.005692482, y: 0.8752228, z: 0.025351048}
+--- !u!195 &8447465263588182206
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329665424735809072}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
