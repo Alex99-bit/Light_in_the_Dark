@@ -48,7 +48,7 @@ namespace Polyperfect.Universal
             rotAux = 0;
 
             vida = vidaMax;
-            ballSoulActive = false;
+            ballSoulActive = true;
             ballSoul.SetActive(ballSoulActive);
 
             ballLighning.color = Color.white;
@@ -164,7 +164,7 @@ namespace Polyperfect.Universal
             if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive){
 
                 animator.SetTrigger("LightShoot");
-                vida += 5;
+                vida -= 15;
             }
         }
 
