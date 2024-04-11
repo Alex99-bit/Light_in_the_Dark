@@ -125,10 +125,12 @@ namespace Polyperfect.Universal
                 velocity.y = -2f;
                 animator.ResetTrigger("Salto");
                 animator.SetBool("IsGround",true);
+                cameraAnimator.SetTrigger("Arrived");
             }
 
             if(!isGrounded){
                 animator.SetBool("IsGround",false);
+                cameraAnimator.SetTrigger("Jump");
             }
 
             float x = Input.GetAxis("Horizontal") * speedUp;
@@ -142,7 +144,7 @@ namespace Polyperfect.Universal
             // Calcular el cambio en la rotación de la cámara desde el frame anterior
             float rotationChange = currentTransform.y - previousCameraRotationY;
 
-            Debug.Log("rotacion: "+RotationAuxiliar(rotationChange));
+            //Debug.Log("rotacion: "+RotationAuxiliar(rotationChange));
 
 
             if(x == 0){
