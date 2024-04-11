@@ -18,6 +18,10 @@ namespace Polyperfect.Universal
             public bool shieldActive;
         #endregion;
 
+        #region "Camera Animation"
+            public Animator cameraAnimator;
+        #endregion;
+
         bool ballSoulActive;
         public CharacterController controller;
         public Transform cameraTransform; // Referencia al transform de la cámara
@@ -151,6 +155,9 @@ namespace Polyperfect.Universal
 
             animator.SetFloat("YSpeed",z);
 
+            cameraAnimator.SetFloat("SpeedX",x);
+            cameraAnimator.SetFloat("SpeedY",z);
+
             // Actualizar la rotación anterior para el próximo frame
             previousCameraRotationY = currentTransform.y;
             
@@ -181,7 +188,7 @@ namespace Polyperfect.Universal
 
         void ShootingLight()
         {
-            if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive){
+            if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive && !shieldActive){
 
                 animator.SetTrigger("LightShoot");
                 vida -= 15;
@@ -189,7 +196,7 @@ namespace Polyperfect.Universal
         }
 
         void ActiveShield(){
-            if(Input.GetKey(KeyCode.Q) && isGrounded && ballSoulActive){
+            if(Input.GetKeyDown(KeyCode.Q) && isGrounded && ballSoulActive){
                 shieldActive = true;
                 lightAnimator.SetBool("Shield",true);
             }
