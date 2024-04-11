@@ -103,6 +103,9 @@ namespace Polyperfect.Universal
                 // Establecer el color en el material
                 ballLighning.color = colorInterpolado;
                 ballLight.color = colorInterpolado;
+
+                /*ballLight.intensity = 0;
+                ballLighning.color = Color.black;*/
             #endregion;
 
             Walk();
