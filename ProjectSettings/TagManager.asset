@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Bullet
+  - Bullet Light
   layers:
   - Default
   - TransparentFX

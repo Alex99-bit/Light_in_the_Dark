@@ -10,23 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 114434424306494109, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114434424306494109, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
       propertyPath: m_Intensity
-      value: 6.3661976
+      value: 11.936621
       objectReference: {fileID: 0}
     - target: {fileID: 114434424306494109, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_Shadows.m_Type
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_Intensity
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
-        type: 3}
-      propertyPath: useVolumetric
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861744, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
