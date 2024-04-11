@@ -53,7 +53,7 @@ public class EnemyTipe1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("Bullet Light")){
-            Destroy(other.gameObject,0.5f);
+            Destroy(other.gameObject,0.1f);
             vidaEnemy -= 25;
         }
     }
