@@ -82,6 +82,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8953039668737134520}
   m_SourcePrefab: {fileID: 100100000, guid: 0040a3eb235543b4896d54b7ac3889bc, type: 3}
+--- !u!108 &5791394559769989216 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 4650939746877264118, guid: 0040a3eb235543b4896d54b7ac3889bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1212699365658132630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8329665424735809072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7155293158469676710, guid: 0040a3eb235543b4896d54b7ac3889bc,
@@ -100,3 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fed056a67892b44a5f7a029df2c055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightBall: {fileID: 5791394559769989216}
+  sphere: {fileID: 2100000, guid: 3ee526ae1b56c5946a994ac823c38ee1, type: 2}
+  vidaEnemy: 0
+  vidaMax: 100
