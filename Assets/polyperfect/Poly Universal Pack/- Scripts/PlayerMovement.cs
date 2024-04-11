@@ -51,7 +51,6 @@ namespace Polyperfect.Universal
         private float previousCameraRotationY;
 
         private void Start() {
-            animator = GetComponentInChildren<Animator>();
             cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
             thisGameObject = this.GetComponent<Transform>();
             speedUp = 1;
@@ -127,6 +126,8 @@ namespace Polyperfect.Universal
                 animator.ResetTrigger("Salto");
                 animator.SetBool("IsGround",true);
             }
+
+            print("Is grounded: "+isGrounded);
 
             if(!isGrounded){
                 animator.SetBool("IsGround",false);
