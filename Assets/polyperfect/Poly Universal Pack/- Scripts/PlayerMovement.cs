@@ -127,8 +127,6 @@ namespace Polyperfect.Universal
                 animator.SetBool("IsGround",true);
             }
 
-            print("Is grounded: "+isGrounded);
-
             if(!isGrounded){
                 animator.SetBool("IsGround",false);
             }
