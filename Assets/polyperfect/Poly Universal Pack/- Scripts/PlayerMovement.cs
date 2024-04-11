@@ -14,6 +14,8 @@ namespace Polyperfect.Universal
             public Light ballLight;
             public Material ballLighning;
             public GameObject ballSoul;
+            public Animator lightAnimator;
+            public bool shieldActive;
         #endregion;
 
         bool ballSoulActive;
@@ -52,6 +54,7 @@ namespace Polyperfect.Universal
             rotAux = 0;
 
             vida = vidaMax;
+            shieldActive = false;
 
             // Cpsas para la pelorira de vida
             ballSoulActive = true;
@@ -102,6 +105,7 @@ namespace Polyperfect.Universal
             Walk();
             Jump();
             ShootingLight();
+            ActiveShield();
         }
 
         private void FixedUpdate() {
@@ -181,6 +185,18 @@ namespace Polyperfect.Universal
 
                 animator.SetTrigger("LightShoot");
                 vida -= 15;
+            }
+        }
+
+        void ActiveShield(){
+            if(Input.GetKey(KeyCode.Q) && isGrounded && ballSoulActive){
+                shieldActive = true;
+                lightAnimator.SetBool("Shield",true);
+            }
+
+            if(Input.GetKeyUp(KeyCode.Q) && isGrounded && ballSoulActive && shieldActive){
+                shieldActive = false;
+                lightAnimator.SetBool("Shield",false);
             }
         }
 
