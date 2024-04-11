@@ -5,13 +5,17 @@ namespace Polyperfect.Universal
 {
     public class PlayerMovement : MonoBehaviour
     {
-        #region
+        #region "Vida"
             public float vidaMax = 100;
             public float vida;
         #endregion;
 
-        public Material ballLighning;
-        public GameObject ballSoul;
+        #region "Light"
+            public Light ballLight;
+            public Material ballLighning;
+            public GameObject ballSoul;
+        #endregion;
+
         bool ballSoulActive;
         public CharacterController controller;
         public Transform cameraTransform; // Referencia al transform de la cámara
@@ -48,10 +52,12 @@ namespace Polyperfect.Universal
             rotAux = 0;
 
             vida = vidaMax;
+
+            // Cpsas para la pelorira de vida
             ballSoulActive = true;
             ballSoul.SetActive(ballSoulActive);
-
             ballLighning.color = Color.white;
+            ballLight.color = Color.white;
 
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
             previousCameraRotationY = thisGameObject.localEulerAngles.y;
@@ -74,13 +80,23 @@ namespace Polyperfect.Universal
             cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
             #region "UI diegetica para la vida"
-            // Calcular el valor de la mezcla (interpolación lineal) entre blanco y rojo
-            float blendFactor = 1f - (vida / vidaMax); // Menor vida, mayor factor de mezcla
-            // Crear el color interpolado entre blanco y rojo
-            Color colorInterpolado = Color.Lerp(Color.white, Color.red, blendFactor);
+                // Calcular el factor de mezcla basado en la vida actual
+                float blendFactor = 1f - (vida / vidaMax);
 
-            // Establecer el color en el material
-            ballLighning.color = colorInterpolado;
+                // Interpolar entre blanco, amarillo, naranja y rojo
+                Color colorInterpolado;
+                if (blendFactor < 0.5f)
+                {
+                    colorInterpolado = Color.Lerp(Color.white, Color.yellow, blendFactor * 2f);
+                }
+                else
+                {
+                    colorInterpolado = Color.Lerp(Color.yellow, Color.red, (blendFactor - 0.5f) * 2f);
+                }
+
+                // Establecer el color en el material
+                ballLighning.color = colorInterpolado;
+                ballLight.color = colorInterpolado;
             #endregion;
 
             Walk();
