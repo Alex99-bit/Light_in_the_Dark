@@ -150,7 +150,7 @@ namespace Polyperfect.Universal
 
             if(x == 0){
                 // Determinar si la cámara está rotando hacia la derecha o hacia la izquierda
-                animator.SetFloat("XSpeed",RotationAuxiliar(rotationChange));
+                animator.SetFloat("XSpeed",RotationAuxiliar(rotationChange)*0.5f);
                 cameraAnimator.SetFloat("SpeedX",RotationAuxiliar(rotationChange)*0.5f);
             }else{
                 animator.SetFloat("XSpeed",x);
