@@ -125,12 +125,13 @@ namespace Polyperfect.Universal
                 velocity.y = -2f;
                 animator.ResetTrigger("Salto");
                 animator.SetBool("IsGround",true);
-                cameraAnimator.SetTrigger("Arrived");
             }
 
             if(!isGrounded){
                 animator.SetBool("IsGround",false);
-                cameraAnimator.SetTrigger("Jump");
+                //cameraAnimator.SetTrigger("Jump");
+            }else{
+                //cameraAnimator.SetTrigger("Arrived");
             }
 
             float x = Input.GetAxis("Horizontal") * speedUp;
@@ -150,13 +151,15 @@ namespace Polyperfect.Universal
             if(x == 0){
                 // Determinar si la cámara está rotando hacia la derecha o hacia la izquierda
                 animator.SetFloat("XSpeed",RotationAuxiliar(rotationChange));
+                cameraAnimator.SetFloat("SpeedX",RotationAuxiliar(rotationChange)*0.5f);
             }else{
                 animator.SetFloat("XSpeed",x);
+                cameraAnimator.SetFloat("SpeedX",x);
             }
 
             animator.SetFloat("YSpeed",z);
 
-            cameraAnimator.SetFloat("SpeedX",x);
+            
             cameraAnimator.SetFloat("SpeedY",z);
 
             // Actualizar la rotación anterior para el próximo frame
