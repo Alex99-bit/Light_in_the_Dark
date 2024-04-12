@@ -23,26 +23,20 @@ public class EnemyTipe1 : MonoBehaviour
     void Update()
     {
         #region "UI diegetica para la vida"
-        // Calcular el factor de mezcla basado en la vida actual
-        float blendFactor = 1f - (vidaEnemy / vidaMax);
+        // Calculamos el valor normalizado inverso de la vida actual (entre 0 y 1)
+        float normalizedInverseLife = 1f - (vidaEnemy / vidaMax);
 
-        // Interpolar entre blanco, amarillo, naranja y rojo
-        Color colorInterpolado;
-        if (blendFactor < 0.5f)
-        {
-            colorInterpolado = Color.Lerp(Color.white, Color.yellow, blendFactor * 2f);
-        }
-        else
-        {
-            colorInterpolado = Color.Lerp(Color.yellow, Color.red, (blendFactor - 0.5f) * 2f);
-        }
+        // Calculamos el color entre rojo y negro
+        Color newColor = Color.Lerp(Color.red, Color.black, normalizedInverseLife);
 
-        // Establecer el color en el material
-        sphere.color = colorInterpolado;
-        lightBall.color = colorInterpolado;
+        // Asignamos el nuevo color a la esfera
+        sphere.color = newColor;
 
-        /*ballLight.intensity = 0;
-        ballLighning.color = Color.black;*/
+        // Calculamos la intensidad entre 100 y 0
+        float newIntensity = Mathf.Lerp(100f, 0f, normalizedInverseLife);
+
+        // Asignamos la nueva intensidad a la luz
+        lightBall.intensity = newIntensity;
         #endregion;
 
         if(vidaEnemy <= 0)
