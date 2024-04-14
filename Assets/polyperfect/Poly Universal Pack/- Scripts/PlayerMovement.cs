@@ -8,6 +8,9 @@ namespace Polyperfect.Universal
         #region "Vida"
             public float vidaMax = 100;
             public float vida;
+            [SerializeField]
+            float cooldown, actualSec;
+            bool puedeRecargar;
         #endregion;
 
         #region "Light"
@@ -65,6 +68,12 @@ namespace Polyperfect.Universal
             ballLighning.color = Color.white;
             ballLight.color = Color.white;
 
+            if(cooldown == 0){
+                cooldown = 5;
+            }
+            puedeRecargar = false;
+            actualSec = 0;
+
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
             previousCameraRotationY = thisGameObject.localEulerAngles.y;
         }
@@ -85,27 +94,41 @@ namespace Polyperfect.Universal
             // Aplicar la rotación restringida
             cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
+            #region "Cooldown para recargar la vida"
+            if(vida < vidaMax){
+                // Si lo atacan, el actualSec se vuelve cero
+                actualSec += Time.deltaTime;
+                if(actualSec >= cooldown && !puedeRecargar){
+                    actualSec = 0;
+                    puedeRecargar = true;
+                }
+            }else{
+                actualSec = 0;
+            }
+            #endregion;
+
+
             #region "UI diegetica para la vida"
-                // Calcular el factor de mezcla basado en la vida actual
-                float blendFactor = 1f - (vida / vidaMax);
+            // Calcular el factor de mezcla basado en la vida actual
+            float blendFactor = 1f - (vida / vidaMax);
 
-                // Interpolar entre blanco, amarillo, naranja y rojo
-                Color colorInterpolado;
-                if (blendFactor < 0.5f)
-                {
-                    colorInterpolado = Color.Lerp(Color.white, Color.yellow, blendFactor * 2f);
-                }
-                else
-                {
-                    colorInterpolado = Color.Lerp(Color.yellow, Color.red, (blendFactor - 0.5f) * 2f);
-                }
+            // Interpolar entre blanco, amarillo, naranja y rojo
+            Color colorInterpolado;
+            if (blendFactor < 0.5f)
+            {
+                colorInterpolado = Color.Lerp(Color.white, Color.yellow, blendFactor * 2f);
+            }
+            else
+            {
+                colorInterpolado = Color.Lerp(Color.yellow, Color.red, (blendFactor - 0.5f) * 2f);
+            }
 
-                // Establecer el color en el material
-                ballLighning.color = colorInterpolado;
-                ballLight.color = colorInterpolado;
+            // Establecer el color en el material
+            ballLighning.color = colorInterpolado;
+            ballLight.color = colorInterpolado;
 
-                /*ballLight.intensity = 0;
-                ballLighning.color = Color.black;*/
+            /*ballLight.intensity = 0;
+            ballLighning.color = Color.black;*/
             #endregion;
 
             Walk();
@@ -162,7 +185,6 @@ namespace Polyperfect.Universal
 
             animator.SetFloat("YSpeed",z);
 
-            
             cameraAnimator.SetFloat("SpeedY",z);
 
             // Actualizar la rotación anterior para el próximo frame
@@ -291,6 +313,15 @@ namespace Polyperfect.Universal
 
             return rotAux;
         }
+
+
+        // Recarga la vida
+        void RecargaVida(){
+            if(puedeRecargar){
+                vida += 1;
+            }
+        }
+
 
         // Método para restringir un ángulo dentro de un rango específico
         float ClampAngle(float angle, float min, float max)
