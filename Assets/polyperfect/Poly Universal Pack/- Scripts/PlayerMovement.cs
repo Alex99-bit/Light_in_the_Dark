@@ -155,9 +155,6 @@ namespace Polyperfect.Universal
 
             if(!isGrounded){
                 animator.SetBool("IsGround",false);
-                //cameraAnimator.SetTrigger("Jump");
-            }else{
-                //cameraAnimator.SetTrigger("Arrived");
             }
 
             float x = Input.GetAxis("Horizontal") * speedUp;
