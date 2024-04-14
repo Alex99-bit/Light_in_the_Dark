@@ -98,7 +98,7 @@ namespace Polyperfect.Universal
             if(vida < vidaMax){
                 // Si lo atacan, el actualSec se vuelve cero
                 actualSec += Time.deltaTime;
-                if(actualSec >= cooldown && !puedeRecargar){
+                if(actualSec >= cooldown){
                     actualSec = 0;
                     puedeRecargar = true;
                 }
@@ -139,6 +139,7 @@ namespace Polyperfect.Universal
 
         private void FixedUpdate() {
             SpeedUp();
+            RecargaVida();
         }
 
         void Walk()
@@ -217,6 +218,7 @@ namespace Polyperfect.Universal
             if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive && !shieldActive){
 
                 animator.SetTrigger("LightShoot");
+                puedeRecargar = false;
                 vida -= 15;
             }
         }
