@@ -219,6 +219,7 @@ namespace Polyperfect.Universal
 
                 animator.SetTrigger("LightShoot");
                 puedeRecargar = false;
+                actualSec = 0;
                 vida -= 15;
             }
         }
@@ -318,6 +319,11 @@ namespace Polyperfect.Universal
         void RecargaVida(){
             if(puedeRecargar){
                 vida += 1;
+                if (vida >= 100)
+                {
+                    vida = 100;
+                    puedeRecargar = false;
+                }
             }
         }
 
