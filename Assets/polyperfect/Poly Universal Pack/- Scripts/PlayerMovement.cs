@@ -218,23 +218,27 @@ namespace Polyperfect.Universal
             if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive && !shieldActive){
 
                 animator.SetTrigger("LightShoot");
-                
-                // Logica de daño
+
+                #region "Logica de daño"
                 puedeRecargar = false;
                 actualSec = 0;
                 vida -= 15;
+                #endregion;
             }
         }
 
-        void ActiveShield(){
-            if(Input.GetKeyDown(KeyCode.Q) && isGrounded && ballSoulActive){
+        void ActiveShield()
+        {
+            if(Input.GetKeyDown(KeyCode.Q) && isGrounded && ballSoulActive)
+            {
                 shieldActive = true;
-                lightAnimator.SetBool("Shield",true);
+                lightAnimator.SetBool("Shield", shieldActive);
             }
 
-            if(Input.GetKeyUp(KeyCode.Q) && isGrounded && ballSoulActive && shieldActive){
+            if(Input.GetKeyUp(KeyCode.Q) && isGrounded && ballSoulActive && shieldActive)
+            {
                 shieldActive = false;
-                lightAnimator.SetBool("Shield",false);
+                lightAnimator.SetBool("Shield", shieldActive);
             }
         }
 
