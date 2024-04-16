@@ -66,13 +66,15 @@ public class EnemyTipe1 : MonoBehaviour
     { 
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        ThreadAI();
-
         if (vidaEnemy <= 0)
         {
             // En su lugar ira una animacion de muerte y despues de un tiempo desaparecera el cadaver
             Destroy(this.gameObject);
         }
+    }
+
+    private void FixedUpdate() {
+        ThreadAI();
     }
 
     // M�todo para cambiar el color del objeto
