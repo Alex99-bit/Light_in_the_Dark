@@ -51,8 +51,7 @@ public class EnemyTipe1 : MonoBehaviour
         colorOriginal = meshRenderer.material.color;
 
         #region "Cosas para la IA"
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        agent = GetComponent<NavMeshAgent>();
+        agent = this.GetComponent<NavMeshAgent>();
 
         // Iniciar patrulla
         if (patrolPoints.Length > 0)
@@ -65,6 +64,7 @@ public class EnemyTipe1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         ThreadAI();
 
