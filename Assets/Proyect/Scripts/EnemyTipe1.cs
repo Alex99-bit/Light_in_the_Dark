@@ -24,11 +24,17 @@ public class EnemyTipe1 : MonoBehaviour
         public float attackRange = 5f;
         public float timeToLoseTarget = 30f;
 
+        [SerializeField]
         private Transform player;
+        [SerializeField]
         private NavMeshAgent agent;
+        [SerializeField]
         private int currentPatrolIndex = 0;
+        [SerializeField]
         private bool isPatrolling = true;
+        [SerializeField]
         private bool isAttacking = false;
+        [SerializeField]
         private float timeSinceLastSawPlayer = 0f;
     #endregion;
 
