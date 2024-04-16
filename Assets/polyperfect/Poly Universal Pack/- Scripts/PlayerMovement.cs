@@ -218,6 +218,8 @@ namespace Polyperfect.Universal
             if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive && !shieldActive){
 
                 animator.SetTrigger("LightShoot");
+                
+                // Logica de daño
                 puedeRecargar = false;
                 actualSec = 0;
                 vida -= 15;
@@ -255,13 +257,15 @@ namespace Polyperfect.Universal
             }
         }
 
-        void GameOver(){
+        void GameOver()
+        {
             if(vida <= 0){
                 animator.SetBool("IsDead",true);
             }
         }
 
-        void GameReset(){
+        void GameReset()
+        {
             vidaMax = 100;
             vida = vidaMax;
             animator.SetBool("IsDead",false);
