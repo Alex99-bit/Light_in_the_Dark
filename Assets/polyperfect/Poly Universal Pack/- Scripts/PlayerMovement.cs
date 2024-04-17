@@ -5,8 +5,10 @@ namespace Polyperfect.Universal
 {
     public class PlayerMovement : MonoBehaviour
     {
+        //public static PlayerMovement instance;
+
         #region "Vida"
-            public float vidaMax = 100;
+        public float vidaMax = 100;
             public float vida;
             [SerializeField]
             float cooldown, actualSec;
@@ -24,6 +26,9 @@ namespace Polyperfect.Universal
         #region "Camera Animation"
             public Animator cameraAnimator;
         #endregion;
+
+        // Activa o desactiva el caminar
+        public static bool puedeCaminar;
 
         bool ballSoulActive;
         public CharacterController controller;
@@ -53,6 +58,15 @@ namespace Polyperfect.Universal
         // Variable para mantener el estado anterior de la rotación de la cámara
         private float previousCameraRotationY;
 
+        private void Awake()
+        {
+            /*if (instance == null)
+            {
+                instance = this;
+            }*/
+            //return instance;
+        }
+
         private void Start() {
             cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
             thisGameObject = this.GetComponent<Transform>();
@@ -61,6 +75,7 @@ namespace Polyperfect.Universal
 
             vida = vidaMax;
             shieldActive = false;
+            puedeCaminar = true;
 
             // Cpsas para la pelorira de vida
             ballSoulActive = true;
@@ -131,15 +146,30 @@ namespace Polyperfect.Universal
             ballLighning.color = Color.black;*/
             #endregion;
 
-            Walk();
+            if (puedeCaminar)
+            {
+                Walk();
+            }
+            
             Jump();
             ShootingLight();
             ActiveShield();
         }
 
-        private void FixedUpdate() {
+        private void FixedUpdate() 
+        {
             SpeedUp();
             RecargaVida();
+        }
+
+        public void SetPuedeCaminarTrue()
+        {
+            puedeCaminar = true;
+        }
+
+        public void SetPuedeCaminarFalse()
+        {
+            puedeCaminar = false;
         }
 
         void Walk()
@@ -242,7 +272,8 @@ namespace Polyperfect.Universal
             }
         }
 
-        void SpeedUp(){
+        void SpeedUp()
+        {
             float speedUpAux = 0.1f;
             if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetButton("Fire1")){
                 if(speedUp < 2){
