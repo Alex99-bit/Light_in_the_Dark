@@ -149,11 +149,11 @@ namespace Polyperfect.Universal
             if (puedeCaminar)
             {
                 Walk();
+                Jump();
+                ShootingLight();
+                ActiveShield();
             }
             
-            Jump();
-            ShootingLight();
-            ActiveShield();
         }
 
         private void FixedUpdate() 
