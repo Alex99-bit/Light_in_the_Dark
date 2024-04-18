@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 114434424306494109, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_Shadows.m_Type
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 200661516557573469, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
@@ -162,6 +162,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Intensity
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: useVolumetric
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_UseOverride
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1112994781921152501, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
