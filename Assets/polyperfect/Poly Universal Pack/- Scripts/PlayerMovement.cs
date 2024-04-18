@@ -58,16 +58,8 @@ namespace Polyperfect.Universal
         // Variable para mantener el estado anterior de la rotación de la cámara
         private float previousCameraRotationY;
 
-        private void Awake()
+        private void Start() 
         {
-            /*if (instance == null)
-            {
-                instance = this;
-            }*/
-            //return instance;
-        }
-
-        private void Start() {
             cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
             thisGameObject = this.GetComponent<Transform>();
             speedUp = 1;
