@@ -11,6 +11,8 @@ public class BulletEvent : MonoBehaviour
     public float fireRate,bulletForce; // Tasa de disparo en segundos
     public Transform cameraTransform;
 
+    public Animator camAnimator;
+
     private void Awake()
     {
         player = GetComponentInParent<Polyperfect.Universal.PlayerMovement>();
@@ -41,5 +43,13 @@ public class BulletEvent : MonoBehaviour
     void SetCaminarTrue()
     {
         player.SetPuedeCaminarTrue();
+    }
+
+    void SetCamArrived(){
+        camAnimator.SetBool("Arrived",true);
+    }
+
+    void UnSetCamArrived(){
+        camAnimator.SetBool("Arrived",false);
     }
 }
