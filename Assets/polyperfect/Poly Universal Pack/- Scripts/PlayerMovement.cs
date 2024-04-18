@@ -204,7 +204,6 @@ namespace Polyperfect.Universal
             }
 
             animator.SetFloat("YSpeed",z);
-
             cameraAnimator.SetFloat("SpeedY",z);
 
             // Actualizar la rotación anterior para el próximo frame
