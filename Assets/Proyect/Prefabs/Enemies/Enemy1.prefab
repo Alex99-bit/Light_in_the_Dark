@@ -1111,17 +1111,17 @@ PrefabInstance:
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.62
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.099999785
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
@@ -1436,8 +1436,6 @@ MonoBehaviour:
   vidaEnemy: 0
   vidaMax: 100
   patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   visionRange: 10
   attackRange: 5
