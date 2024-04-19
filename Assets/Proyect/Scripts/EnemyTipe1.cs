@@ -85,51 +85,47 @@ public class EnemyTipe1 : MonoBehaviour
     }
 
     private void ThreadAI(){
-        // Actualizar el tiempo desde que se vio al jugador por última vez
         if (!isAttacking)
         {
             timeSinceLastSawPlayer += Time.deltaTime;
         }
 
-        // Si el jugador está dentro del rango de visión
         if (Vector3.Distance(transform.position, player.position) < visionRange)
         {
-            // Actualizar la última vez que se vio al jugador
             timeSinceLastSawPlayer = 0f;
 
-            // Cambiar al estado de ataque
-            isPatrolling = false;
-            isAttacking = true;
+            if (!isAttacking)
+            {
+                isPatrolling = false;
+                isAttacking = true;
+            }
 
-            // Moverse hacia el jugador
             agent.SetDestination(player.position);
 
-            // Si el jugador está dentro del rango de ataque
             if (Vector3.Distance(transform.position, player.position) < attackRange)
             {
-                // Disparar al jugador (aquí debes implementar tu lógica de disparo)
+                // Implementa aquí tu lógica de disparo
                 Debug.Log("¡Disparando al jugador!");
             }
-        }
-        else
-        {
-            // Si el enemigo no ve al jugador
-            if (!isPatrolling)
+            else
             {
-                // Si el enemigo ha perdido de vista al jugador durante más de 30 segundos
-                if (timeSinceLastSawPlayer > timeToLoseTarget)
-                {
-                    // Regresar al estado de patrullaje
-                    isPatrolling = true;
-                    isAttacking = false;
-
-                    // Reiniciar patrulla
-                    agent.SetDestination(patrolPoints[currentPatrolIndex].position);
-                }
+                // Si el jugador está dentro del rango de visión pero fuera del rango de ataque,
+                // detener la persecución y comenzar a patrullar nuevamente
+                isPatrolling = true;
+                isAttacking = false;
+                agent.SetDestination(patrolPoints[currentPatrolIndex].position);
+            }
+        }
+        else if (!isPatrolling)
+        {
+            if (timeSinceLastSawPlayer > timeToLoseTarget)
+            {
+                isPatrolling = true;
+                isAttacking = false;
+                agent.SetDestination(patrolPoints[currentPatrolIndex].position);
             }
         }
 
-        // Si el enemigo está patrullando y llega al punto de patrulla actual, avanzar al siguiente punto
         if (isPatrolling && agent.remainingDistance < 0.5f)
         {
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
