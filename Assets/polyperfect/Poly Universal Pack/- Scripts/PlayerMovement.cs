@@ -371,5 +371,13 @@ namespace Polyperfect.Universal
 
             return angle;
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("DeadZone"))
+            {
+                GameOver();
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Bullet Light
+  - DeadZone
   layers:
   - Default
   - TransparentFX
