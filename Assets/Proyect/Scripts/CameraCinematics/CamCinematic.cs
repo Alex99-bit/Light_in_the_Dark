@@ -21,7 +21,7 @@ public class CamCinematic : MonoBehaviour
 
     public void Cn1()
     {
-
+        
     }
 
     void FinishCinematic(){
