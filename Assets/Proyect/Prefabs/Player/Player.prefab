@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 1953716452003242004, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1953716452003242004, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
@@ -648,6 +648,11 @@ PrefabInstance:
       propertyPath: groundDistance
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: mainCameraPlayer
+      value: 
+      objectReference: {fileID: 1261119497222461102}
     - target: {fileID: 4917203731776861758, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_Enabled
@@ -1147,6 +1152,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4917203731776861747, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2535561660845374355}
     - targetCorrespondingSourceObject: {fileID: 4917203732113766455, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       insertIndex: -1
@@ -1183,6 +1192,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!20 &1261119497222461102 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4917203732113766453, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1261119498096138408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4917203731776861747, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2535561660845374355
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261119498096138408}
+  m_Material: {fileID: 13400000, guid: 9f4080ff7699ed540a3d0204870a740c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!95 &1347880893094863866 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5118813467065355617, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
@@ -1214,7 +1257,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!95 &7308084191580998732 stripped

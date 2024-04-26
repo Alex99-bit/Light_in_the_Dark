@@ -6,6 +6,7 @@ namespace Polyperfect.Universal
     public class PlayerMovement : MonoBehaviour
     {
         //public static PlayerMovement instance;
+        NivelesComp currentLvl;
 
         #region "Vida"
         public float vidaMax = 100;
@@ -25,6 +26,11 @@ namespace Polyperfect.Universal
 
         #region "Camera Animation"
             public Animator cameraAnimator;
+        #endregion;
+
+        #region  "Camera General Player"
+            public Camera mainCameraPlayer;
+            float farCamera;
         #endregion;
 
         // Activa o desactiva el caminar
@@ -80,6 +86,9 @@ namespace Polyperfect.Universal
             }
             puedeRecargar = false;
             actualSec = 0;
+
+            // Esta variable tendra que tomar el valor del game manager
+            currentLvl = NivelesComp.Lvl_1;
 
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
             previousCameraRotationY = thisGameObject.localEulerAngles.y;
@@ -138,6 +147,7 @@ namespace Polyperfect.Universal
             ballLighning.color = Color.black;*/
             #endregion;
 
+            #region "Logica para todos los movimientos basicos"
             if (puedeCaminar)
             {
                 Walk();
@@ -145,7 +155,22 @@ namespace Polyperfect.Universal
                 ShootingLight();
                 ActiveShield();
             }
-            
+            #endregion;
+
+            #region "Logica para cambiar que tan lejos puede ver"
+            if (currentLvl == NivelesComp.Lvl_2)
+            {
+                farCamera = 30;
+            }
+
+            if (currentLvl == NivelesComp.Lvl_1)
+            {
+                farCamera = 65;
+            }
+
+            mainCameraPlayer.farClipPlane = farCamera;
+            #endregion;
+
         }
 
         private void FixedUpdate() 
@@ -379,5 +404,14 @@ namespace Polyperfect.Universal
                 GameOver();
             }
         }
+
+    }
+
+    // Directorio de niveles para cambiar el comportamiento del player
+    enum NivelesComp
+    {
+        Lobby,
+        Lvl_1,
+        Lvl_2
     }
 }
