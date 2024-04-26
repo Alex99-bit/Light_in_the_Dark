@@ -309,7 +309,7 @@ namespace Polyperfect.Universal
                 }
             }else{
                 if(speedUp > 1){
-                   speedUp -= speedUpAux * 0.5f; 
+                   speedUp -= speedUpAux; 
                    speed -= (speedUpAux * 4f);
                 }else{
                     speedUp = 1;
