@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CamCinematic : MonoBehaviour
 {
+    Animator animatorCN;
+
     // Start is called before the first frame update
     void Start()
     {
+        animatorCN = GetComponent<Animator>();
         GameManager.instance.ChangeGameState(GameState.cinematic);
     }
 
@@ -14,6 +17,11 @@ public class CamCinematic : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Cn1()
+    {
+
     }
 
     void FinishCinematic(){
