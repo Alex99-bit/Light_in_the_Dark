@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Proyect/Scenes/Lobby.unity
     guid: 0b1041e0da766cf438edf23267b84ee6
   - enabled: 1
+    path: Assets/Proyect/Scenes/Level1.unity
+    guid: 89fedfacbf2acf2429fd448fa231218a
+  - enabled: 0
     path: Assets/polyperfect/Poly Universal Pack/- Demo Scenes/02 Steampunk.unity
     guid: 17b677a504fe4e549860991b3caff9c4
   m_configObjects: {}
