@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using LD_GameManager;
+using LD_GameManager;
 
 namespace Polyperfect.Universal
 {
@@ -101,7 +101,7 @@ namespace Polyperfect.Universal
         // Update is called once per frame
         void Update()
         {
-            if (true)
+            if (GameManager.instance.currentGameState == GameState.InGame)
             {
                 controller = GetComponent<CharacterController>();
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -163,6 +163,9 @@ namespace Polyperfect.Universal
                 #endregion;
 
                 ComportamientoNiveles();
+            }
+            else if (GameManager.instance.currentGameState == GameState.cinematic){
+                mainCameraPlayer.enabled = false;
             }
 
         }
