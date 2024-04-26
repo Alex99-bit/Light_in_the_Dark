@@ -157,19 +157,7 @@ namespace Polyperfect.Universal
             }
             #endregion;
 
-            #region "Logica para cambiar que tan lejos puede ver"
-            if (currentLvl == NivelesComp.Lvl_2)
-            {
-                farCamera = 30;
-            }
-
-            if (currentLvl == NivelesComp.Lvl_1)
-            {
-                farCamera = 65;
-            }
-
-            mainCameraPlayer.farClipPlane = farCamera;
-            #endregion;
+            ComportamientoNiveles();
 
         }
 
@@ -187,6 +175,27 @@ namespace Polyperfect.Universal
         public void SetPuedeCaminarFalse()
         {
             puedeCaminar = false;
+        }
+
+        void ComportamientoNiveles()
+        {
+            #region "Logica para cambiar que tan lejos puede ver"
+            if (currentLvl == NivelesComp.Lvl_2)
+            {
+                farCamera = 30;
+                ballSoulActive = true;
+                ballSoul.SetActive(ballSoulActive);
+            }
+
+            if (currentLvl == NivelesComp.Lvl_1)
+            {
+                farCamera = 65;
+                ballSoulActive = false;
+                ballSoul.SetActive(ballSoulActive);
+            }
+
+            mainCameraPlayer.farClipPlane = farCamera;
+            #endregion;
         }
 
         void Walk()
@@ -402,6 +411,24 @@ namespace Polyperfect.Universal
             if (other.gameObject.CompareTag("DeadZone"))
             {
                 GameOver();
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (ballSoulActive)
+            {
+                // Logica de daño de balas enemigas
+                if (collision.gameObject.CompareTag("DarkSoul"))
+                {
+
+                }
+
+                // Logica de daño de colision con el enemigo
+                if (collision.gameObject.CompareTag("Enemy"))
+                {
+
+                }
             }
         }
 
