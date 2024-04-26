@@ -21,5 +21,6 @@ public class CamCinematic : MonoBehaviour
 
     void FinishCinematic(){
         GameManager.instance.ChangeGameState(GameState.InGame);
+        this.gameObject.SetActive(false);
     }
 }
