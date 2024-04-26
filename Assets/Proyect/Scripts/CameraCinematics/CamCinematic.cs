@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LD_GameManager;
 
 public class CamCinematic : MonoBehaviour
 {
@@ -13,15 +14,9 @@ public class CamCinematic : MonoBehaviour
         GameManager.instance.ChangeGameState(GameState.cinematic);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Cn1()
     {
-        
+        animatorCN.SetTrigger("CN1");
     }
 
     void FinishCinematic(){

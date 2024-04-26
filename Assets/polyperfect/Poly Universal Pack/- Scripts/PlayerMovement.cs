@@ -98,66 +98,69 @@ namespace Polyperfect.Universal
         // Update is called once per frame
         void Update()
         {
-            controller = GetComponent<CharacterController>();
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            if (true)
+            {
+                controller = GetComponent<CharacterController>();
+                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-            // Obtener la rotación actual de la cámara
-            Vector3 currentRotation = cameraTransform.localEulerAngles;
+                // Obtener la rotación actual de la cámara
+                Vector3 currentRotation = cameraTransform.localEulerAngles;
 
-            // Obtener el ángulo actual en el eje X
-            float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
+                // Obtener el ángulo actual en el eje X
+                float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
 
-            // Aplicar la rotación restringida
-            cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
+                // Aplicar la rotación restringida
+                cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
-            #region "Cooldown para recargar la vida"
-            if(vida < vidaMax){
-                // Si lo atacan, el actualSec se vuelve cero
-                actualSec += Time.deltaTime;
-                if(actualSec >= cooldown){
+                #region "Cooldown para recargar la vida"
+                if(vida < vidaMax){
+                    // Si lo atacan, el actualSec se vuelve cero
+                    actualSec += Time.deltaTime;
+                    if(actualSec >= cooldown){
+                        actualSec = 0;
+                        puedeRecargar = true;
+                    }
+                }else{
                     actualSec = 0;
-                    puedeRecargar = true;
                 }
-            }else{
-                actualSec = 0;
+                #endregion;
+
+
+                #region "UI diegetica para la vida"
+                // Calcular el factor de mezcla basado en la vida actual
+                float blendFactor = 1f - (vida / vidaMax);
+
+                // Interpolar entre blanco, amarillo, naranja y rojo
+                Color colorInterpolado;
+                if (blendFactor < 0.5f)
+                {
+                    colorInterpolado = Color.Lerp(Color.white, Color.yellow, blendFactor * 2f);
+                }
+                else
+                {
+                    colorInterpolado = Color.Lerp(Color.yellow, Color.red, (blendFactor - 0.5f) * 2f);
+                }
+
+                // Establecer el color en el material
+                ballLighning.color = colorInterpolado;
+                ballLight.color = colorInterpolado;
+
+                /*ballLight.intensity = 0;
+                ballLighning.color = Color.black;*/
+                #endregion;
+
+                #region "Logica para todos los movimientos basicos"
+                if (puedeCaminar)
+                {
+                    Walk();
+                    Jump();
+                    ShootingLight();
+                    ActiveShield();
+                }
+                #endregion;
+
+                ComportamientoNiveles();
             }
-            #endregion;
-
-
-            #region "UI diegetica para la vida"
-            // Calcular el factor de mezcla basado en la vida actual
-            float blendFactor = 1f - (vida / vidaMax);
-
-            // Interpolar entre blanco, amarillo, naranja y rojo
-            Color colorInterpolado;
-            if (blendFactor < 0.5f)
-            {
-                colorInterpolado = Color.Lerp(Color.white, Color.yellow, blendFactor * 2f);
-            }
-            else
-            {
-                colorInterpolado = Color.Lerp(Color.yellow, Color.red, (blendFactor - 0.5f) * 2f);
-            }
-
-            // Establecer el color en el material
-            ballLighning.color = colorInterpolado;
-            ballLight.color = colorInterpolado;
-
-            /*ballLight.intensity = 0;
-            ballLighning.color = Color.black;*/
-            #endregion;
-
-            #region "Logica para todos los movimientos basicos"
-            if (puedeCaminar)
-            {
-                Walk();
-                Jump();
-                ShootingLight();
-                ActiveShield();
-            }
-            #endregion;
-
-            ComportamientoNiveles();
 
         }
 
