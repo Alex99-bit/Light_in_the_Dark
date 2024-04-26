@@ -81,6 +81,7 @@ public enum GameState
 {
     MainMenu,
     InGame,
+    cinematic,
     Pause,
     GameOver
 }
