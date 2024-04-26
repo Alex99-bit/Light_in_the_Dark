@@ -408,7 +408,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 20.133333
-    functionName: FinishCinematic
+    functionName: FinishScene
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
