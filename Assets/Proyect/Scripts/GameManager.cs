@@ -27,7 +27,7 @@ namespace LD_GameManager{
         void Start()
         {
             // Establecer el estado inicial del juego
-            ChangeGameState(GameState.InGame);
+            //ChangeGameState(GameState.InGame);
         }
 
         void Update()
@@ -59,17 +59,20 @@ namespace LD_GameManager{
                     Cursor.visible = false;
                     // Bloquea el cursor en el centro de la pantalla
                     Cursor.lockState = CursorLockMode.Locked;
-                    freeLookCamera.enabled = true; // Activar la cámara
-                    panelPause.SetActive(false);
+                    //freeLookCamera.enabled = true; // Activar la cámara
+                    //panelPause.SetActive(false);
                     Time.timeScale = 1;
                     break;
                 case GameState.Pause:
                     // Código para pausar el juego
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
-                    freeLookCamera.enabled = false; // Desactivar la cámara
-                    panelPause.SetActive(true);
+                    //freeLookCamera.enabled = false; // Desactivar la cámara
+                    //panelPause.SetActive(true);
                     Time.timeScale = 0;
+                    break;
+                case GameState.cinematic:
+                    // De momento nada
                     break;
                 case GameState.GameOver:
                     // Código para mostrar la pantalla de Game Over

@@ -5,13 +5,16 @@ using LD_GameManager;
 
 public class CamCinematic : MonoBehaviour
 {
+    [SerializeField]
     Animator animatorCN;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        animatorCN = GetComponent<Animator>();
+        animatorCN = this.GetComponent<Animator>();
         GameManager.instance.ChangeGameState(GameState.cinematic);
+        Cn1();
     }
 
     public void Cn1()

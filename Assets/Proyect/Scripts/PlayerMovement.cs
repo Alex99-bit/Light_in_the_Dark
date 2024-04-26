@@ -101,19 +101,20 @@ namespace Polyperfect.Universal
         // Update is called once per frame
         void Update()
         {
+            controller = GetComponent<CharacterController>();
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+            // Obtener la rotación actual de la cámara
+            Vector3 currentRotation = cameraTransform.localEulerAngles;
+
+            // Obtener el ángulo actual en el eje X
+            float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
+
+            // Aplicar la rotación restringida
+            cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
             if (GameManager.instance.currentGameState == GameState.InGame)
             {
-                controller = GetComponent<CharacterController>();
-                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-                // Obtener la rotación actual de la cámara
-                Vector3 currentRotation = cameraTransform.localEulerAngles;
-
-                // Obtener el ángulo actual en el eje X
-                float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
-
-                // Aplicar la rotación restringida
-                cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
+                mainCameraPlayer.enabled = true;
 
                 #region "Cooldown para recargar la vida"
                 if(vida < vidaMax){
