@@ -14,7 +14,7 @@ public class CamCin2 : MonoBehaviour
     }
 
     public void FinishScene(){
-        LD_GameManager.GameManager.instance.ChangeGameState(GameState.InGame);
+        GameManager.instance.ChangeGameState(GameState.InGame);
         player.SetActive(true);
         playerNPC.SetActive(false);
         this.gameObject.SetActive(false);
