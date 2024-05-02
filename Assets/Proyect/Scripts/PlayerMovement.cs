@@ -9,6 +9,7 @@ namespace Polyperfect.Universal
     public class PlayerMovement : MonoBehaviour
     {
         //public static PlayerMovement instance;
+        [SerializeField]
         NivelesComp currentLvl;
 
         #region "Vida"
@@ -91,7 +92,7 @@ namespace Polyperfect.Universal
             actualSec = 0;
 
             // Esta variable tendra que tomar el valor del game manager
-            currentLvl = NivelesComp.Lvl_1;
+            currentLvl = NivelesComp.Lvl_2;
 
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
             previousCameraRotationY = thisGameObject.localEulerAngles.y;
