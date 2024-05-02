@@ -64,7 +64,14 @@ public class EnemyTipe1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        try
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        catch (System.NullReferenceException e)
+        {
+            Debug.LogWarning("El objeto Player no se ha encontrado: " + e.Message);
+        }
 
         if (vidaEnemy <= 0)
         {
@@ -74,7 +81,10 @@ public class EnemyTipe1 : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        ThreadAI();
+
+        if(player != null){
+            ThreadAI();
+        }
     }
 
     // M�todo para cambiar el color del objeto
