@@ -201,8 +201,15 @@ namespace Polyperfect.Universal
 
             if (currentLvl == "Level1")
             {
-                farCamera = 80;
+                farCamera = 120;
                 ballSoulActive = false;
+                ballSoul.SetActive(ballSoulActive);
+            }
+
+            if(currentLvl == "LvlTutorial")
+            {
+                farCamera = 120;
+                ballSoulActive = true;
                 ballSoul.SetActive(ballSoulActive);
             }
 
