@@ -16,6 +16,8 @@ public class OpenFencePark : MonoBehaviour
 
             fenceManor1.SetTrigger("Close");
             fenceManor2.SetTrigger("Close");
+
+            this.gameObject.SetActive(false);
         }
     }
 }
