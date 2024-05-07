@@ -10,7 +10,7 @@ namespace Polyperfect.Universal
     {
         //public static PlayerMovement instance;
         [SerializeField]
-        NivelesComp currentLvl;
+        string currentLvl;
 
         #region "Vida"
         public float vidaMax = 100;
@@ -92,10 +92,12 @@ namespace Polyperfect.Universal
             actualSec = 0;
 
             // Esta variable tendra que tomar el valor del game manager
-            currentLvl = NivelesComp.Lvl_2;
+            currentLvl = GameManager.instance.GetCurrentScene();
 
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
             previousCameraRotationY = thisGameObject.localEulerAngles.y;
+
+            ComportamientoNiveles();
         }
 
 
@@ -162,8 +164,6 @@ namespace Polyperfect.Universal
                     ActiveShield();
                 }
                 #endregion;
-
-                ComportamientoNiveles();
             }
             else if (GameManager.instance.currentGameState == GameState.cinematic){
                 mainCameraPlayer.enabled = false;
@@ -192,14 +192,14 @@ namespace Polyperfect.Universal
         void ComportamientoNiveles()
         {
             #region "Logica para cambiar que tan lejos puede ver"
-            if (currentLvl == NivelesComp.Lvl_2)
+            if (currentLvl == "Level2")
             {
                 farCamera = 30;
                 ballSoulActive = true;
                 ballSoul.SetActive(ballSoulActive);
             }
 
-            if (currentLvl == NivelesComp.Lvl_1)
+            if (currentLvl == "Level1")
             {
                 farCamera = 80;
                 ballSoulActive = false;
@@ -444,13 +444,5 @@ namespace Polyperfect.Universal
             }
         }
 
-    }
-
-    // Directorio de niveles para cambiar el comportamiento del player
-    enum NivelesComp
-    {
-        Lobby,
-        Lvl_1,
-        Lvl_2
     }
 }

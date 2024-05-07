@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 namespace LD_GameManager{
     public class GameManager : MonoBehaviour
@@ -9,25 +10,27 @@ namespace LD_GameManager{
         public GameState currentGameState;
         public CinemachineFreeLook freeLookCamera;
 
+        // Variable para almacenar el nombre de la escena actual
+        public string currentScene;
+
 
         void Awake()
         {
+            // Asignar esta instancia como la instancia única del GameManager
             if (instance == null)
             {
                 instance = this;
+                DontDestroyOnLoad(gameObject);
             }
             else
             {
                 Destroy(gameObject);
             }
-
-            DontDestroyOnLoad(gameObject); // Preservar el objeto GameManager entre escenas
         }
 
         void Start()
         {
-            // Establecer el estado inicial del juego
-            //ChangeGameState(GameState.InGame);
+            
         }
 
         void Update()
@@ -78,6 +81,18 @@ namespace LD_GameManager{
                     // Código para mostrar la pantalla de Game Over
                     break;
             }
+        }
+
+        // Método para cargar una nueva escena
+        public void LoadScene(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
+        // Método para obtener el nombre de la escena actual
+        public string GetCurrentScene()
+        {
+            return SceneManager.GetActiveScene().name;
         }
     }
 
