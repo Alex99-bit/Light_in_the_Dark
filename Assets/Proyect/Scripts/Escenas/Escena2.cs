@@ -8,11 +8,8 @@ public class Escena2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Cargar una nueva escena llamada "NuevaEscena"
-        //GameManager.instance.LoadScene("Level1");
-
         // Obtener el nombre de la escena actual
         string nombreEscenaActual = GameManager.instance.GetCurrentScene();
-        Debug.Log("Estás en la escena: " + nombreEscenaActual);
+        Debug.Log("Estï¿½s en la escena: " + nombreEscenaActual);
     }
 }
