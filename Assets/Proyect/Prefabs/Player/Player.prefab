@@ -144,7 +144,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   distanciaMaxima: 10
-  velocidadMovimiento: 0.5
+  velocidadMovimiento: 5
   anguloMinimo: -90
   anguloMaximo: 90
   factorEscalaVertical: 10

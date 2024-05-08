@@ -23,12 +23,8 @@ public class MoverObjetoConCamara : MonoBehaviour
     // Referencia al controlador del jugador
     private CharacterController controladorJugador;
 
-    // Ángulo mínimo y máximo de inclinación de la cámara
-    public float anguloMinimo = -80f;
-    public float anguloMaximo = 80f;
-
     // Factor de escala para el movimiento vertical
-    public float factorEscalaVertical = 2f;
+    public float factorEscalaVertical = 0.5f;
 
     void Start()
     {
@@ -58,32 +54,13 @@ public class MoverObjetoConCamara : MonoBehaviour
             }
         }
 
-        // Si se mantiene presionado el botón derecho del ratón y hay un objeto seleccionado
-        if (Input.GetMouseButton(1) && objetoSeleccionado != null)
+        // Si se mueve la rueda del mouse
+        float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollWheelInput != 0f && objetoSeleccionado != null)
         {
-            // Actualizar la posición del objeto hacia la posición del puntero
-            Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(rayo, out hit, distanciaMaxima))
-            {
-                // Calcular la dirección de movimiento basada en la inclinación de la cámara
-                float inclinacion = Mathf.Clamp(Camera.main.transform.eulerAngles.x, anguloMinimo, anguloMaximo);
-                float movimientoVertical = Mathf.Lerp(-1f, 1f, (inclinacion - anguloMinimo) / (anguloMaximo - anguloMinimo));
-
-                // Aplicar el factor de escala al movimiento vertical
-                movimientoVertical *= factorEscalaVertical;
-
-                // Calcular la posición del objeto basándose en la dirección del jugador y la cámara
-                Vector3 movimientoJugador = transform.forward * Input.GetAxis("Vertical");
-                Vector3 movimientoCamara = Camera.main.transform.forward * Input.GetAxis("Vertical");
-                Vector3 movimientoLateral = transform.right * Input.GetAxis("Horizontal");
-
-                Vector3 movimientoFinal = (movimientoJugador + movimientoCamara + movimientoLateral).normalized;
-                movimientoFinal += Vector3.up * movimientoVertical;
-
-                objetoSeleccionado.position = Vector3.Lerp(objetoSeleccionado.position, hit.point + offset + (movimientoFinal * velocidadMovimiento), velocidadMovimiento * Time.deltaTime);
-            }
+            // Aplicar el desplazamiento vertical al objeto seleccionado
+            Vector3 desplazamientoVertical = Vector3.up * scrollWheelInput * factorEscalaVertical;
+            objetoSeleccionado.position += desplazamientoVertical;
         }
 
         // Si se suelta el botón derecho del ratón, liberar el objeto seleccionado y restaurar la gravedad

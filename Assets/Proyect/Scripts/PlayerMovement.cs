@@ -282,7 +282,7 @@ namespace Polyperfect.Universal
             // Esto sirve para que el salto dependa de la velocidad o carrerilla que lleve
             jumpHeight = speedUp;
 
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetButtonDown("Jump") && (isGrounded || isPlatform))
             {
                 animator.SetTrigger("Salto");
                 controller.slopeLimit = 100.0f;
@@ -296,10 +296,10 @@ namespace Polyperfect.Universal
 
         void ShootingLight()
         {
-            if(Input.GetButtonDown("Fire1") && isGrounded && ballSoulActive && !shieldActive){
+            if(Input.GetButtonDown("Fire1") && (isGrounded || isPlatform) && ballSoulActive && !shieldActive){
 
                 animator.SetTrigger("LightShoot");
-
+                
                 #region "Logica de daño"
                 puedeRecargar = false;
                 actualSec = 0;
