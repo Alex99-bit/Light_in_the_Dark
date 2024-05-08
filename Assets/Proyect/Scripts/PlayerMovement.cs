@@ -57,14 +57,14 @@ namespace Polyperfect.Universal
 
         public Transform groundCheck;
         public float groundDistance = 0.4f;
-        public LayerMask groundMask;
+        public LayerMask groundMask, platformMask;
 
         Transform thisGameObject;
 
 
         public Animator animator;
         Vector3 velocity;
-        bool isGrounded;
+        bool isGrounded, isPlatform;
         
         public float maxAngle = 30f;
         public float minAngle = -40f;
@@ -112,6 +112,7 @@ namespace Polyperfect.Universal
             {
                 controller = GetComponent<CharacterController>();
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+                isPlatform = Physics.CheckSphere(groundCheck.position, groundDistance, platformMask);
 
                 // Obtener la rotación actual de la cámara
                 Vector3 currentRotation = cameraTransform.localEulerAngles;
@@ -227,7 +228,7 @@ namespace Polyperfect.Universal
         {
             Vector3 currentTransform = thisGameObject.localEulerAngles;
 
-            if (isGrounded && velocity.y < 0)
+            if ((isGrounded || isPlatform) && velocity.y < 0)
             {
                 controller.slopeLimit = 45.0f;
                 velocity.y = -2f;
@@ -235,7 +236,7 @@ namespace Polyperfect.Universal
                 animator.SetBool("IsGround",true);
             }
 
-            if(!isGrounded){
+            if(!isGrounded && !isPlatform){
                 animator.SetBool("IsGround",false);
             }
 

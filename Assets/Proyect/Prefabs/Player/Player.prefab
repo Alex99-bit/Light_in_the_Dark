@@ -143,5 +143,8 @@ MonoBehaviour:
   capaObjetosMovibles:
     serializedVersion: 2
     m_Bits: 128
-  distanciaMaxima: 50
-  velocidadMovimiento: 1
+  distanciaMaxima: 10
+  velocidadMovimiento: 0.5
+  anguloMinimo: -90
+  anguloMaximo: 90
+  factorEscalaVertical: 10
