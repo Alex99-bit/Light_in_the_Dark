@@ -5,10 +5,14 @@ using LD_GameManager;
 
 public class StartScene2 : MonoBehaviour
 {
+    public GameObject cameraHouseDevil;
+
+    //En lugar de iniciar la escena, pasa a una cinematica
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Player")){
-            // Cargar una nueva escena 
-            GameManager.instance.LoadScene("Level2");
+            cameraHouseDevil.SetActive(true);
         }
     }
+
+    
 }

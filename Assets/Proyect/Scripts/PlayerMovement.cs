@@ -167,6 +167,7 @@ namespace Polyperfect.Universal
             }
             else if (GameManager.instance.currentGameState == GameState.cinematic){
                 mainCameraPlayer.enabled = false;
+                Walk();
             }
 
         }
@@ -236,7 +237,7 @@ namespace Polyperfect.Universal
             float x = Input.GetAxis("Horizontal") * speedUp;
             float z = Input.GetAxis("Vertical") * speedUp;
 
-            if(Input.GetButton("Fire1") && Input.GetButton("Jump")){
+            if((Input.GetButton("Fire1") && Input.GetButton("Jump")) || GameManager.instance.currentGameState == GameState.cinematic){
                 x = 0;
                 z = 0; 
             }
