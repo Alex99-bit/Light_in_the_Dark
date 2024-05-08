@@ -38,20 +38,7 @@ namespace Polyperfect.Universal
         #endregion;
 
         #region "Elementos para drag and drop"
-            // Capa que contiene los objetos que se pueden mover
-            public LayerMask capaObjetosMovibles;
-
-            // Distancia máxima del raycast
-            public float distanciaMaxima = 10f;
-
-            // Velocidad de movimiento de los objetos
-            public float velocidadMovimiento = 5f;
-
-            // Objeto actualmente seleccionado para mover
-            private Transform objetoSeleccionado;
-
-            // Offset para mantener la distancia entre el objeto y el puntero
-            private Vector3 offset;
+           
         #endregion;
 
         // Activa o desactiva el caminar
@@ -473,42 +460,7 @@ namespace Polyperfect.Universal
         // Logica para el drag and drop
         void DragAndDrop()
         {
-            // Si se presiona el botón derecho del ratón
-            if (Input.GetMouseButtonDown(1))
-            {
-                // Lanzar un raycast desde la posición de la cámara
-                Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                // Verificar si el rayo impacta con un objeto en la capa deseada
-                if (Physics.Raycast(rayo, out hit, distanciaMaxima, capaObjetosMovibles))
-                {
-                    // Guardar la referencia del objeto seleccionado
-                    objetoSeleccionado = hit.transform;
-                    
-                    // Calcular el offset entre la posición del objeto y el punto de impacto
-                    offset = objetoSeleccionado.position - hit.point;
-                }
-            }
-
-            // Si se mantiene presionado el botón derecho del ratón y hay un objeto seleccionado
-            if (Input.GetMouseButton(1) && objetoSeleccionado != null)
-            {
-                // Actualizar la posición del objeto hacia la posición del puntero
-                Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(rayo, out hit, distanciaMaxima))
-                {
-                    objetoSeleccionado.position = Vector3.Lerp(objetoSeleccionado.position, hit.point + offset, velocidadMovimiento * Time.deltaTime);
-                }
-            }
-
-            // Si se suelta el botón derecho del ratón, liberar el objeto seleccionado
-            if (Input.GetMouseButtonUp(1))
-            {
-                objetoSeleccionado = null;
-            }
+            
         }
 
     }

@@ -2,37 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LD_GameManager;
+
 public class MoverObjetoConCamara : MonoBehaviour
 {
-    // Velocidad de movimiento
+    // Capa que contiene los objetos que se pueden mover
+    public LayerMask capaObjetosMovibles;
+
+    // Distancia máxima del raycast
+    public float distanciaMaxima = 10f;
+
+    // Velocidad de movimiento de los objetos
     public float velocidadMovimiento = 5f;
 
-    // Referencia a la cámara
-    private Camera camara;
+    // Objeto actualmente seleccionado para mover
+    private Transform objetoSeleccionado;
+
+    // Offset para mantener la distancia entre el objeto y el puntero
+    private Vector3 offset;
+
+    // Referencia al controlador del jugador
+    private CharacterController controladorJugador;
 
     void Start()
     {
-        // Obtener la cámara principal
-        camara = Camera.main;
+        // Obtener referencia al controlador del jugador
+        controladorJugador = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        if(GameManager.instance.currentGameState == GameState.InGame){
-            // Verificar si se ha presionado el botón de mover (por ejemplo, el botón izquierdo del mouse)
-            if (Input.GetMouseButton(0))
+        // Si se presiona el botón derecho del ratón
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Lanzar un raycast desde la posición de la cámara, ignorando al jugador
+            Ray rayo = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
+
+            if (Physics.Raycast(rayo, out hit, distanciaMaxima, capaObjetosMovibles))
             {
-                // Rayo desde la cámara hacia el punto en el espacio donde se encuentra el objeto bajo el cursor
-                Ray rayo = camara.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                
-                // Verificar si el rayo impacta con un objeto
-                if (Physics.Raycast(rayo, out hit))
-                {
-                    // Mover el objeto hacia la posición del cursor
-                    transform.position = Vector3.MoveTowards(transform.position, hit.point, velocidadMovimiento * Time.deltaTime);
-                }
+                // Guardar la referencia del objeto seleccionado
+                objetoSeleccionado = hit.transform;
+
+                // Calcular el offset entre la posición del objeto y el punto de impacto
+                offset = objetoSeleccionado.position - hit.point;
             }
+        }
+
+        // Si se mantiene presionado el botón derecho del ratón y hay un objeto seleccionado
+        if (Input.GetMouseButton(1) && objetoSeleccionado != null)
+        {
+            // Actualizar la posición del objeto hacia la posición del puntero
+            Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(rayo, out hit, distanciaMaxima))
+            {
+                // Calcular la posición del objeto basándose en la dirección del jugador y la cámara
+                Vector3 movimientoJugador = transform.forward * Input.GetAxis("Vertical");
+                Vector3 movimientoCamara = Camera.main.transform.forward * Input.GetAxis("Vertical");
+                Vector3 movimientoLateral = transform.right * Input.GetAxis("Horizontal");
+
+                Vector3 movimientoFinal = (movimientoJugador + movimientoCamara + movimientoLateral).normalized;
+
+                objetoSeleccionado.position = Vector3.Lerp(objetoSeleccionado.position, hit.point + offset + (movimientoFinal * velocidadMovimiento), velocidadMovimiento * Time.deltaTime);
+            }
+        }
+
+        // Si se suelta el botón derecho del ratón, liberar el objeto seleccionado
+        if (Input.GetMouseButtonUp(1))
+        {
+            objetoSeleccionado = null;
         }
     }
 }

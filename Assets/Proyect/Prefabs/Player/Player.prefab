@@ -116,5 +116,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4917203731776861747, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6878425848165404752}
   m_SourcePrefab: {fileID: 100100000, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56, type: 3}
+--- !u!1 &1261119498096138408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4917203731776861747, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6878425848165404752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261119498096138408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c16758dbba2134c956adcd442a9fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capaObjetosMovibles:
+    serializedVersion: 2
+    m_Bits: 128
+  distanciaMaxima: 50
+  velocidadMovimiento: 1
