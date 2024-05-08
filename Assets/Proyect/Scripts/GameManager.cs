@@ -92,7 +92,7 @@ namespace LD_GameManager{
         // Método para obtener el nombre de la escena actual
         public string GetCurrentScene()
         {
-            return SceneManager.GetActiveScene().name;
+            return currentScene = SceneManager.GetActiveScene().name;
         }
     }
 

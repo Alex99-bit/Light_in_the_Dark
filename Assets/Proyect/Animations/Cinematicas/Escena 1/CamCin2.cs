@@ -6,16 +6,16 @@ using UnityEngine;
 public class CamCin2 : MonoBehaviour
 {
     [SerializeField]
-    GameObject player, playerNPC;
+    GameObject playerNPC;
 
     private void Start() {
-        player.SetActive(false);
+        //player.enabled = false;
         this.gameObject.SetActive(false);
     }
 
     public void FinishScene(){
         GameManager.instance.ChangeGameState(GameState.InGame);
-        player.SetActive(true);
+        //player.enabled = true;
         playerNPC.SetActive(false);
         this.gameObject.SetActive(false);
     }

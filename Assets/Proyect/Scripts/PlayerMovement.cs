@@ -37,9 +37,7 @@ namespace Polyperfect.Universal
             float farCamera;
         #endregion;
 
-        #region "Elementos para drag and drop"
-           
-        #endregion;
+        public SkinnedMeshRenderer playerMesh;
 
         // Activa o desactiva el caminar
         public static bool puedeCaminar;
@@ -101,6 +99,8 @@ namespace Polyperfect.Universal
             // Inicializar previousCameraRotationY con la rotación inicial de la cámara
             previousCameraRotationY = thisGameObject.localEulerAngles.y;
 
+            playerMesh = GetComponentInChildren<SkinnedMeshRenderer>();
+
             ComportamientoNiveles();
         }
 
@@ -110,6 +110,8 @@ namespace Polyperfect.Universal
         {
             if (GameManager.instance.currentGameState == GameState.InGame)
             {
+                EnableMesh();
+
                 controller = GetComponent<CharacterController>();
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
                 isPlatform = Physics.CheckSphere(groundCheck.position, groundDistance, platformMask);
@@ -167,13 +169,13 @@ namespace Polyperfect.Universal
                     Jump();
                     ShootingLight();
                     ActiveShield();
-                    DragAndDrop();
                 }
                 #endregion;
             }
             else if (GameManager.instance.currentGameState == GameState.cinematic){
                 mainCameraPlayer.enabled = false;
                 Walk();
+                DisableMesh();
             }
 
         }
@@ -458,11 +460,15 @@ namespace Polyperfect.Universal
             }
         }
 
-        // Logica para el drag and drop
-        void DragAndDrop()
-        {
-            
-        }
+        #region "Enable / Disable Mesh Player"
+            void EnableMesh(){
+                playerMesh.enabled = true;
+            }
+
+            void DisableMesh(){
+                playerMesh.enabled = false;
+            }
+        #endregion;
 
     }
 }
