@@ -8,6 +8,8 @@ TagManager:
   - Bullet Light
   - DeadZone
   - Platform
+  - DarkSoul
+  - Enemy
   layers:
   - Default
   - TransparentFX

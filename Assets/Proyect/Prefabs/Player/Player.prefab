@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: useVolumetric
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2609138966888831036, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,6 +77,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
@@ -145,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c16758dbba2134c956adcd442a9fae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballAnimator: {fileID: 7308084191580998732}
   capaObjetosMovibles:
     serializedVersion: 2
     m_Bits: 128
@@ -153,3 +169,9 @@ MonoBehaviour:
   anguloMinimo: -80
   anguloMaximo: 80
   factorEscalaVertical: 0.5
+--- !u!95 &7308084191580998732 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3519150687177630423, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}

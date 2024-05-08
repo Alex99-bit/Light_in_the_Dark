@@ -3,6 +3,7 @@ using LD_GameManager;
 
 public class MoverObjetoConCamara : MonoBehaviour
 {
+    public Animator ballAnimator;
     // Capa que contiene los objetos que se pueden mover
     public LayerMask capaObjetosMovibles;
 
@@ -67,6 +68,9 @@ public class MoverObjetoConCamara : MonoBehaviour
         // Si se mantiene presionado el botón derecho del ratón y hay un objeto seleccionado
         if (Input.GetMouseButton(1) && objetoSeleccionado != null)
         {
+            // Activa la animacion del ball soul
+            ballAnimator.SetBool("Holding",true);
+
             // Actualizar la posición del objeto hacia la posición del puntero
             Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -87,6 +91,8 @@ public class MoverObjetoConCamara : MonoBehaviour
 
                 objetoSeleccionado.position = Vector3.Lerp(objetoSeleccionado.position, hit.point + offset + (movimientoFinal * velocidadMovimiento), velocidadMovimiento * Time.deltaTime);
             }
+        }else{
+            ballAnimator.SetBool("Holding",false);
         }
 
         // Si se suelta el botón derecho del ratón, liberar el objeto seleccionado y restaurar la gravedad
