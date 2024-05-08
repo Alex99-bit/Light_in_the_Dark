@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: platformMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861758, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_Height
@@ -144,7 +149,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   distanciaMaxima: 10
-  velocidadMovimiento: 5
-  anguloMinimo: -90
-  anguloMaximo: 90
-  factorEscalaVertical: 10
+  velocidadMovimiento: 1
+  anguloMinimo: -80
+  anguloMaximo: 80
+  factorEscalaVertical: 0.5
