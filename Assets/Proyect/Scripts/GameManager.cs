@@ -8,7 +8,6 @@ namespace LD_GameManager{
         public static GameManager instance; // Singleton instance
         public GameObject panelPause;
         public GameState currentGameState;
-        public CinemachineFreeLook freeLookCamera;
 
         // Variable para almacenar el nombre de la escena actual
         public string currentScene;
@@ -28,13 +27,9 @@ namespace LD_GameManager{
             }
         }
 
-        void Start()
-        {
-            
-        }
-
         void Update()
         {
+            // Logica para la pausa
             if(currentGameState == GameState.InGame){
                 if(Input.GetButtonDown("pause")){
                     ChangeGameState(GameState.Pause);
