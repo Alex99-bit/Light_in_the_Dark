@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class CN1Event : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Animator ballAnimator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void IniciarAnimacion2BallLight(){
+        ballAnimator.SetTrigger("Next1");
+    } 
 }
