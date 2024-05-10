@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TextGlow : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float glowIntensity = 1.0f;
+    public Color glowColor = Color.white;
+
+    private Material material;
+    private TextMeshProUGUI textMesh;
+
     void Start()
     {
-        
+        textMesh = GetComponent<TextMeshProUGUI>();
+        material = textMesh.fontMaterial;
+        material.EnableKeyword("GLOW_ON");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        material.SetColor("_GlowColor", glowColor);
+        material.SetFloat("_GlowPower", glowIntensity);
     }
 }
