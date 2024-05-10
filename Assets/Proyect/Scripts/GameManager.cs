@@ -12,10 +12,6 @@ namespace LD_GameManager{
         // Variable para almacenar el nombre de la escena actual
         public string currentScene;
 
-        #region "Start Game Staff"
-            public Animator cameraStartGame;
-        #endregion;
-
 
         void Awake()
         {
@@ -86,11 +82,6 @@ namespace LD_GameManager{
         public void LoadScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName);
-        }
-
-        //Metodo para iniciar la trancision para iniciar el juego
-        public void StartGame(){
-            //cameraStartGame.SetTrigger("StartGame");
         }
 
         // Método para obtener el nombre de la escena actual
