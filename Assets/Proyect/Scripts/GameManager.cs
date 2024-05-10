@@ -90,13 +90,17 @@ namespace LD_GameManager{
 
         //Metodo para iniciar la trancision para iniciar el juego
         public void StartGame(){
-
+            //cameraStartGame.SetTrigger("StartGame");
         }
 
         // Método para obtener el nombre de la escena actual
         public string GetCurrentScene()
         {
             return currentScene = SceneManager.GetActiveScene().name;
+        }
+
+        public void ExitGame(){
+            Application.Quit();
         }
     }
 
