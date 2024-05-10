@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using LD_GameManager;
 
 public class EnemyTipe1 : MonoBehaviour
 {
@@ -64,25 +65,30 @@ public class EnemyTipe1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        try
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        catch (System.NullReferenceException e)
-        {
-            Debug.LogWarning("El objeto Player no se ha encontrado: " + e.Message);
-        }
+        if(GameManager.instance.currentGameState == GameState.InGame){
+            try
+            {
+                player = GameObject.FindGameObjectWithTag("Player").transform;
+            }
+            catch (System.NullReferenceException e)
+            {
+                Debug.LogWarning("El objeto Player no se ha encontrado: " + e.Message);
+            }
 
-        if (vidaEnemy <= 0)
-        {
-            // En su lugar ira una animacion de muerte y despues de un tiempo desaparecera el cadaver
-            Destroy(this.gameObject);
+            if (vidaEnemy <= 0)
+            {
+                // En su lugar ira una animacion de muerte y despues de un tiempo desaparecera el cadaver
+                Destroy(this.gameObject);
+            }
+        }else{
+            // Para que deje de moverse si esta en pausa
+            agent.ResetPath();
         }
     }
 
     private void FixedUpdate() {
 
-        if(player != null){
+        if(player != null && GameManager.instance.currentGameState == GameState.InGame){
             ThreadAI();
         }
     }

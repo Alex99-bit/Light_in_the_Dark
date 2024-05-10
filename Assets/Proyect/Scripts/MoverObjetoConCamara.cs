@@ -19,21 +19,12 @@ public class MoverObjetoConCamara : MonoBehaviour
     // Offset para mantener la distancia entre el objeto y el puntero
     private Vector3 offset;
 
-    // Referencia al controlador del jugador
-    private CharacterController controladorJugador;
-
     // Ángulo mínimo y máximo de inclinación de la cámara
     public float anguloMinimo = -80f;
     public float anguloMaximo = 80f;
 
     // Factor de escala para el movimiento vertical
     public float factorEscalaVertical = 0.5f;
-
-    void Start()
-    {
-        // Obtener referencia al controlador del jugador
-        controladorJugador = GetComponent<CharacterController>();
-    }
 
     void Update()
     {
