@@ -14,6 +14,8 @@ public class BulletEvent : MonoBehaviour
 
     public Animator camAnimator;
 
+    private Dictionary<GameObject, Coroutine> deactivateRoutines = new Dictionary<GameObject, Coroutine>();
+
     private void Awake()
     {
         player = GetComponentInParent<Polyperfect.Universal.PlayerMovement>();
@@ -33,6 +35,12 @@ public class BulletEvent : MonoBehaviour
         // Activar el proyectil
         bullet.SetActive(true);
 
+        // Si la bala ya tiene una corrutina de desactivación, cancelarla
+        if (deactivateRoutines.ContainsKey(bullet)) {
+            StopCoroutine(deactivateRoutines[bullet]);
+            deactivateRoutines.Remove(bullet);
+        }
+
         // Obtener el componente Rigidbody del proyectil
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 
@@ -44,20 +52,25 @@ public class BulletEvent : MonoBehaviour
         bulletRb.AddForce(shootDirection * bulletForce, ForceMode.Impulse);
 
         // En lugar de destruir el proyectil, lo desactivamos después de un tiempo
-        //StartCoroutine(DeactivateBullet(bullet, 5f));
+        Coroutine deactivateRoutine = StartCoroutine(DeactivateBullet(bullet, 5f));
+        deactivateRoutines.Add(bullet, deactivateRoutine);
     }
+
 
     IEnumerator DeactivateBullet(GameObject bullet, float delay) {
         yield return new WaitForSeconds(delay);
-    
-        // Obtener el componente Rigidbody del proyectil
-        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-
-        // Solo desactivar la bala si ya no está en movimiento
-        if (bulletRb.velocity.magnitude < 0.1f) {
+        
+        // Solo desactivar la bala si todavía está activa
+        if (bullet.activeInHierarchy) {
             bullet.SetActive(false);
         }
+
+        // Eliminar la referencia a la corrutina
+        if (deactivateRoutines.ContainsKey(bullet)) {
+            deactivateRoutines.Remove(bullet);
+        }
     }
+
 
 
 
