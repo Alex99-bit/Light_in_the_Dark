@@ -38,8 +38,12 @@ public class EnemyTipe1 : MonoBehaviour
         private float timeSinceLastSawPlayer = 0f;
     #endregion;
 
-    // Prefab para el disparo
-    public GameObject darkLight;
+    #region "Cosas para el disparo"
+        // Prefab para el disparo
+        public GameObject darkLight;
+        public float fireRate,bulletForce; // Tasa de disparo en segundos
+        public Transform firePoint, thisEnemy;
+    #endregion;
 
     // Duraci�n del cambio de color
     public float duracionCambioColor = 0.5f;
@@ -125,7 +129,7 @@ public class EnemyTipe1 : MonoBehaviour
             // Si el jugador está dentro del rango de ataque
             if (Vector3.Distance(transform.position, player.position) < attackRange)
             {
-                // Disparar al jugador (aquí debes implementar tu lógica de disparo)
+                ShootDarkSoul();
                 Debug.Log("¡Disparando al jugador!");
             }
         }
@@ -153,6 +157,23 @@ public class EnemyTipe1 : MonoBehaviour
             currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
+    }
+
+    void ShootDarkSoul(){
+        // Obtener la dirección de disparo basada en la rotación de la cámara
+        Vector3 shootDirection = thisEnemy.transform.forward;
+
+        // Instanciar el proyectil en el punto de origen del disparo
+        GameObject bullet = Instantiate(darkLight, firePoint.position, Quaternion.LookRotation(shootDirection));
+
+        // Obtener el componente Rigidbody del proyectil
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+
+        // Aplicar una fuerza hacia adelante al proyectil
+        bulletRb.AddForce(shootDirection * bulletForce, ForceMode.Impulse);
+
+        // Destruir el proyectil después de un tiempo (por ejemplo, 3 segundos)
+        Destroy(bullet, 5f);
     }
 
     private void OnCollisionEnter(Collision other) {
