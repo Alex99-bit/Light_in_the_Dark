@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4779904354770086193}
   - component: {fileID: 3627946243450705766}
   - component: {fileID: 7832784323166096264}
+  - component: {fileID: -1739192327459889702}
   m_Layer: 6
   m_Name: BulletDark
   m_TagString: DarkSoul
@@ -134,6 +135,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-1739192327459889702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388003560355883056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf00de51791fc44d8f10e5d15bcbb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7864494062300471930
 GameObject:
   m_ObjectHideFlags: 0

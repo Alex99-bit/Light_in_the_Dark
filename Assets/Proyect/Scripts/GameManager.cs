@@ -1,6 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 namespace LD_GameManager{
     public class GameManager : MonoBehaviour
@@ -11,6 +12,13 @@ namespace LD_GameManager{
 
         // Variable para almacenar el nombre de la escena actual
         public string currentScene;
+
+        #region "Pooling de balas"
+            public GameObject bulletPrefab;
+            public int poolSize = 20;
+            private List<GameObject> bulletPool;
+
+        #endregion;
 
 
         void Awake()
@@ -26,6 +34,16 @@ namespace LD_GameManager{
                 Destroy(gameObject);
             }
         }
+
+        void Start() {
+            bulletPool = new List<GameObject>();
+            for (int i = 0; i < poolSize; i++) {
+                GameObject bullet = Instantiate(bulletPrefab);
+                bullet.SetActive(false);
+                bulletPool.Add(bullet);
+            }
+        }
+
 
         void Update()
         {
@@ -93,6 +111,18 @@ namespace LD_GameManager{
         public void ExitGame(){
             Application.Quit();
         }
+
+        public GameObject GetBullet() {
+            foreach (GameObject bullet in bulletPool) {
+                if (!bullet.activeInHierarchy) {
+                    return bullet;
+                }
+            }
+            GameObject newBullet = Instantiate(bulletPrefab);
+            bulletPool.Add(newBullet);
+            return newBullet;
+        }
+
     }
 
     public enum GameState
