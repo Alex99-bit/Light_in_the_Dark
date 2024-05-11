@@ -26,7 +26,7 @@ public class BulletEvent : MonoBehaviour
         Vector3 shootDirection = cameraTransform.forward;
 
         // Obtener un proyectil del pool en lugar de instanciar uno nuevo
-        GameObject bullet = GameManager.instance.GetBullet();
+        GameObject bullet = GameManager.instance.GetPlayerBullet();
 
         // Configurar la posición y la rotación del proyectil
         bullet.transform.position = firePoint.position;

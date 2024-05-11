@@ -13,11 +13,16 @@ namespace LD_GameManager{
         // Variable para almacenar el nombre de la escena actual
         public string currentScene;
 
-        #region "Pooling de balas"
-            public GameObject bulletPrefab;
-            public int poolSize = 20;
-            private List<GameObject> bulletPool;
+        #region "Pooling de balas player"
+            public GameObject bulletPlayerPrefab;
+            public int poolSizePlayer;
+            private List<GameObject> bulletPlayerPool;
+        #endregion;
 
+        #region "Pooling de balas enemy"
+            public GameObject bulletEnemyPrefab;
+            public int poolSizeEnemy;
+            private List<GameObject> bulletEnemyPool;
         #endregion;
 
 
@@ -36,12 +41,15 @@ namespace LD_GameManager{
         }
 
         void Start() {
-            bulletPool = new List<GameObject>();
-            for (int i = 0; i < poolSize; i++) {
-                GameObject bullet = Instantiate(bulletPrefab);
-                bullet.SetActive(false);
-                bulletPool.Add(bullet);
+            if(poolSizeEnemy == 0){
+                poolSizeEnemy = 50;
             }
+
+            if(poolSizePlayer == 0){
+                poolSizePlayer = 15;
+            }
+            SetPlayerBulletPool();
+            SetEnemyBulletPool();
         }
 
 
@@ -112,15 +120,44 @@ namespace LD_GameManager{
             Application.Quit();
         }
 
-        public GameObject GetBullet() {
-            foreach (GameObject bullet in bulletPool) {
+        public GameObject GetPlayerBullet() {
+            foreach (GameObject bullet in bulletPlayerPool) {
                 if (!bullet.activeInHierarchy) {
                     return bullet;
                 }
             }
-            GameObject newBullet = Instantiate(bulletPrefab);
-            bulletPool.Add(newBullet);
+            GameObject newBullet = Instantiate(bulletPlayerPrefab);
+            bulletPlayerPool.Add(newBullet);
             return newBullet;
+        }
+
+        public GameObject GetEnemyBullet() {
+            foreach (GameObject bullet in bulletEnemyPool) {
+                if (!bullet.activeInHierarchy) {
+                    return bullet;
+                }
+            }
+            GameObject newBullet = Instantiate(bulletEnemyPrefab);
+            bulletEnemyPool.Add(newBullet);
+            return newBullet;
+        }
+
+        void SetPlayerBulletPool(){
+            bulletPlayerPool = new List<GameObject>();
+            for (int i = 0; i < poolSizePlayer; i++) {
+                GameObject bullet = Instantiate(bulletPlayerPrefab);
+                bullet.SetActive(false);
+                bulletPlayerPool.Add(bullet);
+            }
+        }
+
+        void SetEnemyBulletPool(){
+            bulletEnemyPool = new List<GameObject>();
+            for (int i = 0; i < poolSizeEnemy; i++) {
+                GameObject bullet = Instantiate(bulletEnemyPrefab);
+                bullet.SetActive(false);
+                bulletEnemyPool.Add(bullet);
+            }
         }
 
     }

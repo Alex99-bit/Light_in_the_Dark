@@ -44,6 +44,7 @@ public class EnemyTipe1 : MonoBehaviour
         public float fireRate,bulletForce,cronoRate; // Tasa de disparo en segundos
         public Transform firePoint, thisEnemy;
         public float rotationSpeed = 1.5f;
+        private Dictionary<GameObject, Coroutine> deactivateRoutines = new Dictionary<GameObject, Coroutine>();
     #endregion;
 
     // Duraci�n del cambio de color
@@ -175,17 +176,49 @@ public class EnemyTipe1 : MonoBehaviour
         // Obtener la dirección de disparo basada en la dirección hacia el jugador
         Vector3 shootDirection = (player.position - transform.position).normalized;
 
-        // Instanciar el proyectil en el punto de origen del disparo
-        GameObject bullet = Instantiate(darkLight, firePoint.position, Quaternion.LookRotation(shootDirection));
+        // Obtener un proyectil del pool en lugar de instanciar uno nuevo
+        GameObject bullet = GameManager.instance.GetEnemyBullet();
+
+        // Configurar la posición y la rotación del proyectil
+        bullet.transform.position = firePoint.position;
+        bullet.transform.rotation = Quaternion.LookRotation(shootDirection);
+
+        // Activar el proyectil
+        bullet.SetActive(true);
+
+        // Si la bala ya tiene una corrutina de desactivación, cancelarla
+        if (deactivateRoutines.ContainsKey(bullet)) {
+            StopCoroutine(deactivateRoutines[bullet]);
+            deactivateRoutines.Remove(bullet);
+        }
 
         // Obtener el componente Rigidbody del proyectil
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
 
+        // Resetear la velocidad del proyectil
+        bulletRb.velocity = Vector3.zero;
+        bulletRb.angularVelocity = Vector3.zero;
+
         // Aplicar una fuerza hacia adelante al proyectil
         bulletRb.AddForce(shootDirection * bulletForce, ForceMode.Impulse);
 
-        // Destruir el proyectil después de un tiempo (por ejemplo, 3 segundos)
-        Destroy(bullet, 5f);
+        // En lugar de destruir el proyectil, lo desactivamos después de un tiempo
+        Coroutine deactivateRoutine = StartCoroutine(DeactivateBullet(bullet, 5f));
+        deactivateRoutines.Add(bullet, deactivateRoutine);
+    }
+
+    IEnumerator DeactivateBullet(GameObject bullet, float delay) {
+        yield return new WaitForSeconds(delay);
+        
+        // Solo desactivar la bala si todavía está activa
+        if (bullet.activeInHierarchy) {
+            bullet.SetActive(false);
+        }
+
+        // Eliminar la referencia a la corrutina
+        if (deactivateRoutines.ContainsKey(bullet)) {
+            deactivateRoutines.Remove(bullet);
+        }
     }
 
 
