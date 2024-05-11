@@ -1,0 +1,476 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using LD_GameManager;
+
+namespace Polyperfect.Universal
+{
+    public class PlayerMovement : MonoBehaviour
+    {
+        //public static PlayerMovement instance;
+        [SerializeField]
+        string currentLvl;
+
+        #region "Vida"
+        public float vidaMax = 100;
+            public float vida;
+            [SerializeField]
+            float cooldown, actualSec;
+            bool puedeRecargar;
+        #endregion;
+
+        #region "Light"
+            public Light ballLight;
+            public Material ballLighning;
+            public GameObject ballSoul;
+            public Animator lightAnimator;
+            public bool shieldActive;
+        #endregion;
+
+        #region "Camera Animation"
+            public Animator cameraAnimator;
+        #endregion;
+
+        #region  "Camera General Player"
+            public Camera mainCameraPlayer;
+            float farCamera;
+        #endregion;
+
+        public SkinnedMeshRenderer playerMesh;
+
+        // Activa o desactiva el caminar
+        public static bool puedeCaminar;
+
+        bool ballSoulActive;
+        public CharacterController controller;
+        public Transform cameraTransform; // Referencia al transform de la cámara
+        public float speed;
+        public float gravity = -9.81f;
+        public float jumpHeight = 3f;
+
+        float rotAux;
+
+        public float speedUp;
+
+        public Transform groundCheck;
+        public float groundDistance = 0.4f;
+        public LayerMask groundMask, platformMask;
+
+        Transform thisGameObject;
+
+
+        public Animator animator;
+        Vector3 velocity;
+        bool isGrounded, isPlatform;
+        
+        public float maxAngle = 30f;
+        public float minAngle = -40f;
+
+        // Variable para mantener el estado anterior de la rotación de la cámara
+        private float previousCameraRotationY;
+
+        private void Start() 
+        {
+            cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
+            thisGameObject = this.GetComponent<Transform>();
+            speedUp = 1;
+            rotAux = 0;
+
+            vida = vidaMax;
+            shieldActive = false;
+            puedeCaminar = true;
+
+            // Cpsas para la pelorira de vida
+            ballSoulActive = true;
+            ballSoul.SetActive(ballSoulActive);
+            ballLighning.color = Color.white;
+            ballLight.color = Color.white;
+
+            if(cooldown == 0){
+                cooldown = 5;
+            }
+            puedeRecargar = false;
+            actualSec = 0;
+
+            // Esta variable tendra que tomar el valor del game manager
+            currentLvl = GameManager.instance.GetCurrentScene();
+
+            // Inicializar previousCameraRotationY con la rotación inicial de la cámara
+            previousCameraRotationY = thisGameObject.localEulerAngles.y;
+
+            playerMesh = GetComponentInChildren<SkinnedMeshRenderer>();
+
+            ComportamientoNiveles();
+        }
+
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (GameManager.instance.currentGameState == GameState.InGame)
+            {
+                EnableMesh();
+
+                controller = GetComponent<CharacterController>();
+                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+                isPlatform = Physics.CheckSphere(groundCheck.position, groundDistance, platformMask);
+
+                // Obtener la rotación actual de la cámara
+                Vector3 currentRotation = cameraTransform.localEulerAngles;
+
+                // Obtener el ángulo actual en el eje X
+                float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
+                // Aplicar la rotación restringida
+                cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
+                mainCameraPlayer.enabled = true;
+
+                #region "Cooldown para recargar la vida"
+                if(vida < vidaMax){
+                    // Si lo atacan, el actualSec se vuelve cero
+                    actualSec += Time.deltaTime;
+                    if(actualSec >= cooldown){
+                        actualSec = 0;
+                        puedeRecargar = true;
+                    }
+                }else{
+                    actualSec = 0;
+                }
+                #endregion;
+
+
+                #region "UI diegetica para la vida"
+                // Calcular el factor de mezcla basado en la vida actual
+                float blendFactor = 1f - (vida / vidaMax);
+
+                // Interpolar entre blanco, amarillo, naranja y rojo
+                Color colorInterpolado;
+                if (blendFactor < 0.5f)
+                {
+                    colorInterpolado = Color.Lerp(Color.white, Color.yellow, blendFactor * 2f);
+                }
+                else
+                {
+                    colorInterpolado = Color.Lerp(Color.yellow, Color.red, (blendFactor - 0.5f) * 2f);
+                }
+
+                // Establecer el color en el material
+                ballLighning.color = colorInterpolado;
+                ballLight.color = colorInterpolado;
+
+                /*ballLight.intensity = 0;
+                ballLighning.color = Color.black;*/
+                #endregion;
+
+                #region "Logica para todos los movimientos basicos"
+                if (puedeCaminar)
+                {
+                    Walk();
+                    Jump();
+                    ShootingLight();
+                    ActiveShield();
+                }
+                #endregion;
+            }
+            else if (GameManager.instance.currentGameState == GameState.cinematic){
+                mainCameraPlayer.enabled = false;
+                Walk();
+                DisableMesh();
+            }
+
+        }
+
+        private void FixedUpdate() 
+        {
+            if(GameManager.instance.currentGameState == GameState.InGame){
+                SpeedUp();
+                RecargaVida();
+            }
+        }
+
+        public void SetPuedeCaminarTrue()
+        {
+            puedeCaminar = true;
+        }
+
+        public void SetPuedeCaminarFalse()
+        {
+            puedeCaminar = false;
+        }
+
+        void ComportamientoNiveles()
+        {
+            #region "Logica para cambiar que tan lejos puede ver"
+            if (currentLvl == "Level2")
+            {
+                farCamera = 30;
+                ballSoulActive = true;
+                ballSoul.SetActive(ballSoulActive);
+            }
+
+            if (currentLvl == "Level1")
+            {
+                farCamera = 120;
+                ballSoulActive = false;
+                ballSoul.SetActive(ballSoulActive);
+            }
+
+            if(currentLvl == "LvlTutorial")
+            {
+                farCamera = 120;
+                ballSoulActive = true;
+                ballSoul.SetActive(ballSoulActive);
+            }
+
+            mainCameraPlayer.farClipPlane = farCamera;
+            #endregion;
+        }
+
+        void Walk()
+        {
+            Vector3 currentTransform = thisGameObject.localEulerAngles;
+
+            if ((isGrounded || isPlatform) && velocity.y < 0)
+            {
+                controller.slopeLimit = 45.0f;
+                velocity.y = -2f;
+                animator.ResetTrigger("Salto");
+                animator.SetBool("IsGround",true);
+            }
+
+            if(!isGrounded && !isPlatform){
+                animator.SetBool("IsGround",false);
+            }
+
+            float x = Input.GetAxis("Horizontal") * speedUp;
+            float z = Input.GetAxis("Vertical") * speedUp;
+
+            if((Input.GetButton("Fire1") && Input.GetButton("Jump")) || GameManager.instance.currentGameState == GameState.cinematic){
+                x = 0;
+                z = 0; 
+            }
+
+            // Calcular el cambio en la rotación de la cámara desde el frame anterior
+            float rotationChange = currentTransform.y - previousCameraRotationY;
+
+            //Debug.Log("rotacion: "+RotationAuxiliar(rotationChange));
+
+
+            if(x == 0){
+                // Determinar si la cámara está rotando hacia la derecha o hacia la izquierda
+                animator.SetFloat("XSpeed",RotationAuxiliar(rotationChange)*0.5f);
+                cameraAnimator.SetFloat("SpeedX",RotationAuxiliar(rotationChange)*0.5f);
+            }else{
+                animator.SetFloat("XSpeed",x);
+                cameraAnimator.SetFloat("SpeedX",x);
+            }
+
+            animator.SetFloat("YSpeed",z);
+            cameraAnimator.SetFloat("SpeedY",z);
+
+            // Actualizar la rotación anterior para el próximo frame
+            previousCameraRotationY = currentTransform.y;
+            
+            Vector3 move = transform.right * x + transform.forward * z;
+            if (move.magnitude > 0){
+                move /= move.magnitude;
+            }
+
+            controller.Move(move * speed * Time.deltaTime);
+        }
+
+        void Jump()
+        {
+            // Esto sirve para que el salto dependa de la velocidad o carrerilla que lleve
+            jumpHeight = speedUp;
+
+            if (Input.GetButtonDown("Jump") && (isGrounded || isPlatform))
+            {
+                animator.SetTrigger("Salto");
+                controller.slopeLimit = 100.0f;
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
+        }
+
+        void ShootingLight()
+        {
+            if(Input.GetButtonDown("Fire1") && (isGrounded || isPlatform) && ballSoulActive && !shieldActive){
+
+                animator.SetTrigger("LightShoot");
+            }
+        }
+
+        void ActiveShield()
+        {
+            if(Input.GetKeyDown(KeyCode.Q) && isGrounded && ballSoulActive)
+            {
+                shieldActive = true;
+                lightAnimator.SetBool("Shield", shieldActive);
+            }
+
+            if(Input.GetKeyUp(KeyCode.Q) && isGrounded && ballSoulActive && shieldActive)
+            {
+                shieldActive = false;
+                lightAnimator.SetBool("Shield", shieldActive);
+            }
+        }
+
+        void SpeedUp()
+        {
+            float speedUpAux = 0.1f;
+            if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.W) && !Input.GetButton("Fire1")){
+                if(speedUp < 2){
+                    speedUp += speedUpAux;
+                    speed += (speedUpAux * 4f);
+                }else{
+                    speedUp = 2;
+                }
+            }else{
+                if(speedUp > 1){
+                   speedUp -= speedUpAux; 
+                   speed -= (speedUpAux * 4f);
+                }else{
+                    speedUp = 1;
+                }
+            }
+        }
+
+        void GameOver()
+        {
+            if(vida <= 0){
+                animator.SetBool("IsDead",true);
+            }
+        }
+
+        void GameReset()
+        {
+            vidaMax = 100;
+            vida = vidaMax;
+            animator.SetBool("IsDead",false);
+
+            // Regresar el transform a un punto de spawn
+            // o en su defecto destruir al player 
+        }
+
+        float RotationAuxiliar(float rotation)
+        {
+            float valor = 1f;
+            float maxValor = 2f;
+
+            if (rotation > 0)
+            {
+                rotAux += (valor * (Time.deltaTime * maxValor));
+                if (rotAux >= maxValor)
+                {
+                    rotAux = maxValor;
+                }
+            }
+            else if (rotation < 0)
+            {
+                rotAux -= (valor * (Time.deltaTime * maxValor));
+                if (rotAux <= -maxValor)
+                {
+                    rotAux = -maxValor;
+                }
+            }
+            else // Si rotation es igual a cero
+            {
+                if (rotAux >= -0.1)
+                {
+                    rotAux -= (valor * (Time.deltaTime * maxValor * 1.5f));
+                    if (rotAux <= 0)
+                    {
+                        rotAux = 0;
+                    }
+                }
+                else if (rotAux <= -0.1)
+                {
+                    rotAux += (valor * (Time.deltaTime * maxValor * 1.5f));
+                    if (rotAux >= 0)
+                    {
+                        rotAux = 0;
+                    }
+                }
+            }
+
+            return rotAux;
+        }
+
+
+        // Recarga la vida
+        void RecargaVida(){
+            if(puedeRecargar){
+                vida += 1;
+                if (vida >= 100)
+                {
+                    vida = 100;
+                    puedeRecargar = false;
+                }
+            }
+        }
+
+
+        // Método para restringir un ángulo dentro de un rango específico
+        float ClampAngle(float angle, float min, float max)
+        {
+            if (angle > 180f)
+                angle -= 360f;
+
+            angle = Mathf.Clamp(angle, min, max);
+
+            if (angle < 0f)
+                angle += 360f;
+
+            return angle;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("DeadZone"))
+            {
+                GameOver();
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (ballSoulActive)
+            {
+                // Logica de daño de balas enemigas
+                if (collision.gameObject.CompareTag("DarkSoul"))
+                {
+                    #region "Logica de daño"
+                    puedeRecargar = false;
+                    actualSec = 0;
+                    vida -= 15;
+
+                    if(vida <= 0){
+                        vida = 0;
+                    }
+                    #endregion;
+                }
+
+                // Logica de daño de colision con el enemigo
+                if (collision.gameObject.CompareTag("Enemy"))
+                {
+
+                }
+            }
+        }
+
+        #region "Enable / Disable Mesh Player"
+            void EnableMesh(){
+                playerMesh.enabled = true;
+            }
+
+            void DisableMesh(){
+                playerMesh.enabled = false;
+            }
+        #endregion;
+
+    }
+}

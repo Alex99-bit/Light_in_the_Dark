@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7832784323166096264}
   m_Layer: 6
   m_Name: BulletDark
-  m_TagString: Bullet Light
+  m_TagString: DarkSoul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
