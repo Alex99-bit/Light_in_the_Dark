@@ -9,7 +9,6 @@ public class EnemyTipe1 : MonoBehaviour
     #region "Light stuff"
         // Referencia al renderer del objeto
         public Renderer meshRenderer;
-
         // Colores originales y de da�o
         private Color colorOriginal;
         public Color nuevoColor;
@@ -38,6 +37,9 @@ public class EnemyTipe1 : MonoBehaviour
         [SerializeField]
         private float timeSinceLastSawPlayer = 0f;
     #endregion;
+
+    // Prefab para el disparo
+    public GameObject darkLight;
 
     // Duraci�n del cambio de color
     public float duracionCambioColor = 0.5f;

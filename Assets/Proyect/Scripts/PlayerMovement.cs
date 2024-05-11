@@ -301,12 +301,6 @@ namespace Polyperfect.Universal
             if(Input.GetButtonDown("Fire1") && (isGrounded || isPlatform) && ballSoulActive && !shieldActive){
 
                 animator.SetTrigger("LightShoot");
-                
-                #region "Logica de daño"
-                puedeRecargar = false;
-                actualSec = 0;
-                vida -= 15;
-                #endregion;
             }
         }
 
@@ -449,7 +443,11 @@ namespace Polyperfect.Universal
                 // Logica de daño de balas enemigas
                 if (collision.gameObject.CompareTag("DarkSoul"))
                 {
-
+                    #region "Logica de daño"
+                    puedeRecargar = false;
+                    actualSec = 0;
+                    vida -= 15;
+                    #endregion;
                 }
 
                 // Logica de daño de colision con el enemigo
