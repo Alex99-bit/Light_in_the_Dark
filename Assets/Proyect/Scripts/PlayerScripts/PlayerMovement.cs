@@ -13,7 +13,7 @@ namespace Polyperfect.Universal
         string currentLvl;
 
         #region "Vida"
-        public float vidaMax = 100;
+            public float vidaMax = 100;
             public float vida;
             [SerializeField]
             float cooldown, actualSec;

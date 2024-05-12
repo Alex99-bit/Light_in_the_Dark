@@ -31,7 +31,7 @@ public class BulletEvent : MonoBehaviour
         // Configurar la posición y la rotación del proyectil
         bullet.transform.position = firePoint.position;
         bullet.transform.rotation = Quaternion.LookRotation(shootDirection);
-
+        
         // Activar el proyectil
         bullet.SetActive(true);
 
