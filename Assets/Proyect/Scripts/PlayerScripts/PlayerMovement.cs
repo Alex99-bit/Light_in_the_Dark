@@ -198,9 +198,10 @@ namespace Polyperfect.Universal
             puedeCaminar = false;
         }
 
+        // Se decide cosas tecnicas del jugador dependiendo el nivel y el estado
         void ComportamientoNiveles()
         {
-            #region "Logica para cambiar que tan lejos puede ver"
+            #region "Logica del comportamiento dependiendo el nivel"
             if (currentLvl == "Level2")
             {
                 farCamera = 30;
@@ -218,7 +219,13 @@ namespace Polyperfect.Universal
             if(currentLvl == "LvlTutorial")
             {
                 farCamera = 120;
-                ballSoulActive = true;
+                
+                if(GameManager.instance.currentGameState == GameState.cinematic){
+                    ballSoulActive = false;
+                }else{
+                    ballSoulActive = true;
+                }
+
                 ballSoul.SetActive(ballSoulActive);
             }
 
