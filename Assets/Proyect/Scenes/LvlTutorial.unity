@@ -171,9 +171,11 @@ MonoBehaviour:
   panelPause: {fileID: 0}
   currentGameState: 1
   currentScene: 
-  bulletPlayerPrefab: {fileID: 0}
+  bulletPlayerPrefab: {fileID: 4388003560355883056, guid: d74f6e56c9db481459004c5306fc41dd,
+    type: 3}
   poolSizePlayer: 0
-  bulletEnemyPrefab: {fileID: 0}
+  bulletEnemyPrefab: {fileID: 4388003560355883056, guid: f3fe74ce913c88745a7f6236e63469a6,
+    type: 3}
   poolSizeEnemy: 0
 --- !u!1001 &210486403
 PrefabInstance:
