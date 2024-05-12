@@ -12,6 +12,7 @@ public class CN1Event : MonoBehaviour
     }
 
     public void IniciarAnimacion2BallLight(){
+        //Debug.Log("Si se ejecuta perrooooooooooooo");
         ballAnimator.SetTrigger("Next1");
     } 
 }
