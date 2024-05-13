@@ -832,6 +832,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - BEVEL_ON
+  - GLOW_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -879,9 +880,9 @@ Material:
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlowInner: 0
-    - _GlowOffset: -0.22
-    - _GlowOuter: 0.643
+    - _GlowInner: 1
+    - _GlowOffset: -0.36
+    - _GlowOuter: 0.61
     - _GlowPower: 1
     - _GradientScale: 10
     - _LightAngle: 6.28
