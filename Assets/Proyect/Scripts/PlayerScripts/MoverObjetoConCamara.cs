@@ -89,9 +89,26 @@ public class MoverObjetoConCamara : MonoBehaviour
         // Si se suelta el botón derecho del ratón, liberar el objeto seleccionado y restaurar la gravedad
         if (Input.GetMouseButtonUp(1))
         {
-            objetoSeleccionado.GetComponent<Rigidbody>().useGravity = true;
-            objetoSeleccionado = null;
+            if (objetoSeleccionado != null)
+            {
+                Rigidbody rb = objetoSeleccionado.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.useGravity = true;
+                }
+                else
+                {
+                    Debug.LogWarning("El objeto seleccionado no tiene un componente Rigidbody.");
+                }
+
+                objetoSeleccionado = null;
+            }
+            else
+            {
+                Debug.LogWarning("No hay ningún objeto seleccionado.");
+            }
         }
+
     }
 
     void MoverAltura(){

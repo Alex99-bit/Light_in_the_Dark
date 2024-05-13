@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.08646, g: 324.98563, b: 432.62164, a: 1}
+  m_IndirectSpecularColor: {r: 0.025713895, g: 0.012284758, b: 0.010732354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 4178574491918331859, guid: c49392c42316aa747ac88209726d7c0f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4442720426329587230, guid: c49392c42316aa747ac88209726d7c0f,
         type: 3}
@@ -2342,7 +2342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &512595854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2472,7 +2472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &759401568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,7 +2526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &915442088
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5316,7 +5316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &954294742
 Transform:
   m_ObjectHideFlags: 0
@@ -5326,7 +5326,7 @@ Transform:
   m_GameObject: {fileID: 954294741}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 401.04, y: 0.256, z: -1174.6}
+  m_LocalPosition: {x: 401.86, y: 0.256, z: -1174.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5359,13 +5359,14 @@ GameObject:
   - component: {fileID: 1015233636}
   - component: {fileID: 1015233635}
   - component: {fileID: 1015233639}
+  - component: {fileID: 1015233640}
   m_Layer: 0
   m_Name: BallLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &1015233635
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5473,6 +5474,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1015233640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015233634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69522460055de1c43821d3e28271ca76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCN1: {fileID: 1015233634}
+  playerCN1: {fileID: 210486404}
 --- !u!1 &1017984754
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,7 +5503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1017984755
 Transform:
   m_ObjectHideFlags: 0
@@ -5521,7 +5536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1033208400
 Transform:
   m_ObjectHideFlags: 0
@@ -5575,7 +5590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1090725990
 Light:
   m_ObjectHideFlags: 0
@@ -5792,7 +5807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1114123623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5849,7 +5864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1417531305
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6308,7 +6323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1864394374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6526,7 +6541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &2004700797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6748,7 +6763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &2125302785
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -178,6 +178,8 @@ namespace Polyperfect.Universal
                 DisableMesh();
             }
 
+            ComportamientoNiveles_Update();
+
         }
 
         private void FixedUpdate() 
@@ -199,6 +201,7 @@ namespace Polyperfect.Universal
         }
 
         // Se decide cosas tecnicas del jugador dependiendo el nivel y el estado
+        // Solo se ejecuta una vez
         void ComportamientoNiveles()
         {
             #region "Logica del comportamiento dependiendo el nivel"
@@ -215,22 +218,25 @@ namespace Polyperfect.Universal
                 ballSoulActive = false;
                 ballSoul.SetActive(ballSoulActive);
             }
+            mainCameraPlayer.farClipPlane = farCamera;
+            #endregion;
+        }
 
+        // Se ejecuta en el update
+        void ComportamientoNiveles_Update(){
             if(currentLvl == "LvlTutorial")
             {
                 farCamera = 120;
                 
                 if(GameManager.instance.currentGameState == GameState.cinematic){
                     ballSoulActive = false;
-                }else{
+                }else if (GameManager.instance.currentGameState == GameState.InGame){
                     ballSoulActive = true;
                 }
 
                 ballSoul.SetActive(ballSoulActive);
+                mainCameraPlayer.farClipPlane = farCamera;
             }
-
-            mainCameraPlayer.farClipPlane = farCamera;
-            #endregion;
         }
 
         void Walk()

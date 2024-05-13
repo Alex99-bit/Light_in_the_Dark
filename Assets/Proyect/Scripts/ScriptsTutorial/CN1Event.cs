@@ -11,8 +11,8 @@ public class CN1Event : MonoBehaviour
         GameManager.instance.ChangeGameState(GameState.cinematic);
     }
 
-    public void IniciarAnimacion2BallLight(){
-        //Debug.Log("Si se ejecuta perrooooooooooooo");
+    public void CN1EventBallLight(){
+        Debug.Log("Si se ejecuta perrooooooooooooo");
         ballAnimator.SetTrigger("Next1");
     } 
 }
