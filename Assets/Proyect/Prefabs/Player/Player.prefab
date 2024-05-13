@@ -33,6 +33,11 @@ PrefabInstance:
       propertyPath: antialiasing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: allowDeepLearningSuperSampling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2609138966888831036, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_LocalPosition.x

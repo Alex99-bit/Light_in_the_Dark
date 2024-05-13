@@ -48,8 +48,11 @@ namespace LD_GameManager{
             if(poolSizePlayer == 0){
                 poolSizePlayer = 15;
             }
-            SetPlayerBulletPool(); 
-            SetEnemyBulletPool();
+
+            if(currentScene != "Lobby" || currentScene != "Level1"){
+                SetPlayerBulletPool(); 
+                SetEnemyBulletPool();
+            }
         }
 
 

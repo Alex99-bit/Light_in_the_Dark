@@ -15,19 +15,19 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 3
   rayTracing:
     m_OverrideState: 0
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 2
   directLightingStrength:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.6
   radius:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   spatialBilateralAggressiveness:
     m_OverrideState: 0
     m_Value: 0.15
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Value: 4
   m_FullResolution:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   m_MaximumRadiusInPixels:
     m_OverrideState: 1
     m_Value: 32
@@ -96,16 +96,16 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   intensity:
     m_OverrideState: 1
     m_Value: 5
   maximumVelocity:
-    m_OverrideState: 0
-    m_Value: 200
+    m_OverrideState: 1
+    m_Value: 150
   minimumVelocity:
-    m_OverrideState: 0
-    m_Value: 2
+    m_OverrideState: 1
+    m_Value: 0
   cameraMotionBlur:
     m_OverrideState: 0
     m_Value: 1
@@ -126,7 +126,7 @@ MonoBehaviour:
     m_Value: 1
   m_SampleCount:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 4
 --- !u!114 &-4578066923569246960
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -295,7 +295,7 @@ MonoBehaviour:
     m_Value: 0.3
   response:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
