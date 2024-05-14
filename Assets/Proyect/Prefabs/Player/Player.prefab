@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114434424306494109, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 11.936621
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 1063126930163504219, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: useVolumetric
@@ -35,8 +45,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
-      propertyPath: allowDeepLearningSuperSampling
+      propertyPath: fullscreenPassthrough
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: allowDynamicResolution
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: allowDeepLearningSuperSampling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: deepLearningSuperSamplingUseCustomQualitySettings
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data1
+      value: 140529148886861
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data2
+      value: 13763000512515309592
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.sssQualityMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.sssQualityLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: renderingPathCustomFrameSettingsOverrideMask.mask.data1
+      value: 5765170470806617983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: renderingPathCustomFrameSettingsOverrideMask.mask.data2
+      value: 13835058124001632287
       objectReference: {fileID: 0}
     - target: {fileID: 2609138966888831036, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
@@ -117,6 +172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917203732113766453, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5231473982374496392, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}

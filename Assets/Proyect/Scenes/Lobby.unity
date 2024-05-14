@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1176351947}
-  m_IndirectSpecularColor: {r: 5.733688, g: 6.168878, b: 7.5401545, a: 1}
+  m_IndirectSpecularColor: {r: 5.7351947, g: 6.1696434, b: 7.541589, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3113,7 +3113,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.28930807, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -3131,9 +3131,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 608573213}
-        m_TargetAssemblyTypeName: StartGameManager, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1019465517}
+        m_TargetAssemblyTypeName: LD_GameManager.GameManager, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5161,7 +5161,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.28930807, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -5204,7 +5204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5289,7 +5289,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: LIGHT IN THE DARK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3f8f05a0f0fc2f40a60e8ae25cf1de7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9b5a99935f437d6449f20dd05d42c3a6, type: 2}
   m_sharedMaterial: {fileID: 4591271716659772276, guid: 2c57d597df782af4d9d5cd7d2b688ffc,
     type: 2}
   m_fontSharedMaterials: []

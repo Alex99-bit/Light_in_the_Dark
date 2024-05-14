@@ -108,12 +108,6 @@ public class EnemyTipe1 : MonoBehaviour
 
     private void ThreadAI()
     {
-        // Actualizar el tiempo desde que se vio al jugador por última vez
-        if (!isAttacking)
-        {
-            timeSinceLastSawPlayer += Time.deltaTime;
-        }
-
         // Si el jugador está dentro del rango de visión
         if (Vector3.Distance(transform.position, player.position) < visionRange)
         {
@@ -148,18 +142,16 @@ public class EnemyTipe1 : MonoBehaviour
         else
         {
             // Si el enemigo no ve al jugador
-            if (!isPatrolling)
+            timeSinceLastSawPlayer += Time.deltaTime;
+            // Si el enemigo ha perdido de vista al jugador durante más de 30 segundos
+            if (timeSinceLastSawPlayer > timeToLoseTarget)
             {
-                // Si el enemigo ha perdido de vista al jugador durante más de 30 segundos
-                if (timeSinceLastSawPlayer > timeToLoseTarget)
-                {
-                    // Regresar al estado de patrullaje
-                    isPatrolling = true;
-                    isAttacking = false;
+                // Regresar al estado de patrullaje
+                isPatrolling = true;
+                isAttacking = false;
 
-                    // Reiniciar patrulla
-                    agent.SetDestination(patrolPoints[currentPatrolIndex].position);
-                }
+                // Reiniciar patrulla
+                agent.SetDestination(patrolPoints[currentPatrolIndex].position);
             }
         }
 
