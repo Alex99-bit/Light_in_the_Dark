@@ -270,6 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ce348efa5bf824f8da149e3aea71ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stairs: {fileID: 915442094}
+  targetHeight: 3
+  moveSpeed: 2
 --- !u!1 &44364969
 GameObject:
   m_ObjectHideFlags: 0
