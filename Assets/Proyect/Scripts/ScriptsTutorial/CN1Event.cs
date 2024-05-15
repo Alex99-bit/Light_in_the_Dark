@@ -15,4 +15,9 @@ public class CN1Event : MonoBehaviour
         Debug.Log("Si se ejecuta perrooooooooooooo");
         ballAnimator.SetTrigger("Next1");
     } 
+
+    public void Cam2()
+    {
+        
+    }
 }
