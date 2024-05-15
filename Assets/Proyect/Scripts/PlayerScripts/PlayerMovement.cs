@@ -34,6 +34,7 @@ namespace Polyperfect.Universal
 
         #region  "Camera General Player"
             public Camera mainCameraPlayer;
+            public AudioListener audioCamPlayer;
             float farCamera;
         #endregion;
 
@@ -123,7 +124,6 @@ namespace Polyperfect.Universal
                 float clampedXAngle = ClampAngle(currentRotation.x, minAngle, maxAngle);
                 // Aplicar la rotación restringida
                 cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
-                mainCameraPlayer.enabled = true;
 
                 #region "Cooldown para recargar la vida"
                 if(vida < vidaMax){
@@ -173,9 +173,8 @@ namespace Polyperfect.Universal
                 #endregion;
             }
             else if (GameManager.instance.currentGameState == GameState.cinematic){
-                mainCameraPlayer.enabled = false;
-                Walk();
                 DisableMesh();
+                Walk();
             }
 
             ComportamientoNiveles_Update();
@@ -478,10 +477,14 @@ namespace Polyperfect.Universal
         #region "Enable / Disable Mesh Player"
             void EnableMesh(){
                 playerMesh.enabled = true;
+                mainCameraPlayer.enabled = true;
+                audioCamPlayer.enabled = true;
             }
 
             void DisableMesh(){
                 playerMesh.enabled = false;
+                mainCameraPlayer.enabled = false;
+                audioCamPlayer.enabled = false;
             }
         #endregion;
 

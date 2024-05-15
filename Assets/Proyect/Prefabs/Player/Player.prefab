@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 1193924024433488783, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1442859006483898563, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
@@ -155,6 +155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
         type: 3}
+      propertyPath: audioCamPlayer
+      value: 
+      objectReference: {fileID: 1261119497222461103}
+    - target: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
       propertyPath: groundMask.m_Bits
       value: 136
       objectReference: {fileID: 0}
@@ -226,7 +231,33 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6878425848165404752}
+    - targetCorrespondingSourceObject: {fileID: 5736048549544005620, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6451416923345763827}
+    - targetCorrespondingSourceObject: {fileID: 5736048549544005620, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2819106286947355083}
   m_SourcePrefab: {fileID: 100100000, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56, type: 3}
+--- !u!81 &1261119497222461103 stripped
+AudioListener:
+  m_CorrespondingSourceObject: {fileID: 4917203732113766452, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1261119498096138407 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4917203731776861756, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261119498096138408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6adbe0a3fd0a04cbec28c502122192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1261119498096138408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4917203731776861747, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
@@ -254,6 +285,54 @@ MonoBehaviour:
   anguloMinimo: -80
   anguloMaximo: 80
   factorEscalaVertical: 0.5
+--- !u!1 &1884623396678476143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5736048549544005620, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &6451416923345763827
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884623396678476143}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2819106286947355083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884623396678476143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f505f99b6698f9d4ea02b8e988bbb8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 4984539957956156692}
+  sphere: {fileID: 6451416923345763827}
+  playerScript: {fileID: 1261119498096138407}
+--- !u!64 &4984539957956156692 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 1193924024433488783, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
+    type: 3}
+  m_PrefabInstance: {fileID: 6178111021435989659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &7308084191580998732 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3519150687177630423, guid: 7fcfd2b2a44cc3e4d96f3a35ef7a2a56,
