@@ -7,7 +7,11 @@ namespace LD_GameManager{
     public class GameManager : MonoBehaviour
     {
         public static GameManager instance; // Singleton instance
-        public GameObject panelPause;
+
+        #region "Objetos para los paneles e interfaces"
+        public GameObject panelPause, panelPauseCinematic;
+        #endregion;
+
         public GameState currentGameState;
 
         // Variable para almacenar el nombre de la escena actual
@@ -68,6 +72,17 @@ namespace LD_GameManager{
                     ChangeGameState(GameState.InGame);
                 }
             }
+
+            // Pausa para cinematicas
+            if(currentGameState == GameState.cinematic){
+                if(Input.GetButtonDown("pause")){
+                    ChangeGameState(GameState.cinematicPause);
+                }
+            }else if(currentGameState == GameState.cinematicPause){
+                if(Input.GetButtonDown("pause")){
+                    ChangeGameState(GameState.cinematic);
+                }
+            }
         }
 
         public void ChangeGameState(GameState newGameState)
@@ -98,8 +113,12 @@ namespace LD_GameManager{
                     //panelPause.SetActive(true);
                     Time.timeScale = 0;
                     break;
+                case GameState.cinematicPause:
+                    Time.timeScale = 0;
+                    break;
                 case GameState.cinematic:
-                    // De momento nada
+                    // El tiempo va normal
+                    Time.timeScale = 1;
                     break;
                 case GameState.GameOver:
                     // Código para mostrar la pantalla de Game Over
@@ -170,6 +189,7 @@ namespace LD_GameManager{
         MainMenu,
         InGame,
         cinematic,
+        cinematicPause,
         Pause,
         GameOver
     }
