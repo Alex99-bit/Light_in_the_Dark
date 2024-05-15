@@ -5,16 +5,12 @@ using UnityEngine;
 public class Interruptor1 : MonoBehaviour
 {
     Rigidbody rigidbodyBase;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbodyBase = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        rigidbodyBase.useGravity = false;
     }
 
     private void OnCollisionEnter(Collision other) {
