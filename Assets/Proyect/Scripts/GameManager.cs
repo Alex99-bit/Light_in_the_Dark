@@ -9,7 +9,7 @@ namespace LD_GameManager{
         public static GameManager instance; // Singleton instance
 
         #region "Objetos para los paneles e interfaces"
-        public GameObject panelPause, panelPauseCinematic;
+        public GameObject panelPause, panelSettings;
         #endregion;
 
         public GameState currentGameState;
@@ -28,6 +28,9 @@ namespace LD_GameManager{
             public int poolSizeEnemy;
             private List<GameObject> bulletEnemyPool;
         #endregion;
+
+        [SerializeField]
+        bool cinematicOn;
 
 
         void Awake()
@@ -62,27 +65,7 @@ namespace LD_GameManager{
 
         void Update()
         {
-            // Logica para la pausa
-            if(currentGameState == GameState.InGame){
-                if(Input.GetButtonDown("pause")){
-                    ChangeGameState(GameState.Pause);
-                }
-            } else if(currentGameState == GameState.Pause){
-                if(Input.GetButtonDown("pause")){
-                    ChangeGameState(GameState.InGame);
-                }
-            }
-
-            // Pausa para cinematicas
-            if(currentGameState == GameState.cinematic){
-                if(Input.GetButtonDown("pause")){
-                    ChangeGameState(GameState.cinematicPause);
-                }
-            }else if(currentGameState == GameState.cinematicPause){
-                if(Input.GetButtonDown("pause")){
-                    ChangeGameState(GameState.cinematic);
-                }
-            }
+            PauseLogic();
         }
 
         public void ChangeGameState(GameState newGameState)
@@ -93,31 +76,44 @@ namespace LD_GameManager{
             switch (currentGameState)
             {
                 case GameState.MainMenu:
-                    // Código para mostrar el menú principal
+                    // Código para mostrar el menú principal+
+                    panelPause.SetActive(false);
+                    cinematicOn = false;
                     break;
                 case GameState.InGame:
                     // Código para comenzar el juego
                     // Oculta el cursor del ratón al iniciar el juego
                     Cursor.visible = false;
+                    cinematicOn = false;
                     // Bloquea el cursor en el centro de la pantalla
                     Cursor.lockState = CursorLockMode.Locked;
-                    //freeLookCamera.enabled = true; // Activar la cámara
-                    //panelPause.SetActive(false);
+                    panelPause.SetActive(false);
                     Time.timeScale = 1;
                     break;
                 case GameState.Pause:
                     // Código para pausar el juego
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
-                    //freeLookCamera.enabled = false; // Desactivar la cámara
-                    //panelPause.SetActive(true);
+                    panelPause.SetActive(true);
+                    panelSettings.SetActive(false);
                     Time.timeScale = 0;
                     break;
+                case GameState.Settings:
+                    panelPause.SetActive(false);
+                    panelSettings.SetActive(true);
+                    break;
                 case GameState.cinematicPause:
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    panelPause.SetActive(true);
+                    panelSettings.SetActive(false);
                     Time.timeScale = 0;
                     break;
                 case GameState.cinematic:
-                    // El tiempo va normal
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    cinematicOn = true;
+                    panelPause.SetActive(false);
                     Time.timeScale = 1;
                     break;
                 case GameState.GameOver:
@@ -140,6 +136,22 @@ namespace LD_GameManager{
 
         public void ExitGame(){
             Application.Quit();
+        }
+
+        public void ContinueGame(){
+            if(cinematicOn){
+                ChangeGameState(GameState.cinematic);
+            }else {
+                ChangeGameState(GameState.InGame);
+            }
+        }
+
+        public void GoToMainMenu(){
+            LoadScene("Lobby");
+        }
+
+        public void Settings(){
+            ChangeGameState(GameState.Settings);
         }
 
         public GameObject GetPlayerBullet() {
@@ -182,6 +194,40 @@ namespace LD_GameManager{
             }
         }
 
+        void PauseLogic(){
+            // Logica para la pausa
+            if(currentGameState == GameState.InGame){
+                if(Input.GetButtonDown("pause")){
+                    ChangeGameState(GameState.Pause);
+                }
+            } else if(currentGameState == GameState.Pause){
+                if(Input.GetButtonDown("pause")){
+                    ChangeGameState(GameState.InGame);
+                }
+            }
+
+            // Pausa para cinematicas
+            if(currentGameState == GameState.cinematic){
+                if(Input.GetButtonDown("pause")){
+                    ChangeGameState(GameState.cinematicPause);
+                }
+            }else if(currentGameState == GameState.cinematicPause){
+                if(Input.GetButtonDown("pause")){
+                    ChangeGameState(GameState.cinematic);
+                }
+            }
+
+            // Back de settings a pause
+            if(currentGameState == GameState.Settings){
+                if(Input.GetButtonDown("pause") && cinematicOn){
+                    ChangeGameState(GameState.cinematicPause);
+                }
+                else if(Input.GetButtonDown("pause") && !cinematicOn){
+                    ChangeGameState(GameState.Pause);
+                }
+            }
+        }
+
     }
 
     public enum GameState
@@ -191,6 +237,7 @@ namespace LD_GameManager{
         cinematic,
         cinematicPause,
         Pause,
+        Settings,
         GameOver
     }
 }
