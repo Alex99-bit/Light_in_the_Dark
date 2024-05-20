@@ -2669,6 +2669,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &409482837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409482838}
+  m_Layer: 0
+  m_Name: Punto1 (1)
+  m_TagString: Patrol Points
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &409482838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409482837}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 421.19, y: 1.43, z: -1154.6}
+  m_LocalScale: {x: 1, y: 1, z: 0.6438085}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1313513038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &512595853
 GameObject:
   m_ObjectHideFlags: 0
@@ -6058,6 +6089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballCN1: {fileID: 1015233634}
   playerCN1: {fileID: 210486404}
+  cam4: {fileID: 1147262769}
 --- !u!1 &1017984754
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,7 +6190,7 @@ GameObject:
   - component: {fileID: 1061965182}
   m_Layer: 0
   m_Name: CN1_3
-  m_TagString: Untagged
+  m_TagString: Cinematic Cam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6825,7 +6857,7 @@ GameObject:
   - component: {fileID: 1147262771}
   m_Layer: 0
   m_Name: CN1_4
-  m_TagString: Untagged
+  m_TagString: Cinematic Cam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6839,7 +6871,7 @@ Transform:
   m_GameObject: {fileID: 1147262769}
   serializedVersion: 2
   m_LocalRotation: {x: 0.027907731, y: -0.874166, z: 0.05059546, w: 0.4821775}
-  m_LocalPosition: {x: 385.89, y: 1.29, z: -1178.03}
+  m_LocalPosition: {x: 384.2, y: 1.29, z: -1179.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7082,6 +7114,37 @@ MonoBehaviour:
   repeating: 0
   interval: 60
   spawnCount: 2
+--- !u!1 &1183959984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183959985}
+  m_Layer: 0
+  m_Name: Punto1
+  m_TagString: Patrol Points
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183959985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183959984}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 398.26, y: 1.43, z: -1162.99}
+  m_LocalScale: {x: 1, y: 1, z: 0.6438085}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1313513038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1189253425
 GameObject:
   m_ObjectHideFlags: 0
@@ -18881,6 +18944,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.2666626, y: 4.592086, z: 2.5784912}
   m_Center: {x: 2.1506653, y: 2.296043, z: -0.6984253}
+--- !u!1 &1313513037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1313513038}
+  m_Layer: 0
+  m_Name: P U N T O S      P A T R U L L A J E
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1313513038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313513037}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1183959985}
+  - {fileID: 409482838}
+  - {fileID: 1696417224}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1324590483
 GameObject:
   m_ObjectHideFlags: 0
@@ -18948,7 +19045,7 @@ GameObject:
   - component: {fileID: 1340134979}
   m_Layer: 0
   m_Name: CN1_2
-  m_TagString: Untagged
+  m_TagString: Cinematic Cam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19665,7 +19762,7 @@ GameObject:
   - component: {fileID: 1483266165}
   m_Layer: 0
   m_Name: CN1_1
-  m_TagString: Untagged
+  m_TagString: Cinematic Cam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19873,6 +19970,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1696417223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696417224}
+  m_Layer: 0
+  m_Name: Punto1 (2)
+  m_TagString: Patrol Points
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696417224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696417223}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 404.02, y: 1.43, z: -1178.04}
+  m_LocalScale: {x: 1, y: 1, z: 0.6438085}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1313513038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1723624284 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2437142096720052766, guid: 023decfd567c289429c92520c4c2210f,
@@ -20508,7 +20636,7 @@ GameObject:
   - component: {fileID: 2025534476}
   - component: {fileID: 2025534477}
   - component: {fileID: 2025534478}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TriggerSpawnEnemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20524,7 +20652,7 @@ Transform:
   m_GameObject: {fileID: 2025534475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20564,6 +20692,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerEnemies: {fileID: 1166167236}
+  panelTutorialShield: {fileID: 224010854}
+  panelTutorialShoot: {fileID: 973460601}
+  timeMax: 2
+  currentTime: 0
 --- !u!1 &2076368320
 GameObject:
   m_ObjectHideFlags: 0
@@ -21602,6 +21734,7 @@ SceneRoots:
   - {fileID: 512595857}
   - {fileID: 915442093}
   - {fileID: 2125302790}
+  - {fileID: 1313513038}
   - {fileID: 210486403}
   - {fileID: 1015233638}
   - {fileID: 1033208400}

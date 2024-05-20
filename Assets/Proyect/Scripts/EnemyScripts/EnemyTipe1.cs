@@ -64,11 +64,7 @@ public class EnemyTipe1 : MonoBehaviour
         #region "Cosas para la IA"
         agent = this.GetComponent<NavMeshAgent>();
 
-        // Iniciar patrulla
-        if (patrolPoints.Length > 0)
-        {
-            agent.SetDestination(patrolPoints[currentPatrolIndex].position);
-        }
+        GetPatrolPoints();
         #endregion;
     }
 
@@ -210,6 +206,22 @@ public class EnemyTipe1 : MonoBehaviour
         // Eliminar la referencia a la corrutina
         if (deactivateRoutines.ContainsKey(bullet)) {
             deactivateRoutines.Remove(bullet);
+        }
+    }
+
+    void GetPatrolPoints(){
+        // Buscar puntos de patrullaje con el tag "Puntos Patrullaje"
+        GameObject[] puntosPatrullaje = GameObject.FindGameObjectsWithTag("Patrol Points");
+        patrolPoints = new Transform[puntosPatrullaje.Length];
+        for (int i = 0; i < puntosPatrullaje.Length; i++)
+        {
+            patrolPoints[i] = puntosPatrullaje[i].transform;
+        }
+
+        // Iniciar patrulla si hay puntos de patrullaje disponibles
+        if (patrolPoints.Length > 0)
+        {
+            agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
     }
 

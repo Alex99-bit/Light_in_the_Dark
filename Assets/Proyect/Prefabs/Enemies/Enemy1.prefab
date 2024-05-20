@@ -2476,10 +2476,7 @@ MonoBehaviour:
   nuevoColor: {r: 1, g: 1, b: 1, a: 0}
   vidaEnemy: 0
   vidaMax: 100
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  patrolPoints: []
   visionRange: 10
   attackRange: 15
   timeToLoseTarget: 30
@@ -2493,8 +2490,10 @@ MonoBehaviour:
     type: 3}
   fireRate: 3
   bulletForce: 10
+  cronoRate: 0
   firePoint: {fileID: 8557766213888540339}
   thisEnemy: {fileID: 8706366546249479306}
+  rotationSpeed: 1.5
   duracionCambioColor: 0.5
 --- !u!136 &1712772343592722590
 CapsuleCollider:
