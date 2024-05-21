@@ -7,11 +7,9 @@ public class TriggerSpawnEnemies : MonoBehaviour
     public GameObject spawnerEnemies;
 
     // Panel para el tutorial shield
-    public GameObject panelTutorialShield;
     bool panelShielActive;
 
     // Panel para el tutorial shoot
-    public GameObject panelTutorialShoot;
     bool panelShootActive;
 
     bool enemyAlreadySpawn;
@@ -22,9 +20,6 @@ public class TriggerSpawnEnemies : MonoBehaviour
     private void Start() {
         panelShielActive = false;
         panelShootActive = false;
-
-        panelTutorialShield.SetActive(panelShielActive);
-        panelTutorialShoot.SetActive(panelShootActive);
 
         spawnerEnemies.SetActive(false);
         enemyAlreadySpawn = false;
@@ -73,25 +68,25 @@ public class TriggerSpawnEnemies : MonoBehaviour
 
     void SetActiveTutorialShoot(){
         panelShootActive = true;
-        panelTutorialShoot.SetActive(panelShootActive);
+        TutorialManager.instance.ShowDisparo(panelShootActive);
         Time.timeScale = 0.3f;
     }
 
     void SetActiveTutorialShield(){
         panelShielActive = true;
-        panelTutorialShield.SetActive(panelShielActive);
+        TutorialManager.instance.ShowShield(panelShielActive);
         Time.timeScale = 0.3f;
     }
 
     void SetOffTutorialShield(){
         panelShielActive = false;
-        panelTutorialShield.SetActive(panelShielActive);
+        TutorialManager.instance.ShowShield(panelShielActive);
         Time.timeScale = 1f;
     }
 
     void SetOffTutorialShoot(){
         panelShootActive = false;
-        panelTutorialShoot.SetActive(panelShootActive);
+        TutorialManager.instance.ShowDisparo(panelShootActive);
         Time.timeScale = 1f;
     }
 }
