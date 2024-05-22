@@ -7,6 +7,7 @@ public class MissionsTutorial : MonoBehaviour
 {
     public float waitTime = 5, currentTime;
 
+    [SerializeField]
     int numberOfEnemies = 0;
     GameObject[] enemies;
 
@@ -27,6 +28,7 @@ public class MissionsTutorial : MonoBehaviour
     void Update()
     {
         if(GameManager.instance.currentGameState == GameState.InGame){
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
             numberOfEnemies = enemies.Length;
 
             if(numberOfEnemies <= 0){

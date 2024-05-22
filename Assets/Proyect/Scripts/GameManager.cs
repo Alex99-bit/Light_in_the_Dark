@@ -169,6 +169,7 @@ namespace LD_GameManager{
 
         public void ResetLevel(){
             // Resetea el nivel
+            ChangeGameState(GameState.InGame);
             LoadScene(GetCurrentScene());
         }
 
