@@ -125,6 +125,7 @@ namespace Polyperfect.Universal
                 // Aplicar la rotación restringida
                 cameraTransform.localEulerAngles = new Vector3(clampedXAngle, currentRotation.y, currentRotation.z);
 
+                // Recarga vida cool down
                 #region "Cooldown para recargar la vida"
                 if(vida < vidaMax){
                     // Si lo atacan, el actualSec se vuelve cero
@@ -138,7 +139,8 @@ namespace Polyperfect.Universal
                 }
                 #endregion;
 
-
+                
+                // Modificacion del material emisivo que representa la vida
                 #region "UI diegetica para la vida"
                 // Calcular el factor de mezcla basado en la vida actual
                 float blendFactor = 1f - (vida / vidaMax);
@@ -354,6 +356,7 @@ namespace Polyperfect.Universal
         void GameOver()
         {
             if(vida <= 0){
+                // Despues de la animacion de muerte, que se muestre la pantalla de muerte
                 animator.SetBool("IsDead",true);
             }
         }
