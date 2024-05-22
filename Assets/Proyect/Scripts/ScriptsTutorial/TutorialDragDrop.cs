@@ -8,24 +8,27 @@ public class TutorialDragDrop : MonoBehaviour
     public float timeMax = 2, currentTime;
     
     // Panel Drag Drop
-    bool panelDragDrop;
+    bool panelDragDrop, showOneTime;
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = 0;
         panelDragDrop = false;
+        showOneTime = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (panelDragDrop)
+        if (panelDragDrop && !showOneTime)
         {
             currentTime += Time.deltaTime;
             if(currentTime >= timeMax){
                 currentTime = 0;
                 panelDragDrop = false;
+                showOneTime = true;
+                Time.timeScale = 1;
                 TutorialManager.instance.ShowDragDrop(panelDragDrop);
             }
         }
@@ -33,9 +36,10 @@ public class TutorialDragDrop : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.CompareTag("Player")){
+        if(other.gameObject.CompareTag("Player") && !showOneTime){
             panelDragDrop = true;
             TutorialManager.instance.ShowDragDrop(panelDragDrop);
+            Time.timeScale = 0.3f;
         }    
     }
 }

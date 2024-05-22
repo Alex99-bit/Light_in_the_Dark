@@ -11,8 +11,9 @@ public class TriggerSpawnEnemies : MonoBehaviour
 
     // Panel para el tutorial shoot
     bool panelShootActive;
-
     bool enemyAlreadySpawn;
+    bool showOneTime;
+
 
     // Tiempo para mostrar los paneles
     public float timeMax = 2, currentTime;
@@ -25,6 +26,8 @@ public class TriggerSpawnEnemies : MonoBehaviour
         enemyAlreadySpawn = false;
 
         currentTime = 0;
+
+        showOneTime = false;
     }
 
     private void Update() 
@@ -53,7 +56,8 @@ public class TriggerSpawnEnemies : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Player")){
+        if(other.gameObject.CompareTag("Player") && !showOneTime){
+            showOneTime = true;
             if(!enemyAlreadySpawn){
                 enemyAlreadySpawn = true;
                 SetSpawnActive();

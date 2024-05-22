@@ -9,7 +9,7 @@ public class EnemyTipe1 : MonoBehaviour
     #region "Light stuff"
         // Referencia al renderer del objeto
         public Renderer meshRenderer;
-        // Colores originales y de da�o
+        // Colores originales y de daño
         private Color colorOriginal;
         public Color nuevoColor;
     #endregion;
@@ -36,18 +36,21 @@ public class EnemyTipe1 : MonoBehaviour
         private bool isAttacking = false;
         [SerializeField]
         private float timeSinceLastSawPlayer = 0f;
+
+        // Nueva variable para controlar el patrullaje aleatorio
+        public bool patrolRandomly = false;
     #endregion;
 
     #region "Cosas para el disparo"
         // Prefab para el disparo
         public GameObject darkLight;
-        public float fireRate,bulletForce,cronoRate; // Tasa de disparo en segundos
+        public float fireRate, bulletForce, cronoRate; // Tasa de disparo en segundos
         public Transform firePoint, thisEnemy;
         public float rotationSpeed = 1.5f;
         private Dictionary<GameObject, Coroutine> deactivateRoutines = new Dictionary<GameObject, Coroutine>();
     #endregion;
 
-    // Duraci�n del cambio de color
+    // Duración del cambio de color
     public float duracionCambioColor = 0.5f;
 
     // Start is called before the first frame update
@@ -64,6 +67,7 @@ public class EnemyTipe1 : MonoBehaviour
         #region "Cosas para la IA"
         agent = this.GetComponent<NavMeshAgent>();
 
+        // Obtener los puntos de patrulla
         GetPatrolPoints();
         #endregion;
     }
@@ -95,7 +99,7 @@ public class EnemyTipe1 : MonoBehaviour
         }
     }
 
-    // M�todo para cambiar el color del objeto
+    // Método para cambiar el color del objeto
     public void CambiarColor(Color color)
     {
         // Asignar el nuevo color al material del objeto
@@ -154,7 +158,16 @@ public class EnemyTipe1 : MonoBehaviour
         // Si el enemigo está patrullando y llega al punto de patrulla actual, avanzar al siguiente punto
         if (isPatrolling && agent.remainingDistance < 0.5f)
         {
-            currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+            if (patrolRandomly)
+            {
+                // Patrullar de forma aleatoria
+                currentPatrolIndex = Random.Range(0, patrolPoints.Length);
+            }
+            else
+            {
+                // Patrullar de forma secuencial
+                currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
+            }
             agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         }
     }
@@ -209,13 +222,18 @@ public class EnemyTipe1 : MonoBehaviour
         }
     }
 
-    void GetPatrolPoints(){
-        // Buscar puntos de patrullaje con el tag "Puntos Patrullaje"
-        GameObject[] puntosPatrullaje = GameObject.FindGameObjectsWithTag("Patrol Points");
-        patrolPoints = new Transform[puntosPatrullaje.Length];
-        for (int i = 0; i < puntosPatrullaje.Length; i++)
+    void GetPatrolPoints()
+    {
+        // Verificar si los puntos de patrulla ya están establecidos manualmente
+        if (patrolPoints == null || patrolPoints.Length == 0)
         {
-            patrolPoints[i] = puntosPatrullaje[i].transform;
+            // Buscar puntos de patrullaje con el tag "Patrol Points"
+            GameObject[] puntosPatrullaje = GameObject.FindGameObjectsWithTag("Patrol Points");
+            patrolPoints = new Transform[puntosPatrullaje.Length];
+            for (int i = 0; i < puntosPatrullaje.Length; i++)
+            {
+                patrolPoints[i] = puntosPatrullaje[i].transform;
+            }
         }
 
         // Iniciar patrulla si hay puntos de patrullaje disponibles
@@ -225,13 +243,12 @@ public class EnemyTipe1 : MonoBehaviour
         }
     }
 
-
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("Bullet Light")){
-            // Aplicar da�o
+            // Aplicar daño
             vidaEnemy -= 25;
 
-            // Cambiar color al recibir da�o
+            // Cambiar color al recibir daño
             CambiarColor(nuevoColor);
         }
     }

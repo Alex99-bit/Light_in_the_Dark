@@ -1782,7 +1782,7 @@ PrefabInstance:
     - target: {fileID: 6665019277658921537, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_Speed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6665019277658921537, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
@@ -1957,17 +1957,17 @@ PrefabInstance:
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.373
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7496071821258552348, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
@@ -2477,8 +2477,8 @@ MonoBehaviour:
   vidaEnemy: 0
   vidaMax: 100
   patrolPoints: []
-  visionRange: 10
-  attackRange: 15
+  visionRange: 15
+  attackRange: 10
   timeToLoseTarget: 30
   player: {fileID: 0}
   agent: {fileID: 0}
@@ -2488,12 +2488,12 @@ MonoBehaviour:
   timeSinceLastSawPlayer: 0
   darkLight: {fileID: 4388003560355883056, guid: f3fe74ce913c88745a7f6236e63469a6,
     type: 3}
-  fireRate: 3
-  bulletForce: 10
+  fireRate: 0.1
+  bulletForce: 15
   cronoRate: 0
   firePoint: {fileID: 8557766213888540339}
   thisEnemy: {fileID: 8706366546249479306}
-  rotationSpeed: 1.5
+  rotationSpeed: 50
   duracionCambioColor: 0.5
 --- !u!136 &1712772343592722590
 CapsuleCollider:
