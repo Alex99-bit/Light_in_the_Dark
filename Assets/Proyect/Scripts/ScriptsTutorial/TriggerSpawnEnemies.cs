@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerSpawnEnemies : MonoBehaviour
 {
     public GameObject spawnerEnemies;
+    public GameObject mission;
 
     // Panel para el tutorial shield
     bool panelShielActive;
@@ -60,6 +61,7 @@ public class TriggerSpawnEnemies : MonoBehaviour
             showOneTime = true;
             if(!enemyAlreadySpawn){
                 enemyAlreadySpawn = true;
+                mission.SetActive(true);
                 SetSpawnActive();
                 SetActiveTutorialShield();
             }

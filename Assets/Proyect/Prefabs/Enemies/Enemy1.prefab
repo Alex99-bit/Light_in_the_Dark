@@ -1854,6 +1854,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 7155293158469676710, guid: 0040a3eb235543b4896d54b7ac3889bc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7212828668720642958, guid: 0040a3eb235543b4896d54b7ac3889bc,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -2489,7 +2494,7 @@ MonoBehaviour:
   patrolRandomly: 1
   darkLight: {fileID: 4388003560355883056, guid: f3fe74ce913c88745a7f6236e63469a6,
     type: 3}
-  fireRate: 0.1
+  fireRate: 0.6
   bulletForce: 15
   cronoRate: 0
   firePoint: {fileID: 8557766213888540339}

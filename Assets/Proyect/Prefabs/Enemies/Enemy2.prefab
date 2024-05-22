@@ -87,6 +87,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy2
       objectReference: {fileID: 0}
+    - target: {fileID: 1366262985531460440, guid: 244d53270e8ab9a49a0931ce115ee16b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1854955687993299426, guid: 244d53270e8ab9a49a0931ce115ee16b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -257,6 +262,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fed056a67892b44a5f7a029df2c055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 0}
+  nuevoColor: {r: 0, g: 0, b: 0, a: 0}
+  vidaEnemy: 0
+  vidaMax: 0
+  patrolPoints: []
+  visionRange: 10
+  attackRange: 5
+  timeToLoseTarget: 30
+  player: {fileID: 0}
+  agent: {fileID: 0}
+  currentPatrolIndex: 0
+  isPatrolling: 1
+  isAttacking: 0
+  timeSinceLastSawPlayer: 0
+  patrolRandomly: 0
+  darkLight: {fileID: 0}
+  fireRate: 0
+  bulletForce: 0
+  cronoRate: 0
+  firePoint: {fileID: 0}
+  thisEnemy: {fileID: 0}
+  rotationSpeed: 1.5
+  duracionCambioColor: 0.5
 --- !u!4 &9183300454641697038 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1854955687993299426, guid: 244d53270e8ab9a49a0931ce115ee16b,
