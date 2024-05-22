@@ -356,19 +356,13 @@ namespace Polyperfect.Universal
         void GameOver()
         {
             if(vida <= 0){
+                vida = 0;
                 // Despues de la animacion de muerte, que se muestre la pantalla de muerte
-                animator.SetBool("IsDead",true);
+                //animator.SetBool("IsDead",true);
+
+                // De momento no se reproduce ninguna animacion
+                GameManager.instance.DeadScreen();
             }
-        }
-
-        void GameReset()
-        {
-            vidaMax = 100;
-            vida = vidaMax;
-            animator.SetBool("IsDead",false);
-
-            // Regresar el transform a un punto de spawn
-            // o en su defecto destruir al player 
         }
 
         float RotationAuxiliar(float rotation)
@@ -463,9 +457,7 @@ namespace Polyperfect.Universal
                     actualSec = 0;
                     vida -= 15;
 
-                    if(vida <= 0){
-                        vida = 0;
-                    }
+                    GameOver();
                     #endregion;
                 }
 

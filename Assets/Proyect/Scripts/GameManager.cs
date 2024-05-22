@@ -9,7 +9,7 @@ namespace LD_GameManager{
         public static GameManager instance; // Singleton instance
 
         #region "Objetos para los paneles e interfaces"
-        public GameObject panelPause, panelSettings;
+        public GameObject panelPause, panelSettings, panelMuerte;
         #endregion;
 
         public GameState currentGameState;
@@ -78,7 +78,9 @@ namespace LD_GameManager{
                 case GameState.MainMenu:
                     // Código para mostrar el menú principal+
                     panelPause.SetActive(false);
+                    panelMuerte.SetActive(false);
                     cinematicOn = false;
+                    Time.timeScale = 1;
                     break;
                 case GameState.InGame:
                     // Código para comenzar el juego
@@ -88,6 +90,7 @@ namespace LD_GameManager{
                     // Bloquea el cursor en el centro de la pantalla
                     Cursor.lockState = CursorLockMode.Locked;
                     panelPause.SetActive(false);
+                    panelMuerte.SetActive(false);
                     Time.timeScale = 1;
                     break;
                 case GameState.Pause:
@@ -96,17 +99,20 @@ namespace LD_GameManager{
                     Cursor.lockState = CursorLockMode.None;
                     panelPause.SetActive(true);
                     panelSettings.SetActive(false);
+                    panelMuerte.SetActive(false);
                     Time.timeScale = 0;
                     break;
                 case GameState.Settings:
                     panelPause.SetActive(false);
                     panelSettings.SetActive(true);
+                    panelMuerte.SetActive(false);
                     break;
                 case GameState.cinematicPause:
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                     panelPause.SetActive(true);
                     panelSettings.SetActive(false);
+                    panelMuerte.SetActive(false);
                     Time.timeScale = 0;
                     break;
                 case GameState.cinematic:
@@ -114,10 +120,15 @@ namespace LD_GameManager{
                     Cursor.lockState = CursorLockMode.Locked;
                     cinematicOn = true;
                     panelPause.SetActive(false);
+                    panelMuerte.SetActive(false);
                     Time.timeScale = 1;
                     break;
                 case GameState.GameOver:
                     // Código para mostrar la pantalla de Game Over
+                    panelMuerte.SetActive(true);
+                    panelPause.SetActive(false);
+                    panelSettings.SetActive(false);
+                    Time.timeScale = 0.2f;
                     break;
             }
         }
@@ -152,6 +163,15 @@ namespace LD_GameManager{
 
         public void Settings(){
             ChangeGameState(GameState.Settings);
+        }
+
+        public void DeadScreen(){
+            ChangeGameState(GameState.GameOver);
+        }
+
+        public void ResetLevel(){
+            // Resetea el nivel
+            LoadScene(GetCurrentScene());
         }
 
         public GameObject GetPlayerBullet() {
