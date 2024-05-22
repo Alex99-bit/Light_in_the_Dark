@@ -2486,6 +2486,7 @@ MonoBehaviour:
   isPatrolling: 1
   isAttacking: 0
   timeSinceLastSawPlayer: 0
+  patrolRandomly: 1
   darkLight: {fileID: 4388003560355883056, guid: f3fe74ce913c88745a7f6236e63469a6,
     type: 3}
   fireRate: 0.1
