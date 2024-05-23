@@ -87,6 +87,7 @@ namespace LD_GameManager{
                     // Código para comenzar el juego
                     // Oculta el cursor del ratón al iniciar el juego
                     DesactivarCursor();
+                    cinematicOn = false;
                     // Bloquea el cursor en el centro de la pantalla
                     Cursor.lockState = CursorLockMode.Locked;
                     panelPause.SetActive(false);
