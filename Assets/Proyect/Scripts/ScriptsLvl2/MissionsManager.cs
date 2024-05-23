@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LD_GameManager;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class MissionsManager : MonoBehaviour
 {
@@ -11,7 +12,14 @@ public class MissionsManager : MonoBehaviour
     [SerializeField]
     MissionList currentMission;
 
-    public GameObject panelMision1;
+    #region "Variables: Eliminate all enemies"
+        public GameObject panelMision1;
+        public Text misionUnoTxt;
+        [SerializeField]
+        int numberOfEnemies = 0;
+        GameObject[] enemies;
+        public float waitTime = 5, currentTime;
+    #endregion;
 
     void Awake() 
     {
@@ -27,50 +35,66 @@ public class MissionsManager : MonoBehaviour
         }
 
         // Se desactivan todos los paneles por si las dudas
-        panelMision1.SetActive(false);
+        SetOffAllPanels();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         // Inicia el nivel con la primera mision
-        newMission(MissionList.eliminateAllEnemies);
+        currentMission = MissionList.eliminateAllEnemies;
     }
 
     // Update is called once per frame
     void Update()
     {
-        missionBehavior();
+        if(GameManager.instance.currentGameState == GameState.InGame){
+            missionBehavior();
+        }else{
+            SetOffAllPanels();
+        }
     }
 
     void missionBehavior(){
         switch(currentMission){
             case MissionList.eliminateAllEnemies:
                 eliminateAllEnemiesMission();
+                panelMision1.SetActive(true);
+            break;
+            
+            case MissionList.allComplete:
+                // Lo que sucede cuando se completaron todas las misiones del nivel
+                SetOffAllPanels();
             break;
         }
     }
 
-    // Esto sirve muy similar a un start, solo se ejecuta una ves, para los parametros iniciales de cada mision
-    public void newMission(MissionList newMission)
+    void SetOffAllPanels()
     {
-        switch(newMission){
-            case MissionList.eliminateAllEnemies:
-                panelMision1.SetActive(true);
-            break;
-        }
-
-        currentMission = newMission;
+        panelMision1.SetActive(false);
     }
 
     void eliminateAllEnemiesMission(){
         // aqui va la logica de la mision, y los parametros que compruevan si ya se completo o no
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        numberOfEnemies = enemies.Length;
 
+        misionUnoTxt.text = "Freed souls:   " + numberOfEnemies;
+
+        if(numberOfEnemies <= 0){
+            currentTime += Time.deltaTime;
+            if(currentTime >= waitTime){
+                // mision completa
+                Debug.Log("Mision completa muchachos, vamonos!!");
+                currentMission = MissionList.allComplete;
+            }
+        }
     }
 
     // Listas de misiones para este nivel
     public enum MissionList{
         // mision 1
-        eliminateAllEnemies
+        eliminateAllEnemies,
+        allComplete
     }
 }
