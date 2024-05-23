@@ -12,8 +12,13 @@ public class MissionsManager : MonoBehaviour
     [SerializeField]
     MissionList currentMission;
 
+    [Space(10)] // Le da un espacio en el inspector
+
+    [Header("Mision 1: Staff")]
+    [Space(5)]
     #region "Variables: Eliminate all enemies"
         public GameObject panelMision1;
+        public GameObject panelEndDemo;
         public Text misionUnoTxt;
         [SerializeField]
         int numberOfEnemies = 0;
@@ -58,13 +63,17 @@ public class MissionsManager : MonoBehaviour
     void missionBehavior(){
         switch(currentMission){
             case MissionList.eliminateAllEnemies:
-                eliminateAllEnemiesMission();
+                EliminateAllEnemiesMission();
                 panelMision1.SetActive(true);
             break;
             
-            case MissionList.allComplete:
+            case MissionList.noCurrentMission:
                 // Lo que sucede cuando se completaron todas las misiones del nivel
                 SetOffAllPanels();
+            break;
+
+            case MissionList.endDemo:
+                EndDemo();
             break;
         }
     }
@@ -72,9 +81,10 @@ public class MissionsManager : MonoBehaviour
     void SetOffAllPanels()
     {
         panelMision1.SetActive(false);
+        panelEndDemo.SetActive(false);
     }
 
-    void eliminateAllEnemiesMission(){
+    void EliminateAllEnemiesMission(){
         // aqui va la logica de la mision, y los parametros que compruevan si ya se completo o no
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         numberOfEnemies = enemies.Length;
@@ -86,15 +96,21 @@ public class MissionsManager : MonoBehaviour
             if(currentTime >= waitTime){
                 // mision completa
                 Debug.Log("Mision completa muchachos, vamonos!!");
-                currentMission = MissionList.allComplete;
+                currentMission = MissionList.endDemo;
             }
         }
+    }
+
+    void EndDemo(){
+        panelMision1.SetActive(false);
+        panelEndDemo.SetActive(true);
     }
 
     // Listas de misiones para este nivel
     public enum MissionList{
         // mision 1
         eliminateAllEnemies,
-        allComplete
+        noCurrentMission,
+        endDemo
     }
 }
