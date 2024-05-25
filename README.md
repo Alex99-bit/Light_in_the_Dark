@@ -1,7 +1,5 @@
 # Light in the Dark
 
-![Logo del Proyecto](Assets/Proyect/Logo/Light in the dark_LE_auto_custom.jpg)
-
 ## Descripción
 
 **Light in the Dark** es un videojuego sombrío desarrollado con Unity utilizando el pipeline de renderizado de alta definición (HDRP). Este proyecto combina intensos combates y desafiantes puzles para ofrecer una experiencia inmersiva y cautivadora. Actualmente, el juego está en fase de demo técnico, pero se continuará desarrollando hasta alcanzar un estándar de calidad de nivel profesional.
