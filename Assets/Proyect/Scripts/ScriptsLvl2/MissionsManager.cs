@@ -10,7 +10,7 @@ public class MissionsManager : MonoBehaviour
     public static MissionsManager instance;
 
     [SerializeField]
-    MissionList currentMission;
+    public MissionList currentMission;
 
     [Space(10)] // Le da un espacio en el inspector
 
@@ -60,8 +60,10 @@ public class MissionsManager : MonoBehaviour
         }
     }
 
-    void missionBehavior(){
-        switch(currentMission){
+    void missionBehavior()
+    {
+        switch(currentMission)
+        {
             case MissionList.eliminateAllEnemies:
                 EliminateAllEnemiesMission();
                 panelMision1.SetActive(true);
@@ -89,7 +91,7 @@ public class MissionsManager : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         numberOfEnemies = enemies.Length;
 
-        misionUnoTxt.text = "Freed souls:   " + numberOfEnemies;
+        misionUnoTxt.text = "Corrupted Souls:   " + numberOfEnemies;
 
         if(numberOfEnemies <= 0){
             currentTime += Time.deltaTime;
@@ -101,7 +103,8 @@ public class MissionsManager : MonoBehaviour
         }
     }
 
-    void EndDemo(){
+    void EndDemo()
+    {
         panelMision1.SetActive(false);
         panelEndDemo.SetActive(true);
     }

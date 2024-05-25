@@ -71,6 +71,8 @@ namespace Polyperfect.Universal
         // Variable para mantener el estado anterior de la rotación de la cámara
         private float previousCameraRotationY;
 
+
+
         private void Start() 
         {
             cameraTransform = GetComponentInChildren<Camera>().GetComponent<Transform>();
@@ -225,6 +227,7 @@ namespace Polyperfect.Universal
 
         // Se ejecuta en el update
         void ComportamientoNiveles_Update(){
+
             if(currentLvl == "LvlTutorial")
             {
                 farCamera = 120;
@@ -238,6 +241,14 @@ namespace Polyperfect.Universal
                 ballSoul.SetActive(ballSoulActive);
                 mainCameraPlayer.farClipPlane = farCamera;
             }
+
+            if(currentLvl == "Level2"){
+                if(GameManager.instance.currentGameState == GameState.GameOver || 
+                    MissionsManager.instance.currentMission == MissionsManager.MissionList.endDemo){
+                        cameraAnimator.SetTrigger("EndGame");
+                }
+            }
+            
         }
 
         void Walk()
