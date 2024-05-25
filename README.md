@@ -64,4 +64,4 @@ Estamos abiertos a contribuciones de la comunidad. Si deseas colaborar, sigue es
 
 ## Licencia
 
-
+Este proyecto está bajo la Licencia de Light in the Dark - mira el archivo [LICENSE](LICENSE.md) para más detalles.
