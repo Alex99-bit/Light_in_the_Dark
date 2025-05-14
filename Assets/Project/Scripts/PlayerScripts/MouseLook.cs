@@ -7,6 +7,8 @@ namespace Polyperfect.Universal
     {
         public float mouseSensitivity = 3f;
         public Transform playerBody;
+        public float yMaximum = 30f;
+        public float yMinimum = -30f;
         float xRotation = 0f;
 
 
@@ -25,7 +27,7 @@ namespace Polyperfect.Universal
 
                 // Ajustar la rotación vertical
                 xRotation -= mouseY;
-                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+                xRotation = Mathf.Clamp(xRotation, yMinimum, yMaximum);
 
                 // Aplicar la rotación vertical a la cámara
                 transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);

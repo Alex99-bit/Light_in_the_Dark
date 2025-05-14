@@ -4,15 +4,15 @@ using UnityEngine;
 using LD_GameManager;
 using UnityEngine.UI;
 
-public class SkipScene1 : MonoBehaviour
+public class SkipCinematicTutorial : MonoBehaviour
 {
-
-    public GameObject cam1, cam2;
+    public GameObject[] objectsToDisable;
     public GameObject playerCinematic;
-    public GameObject player;
     public GameObject btnSkip;
 
-    private void Update() {
+    // Update is called once per frame
+    void Update()
+    {
         if (!playerCinematic.activeSelf)
         {
             btnSkip.SetActive(false);
@@ -26,8 +26,10 @@ public class SkipScene1 : MonoBehaviour
     public void Skip()
     {
         GameManager.instance.ChangeGameState(GameState.InGame);
-        cam1.SetActive(false);
-        cam2.SetActive(false);
+        foreach (GameObject obj in objectsToDisable)
+        {
+            obj.SetActive(false);
+        }
         playerCinematic.SetActive(false);
     }
 }

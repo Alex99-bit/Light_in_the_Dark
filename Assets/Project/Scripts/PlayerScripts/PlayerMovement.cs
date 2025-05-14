@@ -38,6 +38,15 @@ namespace Polyperfect.Universal
             float farCamera;
         #endregion;
 
+        #region "Camera Bobbing"
+            public float walkBobSpeed = 5f; // Velocidad de oscilación al caminar
+            public float walkBobAmount = 0.05f; // Amplitud de oscilación al caminar
+            public float runBobSpeed = 10f; // Velocidad de oscilación al correr
+            public float runBobAmount = 0.1f; // Amplitud de oscilación al correr
+            private float bobTimer = 0f; // Temporizador para el efecto de oscilación
+            private Vector3 originalCameraPosition; // Posición inicial de la cámara
+        #endregion
+
         public SkinnedMeshRenderer playerMesh;
 
         // Activa o desactiva el caminar
@@ -96,6 +105,9 @@ namespace Polyperfect.Universal
             puedeRecargar = false;
             actualSec = 0;
 
+            // Guardar la posición inicial de la cámara
+            originalCameraPosition = cameraTransform.localPosition;
+
             // Esta variable tendra que tomar el valor del game manager
             currentLvl = GameManager.instance.GetCurrentScene();
 
@@ -118,6 +130,9 @@ namespace Polyperfect.Universal
                 controller = GetComponent<CharacterController>();
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
                 isPlatform = Physics.CheckSphere(groundCheck.position, groundDistance, platformMask);
+
+                // Manejar la oscilación de la cámara
+                HandleCameraBob();
 
                 // Obtener la rotación actual de la cámara
                 Vector3 currentRotation = cameraTransform.localEulerAngles;
@@ -248,7 +263,6 @@ namespace Polyperfect.Universal
                         cameraAnimator.SetTrigger("EndGame");
                 }
             }
-            
         }
 
         void Walk()
@@ -477,6 +491,37 @@ namespace Polyperfect.Universal
                 {
 
                 }
+            }
+        }
+
+        void HandleCameraBob()
+        {
+            // Determinar si el jugador está caminando o corriendo
+            bool isWalking = Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0;
+            bool isRunning = Input.GetKey(KeyCode.LeftShift) && isWalking;
+
+            if (isWalking)
+            {
+                // Configurar velocidad y amplitud según si está corriendo o caminando
+                float bobSpeed = isRunning ? runBobSpeed : walkBobSpeed;
+                float bobAmount = isRunning ? runBobAmount : walkBobAmount;
+
+                // Incrementar el temporizador de oscilación
+                bobTimer += Time.deltaTime * bobSpeed;
+
+                // Calcular el desplazamiento vertical usando una onda seno
+                float bobOffset = Mathf.Sin(bobTimer) * bobAmount;
+
+                // Aplicar el desplazamiento vertical a la posición de la cámara
+                Vector3 localPosition = originalCameraPosition;
+                localPosition.y += bobOffset;
+                cameraTransform.localPosition = localPosition;
+            }
+            else
+            {
+                // Resetear el temporizador y la posición de la cámara si no está caminando
+                bobTimer = 0f;
+                cameraTransform.localPosition = originalCameraPosition;
             }
         }
 

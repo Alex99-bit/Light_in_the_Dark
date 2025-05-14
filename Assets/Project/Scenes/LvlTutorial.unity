@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.02463508, g: 0.012101756, b: 0.011018784, a: 1}
+  m_IndirectSpecularColor: {r: 0.02554642, g: 0.012239905, b: 0.01062438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6790,6 +6790,58 @@ Transform:
   - {fileID: 1107866496}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024340059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024340060}
+  - component: {fileID: 1024340061}
+  m_Layer: 0
+  m_Name: Skip Cinematic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024340060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024340059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 407.00775, y: 10.10141, z: -1187.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024340061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024340059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51cda21c3dd68c545a425f36a7a640b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToDisable:
+  - {fileID: 1483266163}
+  - {fileID: 1340134977}
+  - {fileID: 1061965180}
+  - {fileID: 1147262769}
+  - {fileID: 1015233634}
+  playerCinematic: {fileID: 210486404}
+  btnSkip: {fileID: 1805302045}
 --- !u!1 &1033208399
 GameObject:
   m_ObjectHideFlags: 0
@@ -20950,7 +21002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1805302046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21015,8 +21067,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SkipScene1, Assembly-CSharp
+      - m_Target: {fileID: 1024340061}
+        m_TargetAssemblyTypeName: SkipCinematicTutorial, Assembly-CSharp
         m_MethodName: Skip
         m_Mode: 1
         m_Arguments:
@@ -22901,3 +22953,4 @@ SceneRoots:
   - {fileID: 226844414}
   - {fileID: 863957915}
   - {fileID: 1492227900}
+  - {fileID: 1024340060}
