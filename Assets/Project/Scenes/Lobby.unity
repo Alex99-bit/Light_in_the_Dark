@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1176351947}
-  m_IndirectSpecularColor: {r: 5.7107844, g: 6.0972924, b: 7.351199, a: 1}
+  m_IndirectSpecularColor: {r: 5.7204366, g: 6.1071415, b: 7.3661613, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6890,11 +6890,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2018757459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 738.20996, y: -503.15887}
-  m_SizeDelta: {x: 443.5701, y: 73.4365}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -50, y: 0}
+  m_SizeDelta: {x: 737.9529, y: 73.43649}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &705863049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6921,14 +6921,14 @@ MonoBehaviour:
     m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Made by Alejandro Coronado
+  m_Text: Made by Carlos Alejandro Coronado
 --- !u!222 &705863050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9025,11 +9025,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2018757459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -862.45135, y: -513.273}
-  m_SizeDelta: {x: 195.0892, y: 53.214}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
+  m_SizeDelta: {x: 195.08923, y: 53.21399}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &926427926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9056,7 +9056,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 24
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -16229,9 +16229,9 @@ RectTransform:
   m_Children:
   - {fileID: 1982032465}
   - {fileID: 1076975736}
+  - {fileID: 2043969904}
   - {fileID: 1168932337}
   - {fileID: 1466665363}
-  - {fileID: 2043969904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
