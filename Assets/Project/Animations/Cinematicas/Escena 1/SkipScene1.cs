@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SkipScene1 : MonoBehaviour
 {
 
-    public GameObject cinematic;
+    public GameObject cam1, cam2;
     public GameObject playerCinematic;
     public GameObject player;
     public GameObject BtnSkip;
@@ -26,7 +26,8 @@ public class SkipScene1 : MonoBehaviour
     public void Skip()
     {
         GameManager.instance.ChangeGameState(GameState.InGame);
-        cinematic.SetActive(false);
+        cam1.SetActive(false);
+        cam2.SetActive(false);
         playerCinematic.SetActive(false);
     }
 }

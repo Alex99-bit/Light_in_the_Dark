@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.086448275, g: 0.1920601, b: 0.4433962, a: 1}
   m_AmbientGroundColor: {r: 0.028242545, g: 0.028309649, b: 0.16037738, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1176351947}
-  m_IndirectSpecularColor: {r: 0.037330303, g: 0.034735683, b: 0.034827713, a: 1}
+  m_IndirectSpecularColor: {r: 0.037367556, g: 0.034751628, b: 0.034822587, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -86168,7 +86168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b95fb31fa069fe489317f53cb6205ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinematic: {fileID: 1749281186}
+  cam1: {fileID: 3693648028099173618}
+  cam2: {fileID: 1232106075}
   playerCinematic: {fileID: 753619282}
   player: {fileID: 1730770603}
   BtnSkip: {fileID: 1608362812}
@@ -107212,6 +107213,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 805140194296661287, guid: 2852967c2535d884d9c15d79446a7a41,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1261119498096138408, guid: 2852967c2535d884d9c15d79446a7a41,
         type: 3}
       propertyPath: m_Name
