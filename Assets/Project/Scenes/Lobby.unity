@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1176351947}
-  m_IndirectSpecularColor: {r: 5.7204366, g: 6.1071415, b: 7.3661613, a: 1}
+  m_IndirectSpecularColor: {r: 5.6902895, g: 6.074422, b: 7.307653, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -337,6 +337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 3
   playerBody: {fileID: 1659967604}
+  yMaximum: 30
+  yMinimum: -30
 --- !u!81 &15957964
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4837,6 +4839,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 3
   playerBody: {fileID: 1659967604}
+  yMaximum: 30
+  yMinimum: -30
 --- !u!81 &519032676
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8766,6 +8770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 3
   playerBody: {fileID: 1659967604}
+  yMaximum: 30
+  yMinimum: -30
 --- !u!81 &894050976
 AudioListener:
   m_ObjectHideFlags: 0
@@ -22826,7 +22832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2043969904
 RectTransform:
   m_ObjectHideFlags: 0
